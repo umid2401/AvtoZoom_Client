@@ -13,6 +13,9 @@ export default {
       backgroundImage: {
         'custom-gradient': 'linear-gradient(90deg, #3e3d3d, #111219)',
       },
+      // translate: {
+      //   '-full': '-100%',
+      // },
     },
   },
   plugins: [],

@@ -26,7 +26,7 @@ export default function Header() {
   return (
     <header className="">
       <nav className="  flex items-center py-4 px-4 justify-between bg-customColor">
-        <div className="nav-left flex gap-8 items-center">
+        <div className="nav-left flex gap-0 lg:gap-8 items-center">
           <div className="nav-lang flex items-center gap-2">
             <img
               className="eng_lang cursor-pointer w-2/3 lg:w-auto"
@@ -38,6 +38,12 @@ export default function Header() {
               className=" ru_lang cursor-pointer w-2/3 lg:w-auto"
               src="/Images/russia.png"
               alt=""
+            />
+            <img
+              onClick={() => setShow_input(true)}
+              className="hide-search block lg:hidden ml-4"
+              src="/Images/magnifying-glass.png"
+              alt="err"
             />
           </div>
           <div
@@ -57,19 +63,14 @@ export default function Header() {
             />
 
             <img
-              onClick={() => setShow_input(false)}
               className="cursor-pointer lg:hidden block"
               src="/Images/cancel.png"
               alt=""
+              onClick={()=>setShow_input(false)}
             />
           </div>
-          <div
-            onClick={() => setShow_input(true)}
-            className="hide-search block lg:hidden"
-          >
-            <button className="bg-transparent text-white px-4 py-2 cursor-pointer">
-              <img src="/Images/glass.png" alt="err" />
-            </button>
+          <div onClick={() => setShow_input(true)} className="">
+            <button className="bg-transparent text-white px-4 py-2 cursor-pointer"></button>
           </div>
           <div className="nav-logo hidden lg:block">
             <Link>
@@ -78,11 +79,12 @@ export default function Header() {
           </div>
         </div>
         <div className="nav-logo lg:hidden block w-20">
-            <Link>
+          <Link>
             <img className="w-24" src="/Images/logo.png" alt="Error" />
-            </Link>
-          </div>
-        <div className={`overflow-hidden ${
+          </Link>
+        </div>
+        <div
+          className={`overflow-hidden ${
             show_menu ? "translate-x-0" : "-translate-x-full"
           } z-10 transition-all lg:translate-x-0 duration-300 ease-all nav-right transform  absolute lg:static lg:py-0 lg:px-0 py-4 px-4 top-0 left-0 bg-customColor w-2/3 lg:w-auto h-screen lg:h-auto`}
         >

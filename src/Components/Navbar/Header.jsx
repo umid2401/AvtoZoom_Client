@@ -2,7 +2,7 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faBars, faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
+import { faBars, faCircleXmark, faMagnifyingGlass, faXmark } from "@fortawesome/free-solid-svg-icons";
 export default function Header() {
   const [show_menu, setShov_menu] = useState(false);
   const [show_input, setShow_input] = useState(false);
@@ -30,23 +30,20 @@ export default function Header() {
         <div className="nav-left flex gap-0 lg:gap-6 items-center">
           <div className="nav-lang flex items-center gap-2">
             <img
-              className="eng_lang cursor-pointer w-2/3 lg:w-auto"
+              className="eng_lang cursor-pointer w-6 lg:w-auto"
               src="/Images/great.png"
               alt=""
             />
+            
 
             <img
-              className=" ru_lang cursor-pointer w-2/3 lg:w-auto"
+              className=" ru_lang cursor-pointer w-6 lg:w-auto"
               src="/Images/russia.png"
               alt=""
             />
-            <FontAwesomeIcon onClick={() => setShow_input(true)} icon={faMagnifyingGlass} className="hide-search block lg:hidden ml-4 text-white size-4" />
-            {/* <img
-              
-              className="
-              src="/Images/glass.png"
-              alt="err"
-            /> */}
+            
+            <FontAwesomeIcon onClick={() => setShow_input(true)} icon={faMagnifyingGlass} className="hide-search block lg:hidden ml-4 text-white size-5" />
+          
           </div>
           <div
             className={`nav-search ${
@@ -63,17 +60,11 @@ export default function Header() {
               placeholder="Search..."
               className="px-4 py-2 bg-transparent text-white w-full focus:outline-none"
             />
-
-            <img
-              className="cursor-pointer lg:hidden block"
-              src="/Images/cancel.png"
-              alt=""
-              onClick={() => setShow_input(false)}
-            />
+            
+            <FontAwesomeIcon onClick={() => setShow_input(false)} icon={faCircleXmark} beatFade  style={{color: "#ffffff",}}  className="cursor-pointer lg:hidden  block size-4" />
+            
           </div>
-          <div onClick={() => setShow_input(true)} className="">
-            <button className="bg-transparent text-white px-4 py-2 cursor-pointer"></button>
-          </div>
+         
           <div className="nav-logo hidden lg:block">
             <Link>
               <img className="w-24" src="/Images/logo.png" alt="Error" />
@@ -94,7 +85,7 @@ export default function Header() {
             onClick={hideMenu}
             className="hide-menu flex lg:hidden justify-end"
           >
-            <img src="/Images/hide-menu.png" alt="Error" />
+            <FontAwesomeIcon icon={faXmark} className="text-white size-7"/>
           </div>
           <div className="nav-links lg:flex-row flex-col  flex gap-4 my-2 ">
             {routes &&

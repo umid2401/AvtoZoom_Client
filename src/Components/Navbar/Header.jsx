@@ -26,7 +26,7 @@ export default function Header() {
   return (
     <header className="">
       <nav className="  flex items-center py-4 px-4 justify-between bg-customColor">
-        <div className="nav-left flex gap-0 lg:gap-8 items-center">
+        <div className="nav-left flex gap-0 lg:gap-6 items-center">
           <div className="nav-lang flex items-center gap-2">
             <img
               className="eng_lang cursor-pointer w-2/3 lg:w-auto"
@@ -42,7 +42,7 @@ export default function Header() {
             <img
               onClick={() => setShow_input(true)}
               className="hide-search block lg:hidden ml-4"
-              src="/Images/magnifying-glass.png"
+              src="/Images/glass.png"
               alt="err"
             />
           </div>

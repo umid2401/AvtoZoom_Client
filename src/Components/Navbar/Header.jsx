@@ -2,10 +2,13 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
+import logo from '../../../public/Images/logo.svg'
+
 export default function Header() {
   return (
-    <header>
-      <nav className=" flex items-center py-4 px-10 justify-between bg-customColor">
+    <header className="bg-customColor">
+      <nav className="flex w-[90%] mx-auto items-center py-4 px-10 justify-between">
+
         <div className="nav-left flex gap-8">
           <div className="nav-lang flex items-center gap-2">
             <div className="eng_lang cursor-pointer">
@@ -26,12 +29,14 @@ export default function Header() {
             />
             
           </div>
-          <div className="nav-logo">
-            {/* <Link>
-            <img className="" src="/Images/logo.jpg" alt="Error" />
-            </Link> */}
-          </div>
         </div>
+
+        <div className="nav-logo">
+            <Link>
+              <img className="" src={logo} alt="logo" width={100}/>
+            </Link>
+          </div>
+
         <div className="nav-right">
           <div className="nav-links flex gap-5 my-2  relative">
             <Link to="/cars" className="text-white text-wrap uppercase">Cars</Link>

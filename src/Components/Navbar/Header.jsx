@@ -1,7 +1,8 @@
 // eslint-disable-next-line no-unused-vars
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faBars, faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
 export default function Header() {
   const [show_menu, setShov_menu] = useState(false);
   const [show_input, setShow_input] = useState(false);
@@ -39,12 +40,13 @@ export default function Header() {
               src="/Images/russia.png"
               alt=""
             />
-            <img
-              onClick={() => setShow_input(true)}
-              className="hide-search block lg:hidden ml-4"
+            <FontAwesomeIcon onClick={() => setShow_input(true)} icon={faMagnifyingGlass} className="hide-search block lg:hidden ml-4 text-white size-4" />
+            {/* <img
+              
+              className="
               src="/Images/glass.png"
               alt="err"
-            />
+            /> */}
           </div>
           <div
             className={`nav-search ${
@@ -66,7 +68,7 @@ export default function Header() {
               className="cursor-pointer lg:hidden block"
               src="/Images/cancel.png"
               alt=""
-              onClick={()=>setShow_input(false)}
+              onClick={() => setShow_input(false)}
             />
           </div>
           <div onClick={() => setShow_input(true)} className="">
@@ -78,7 +80,7 @@ export default function Header() {
             </Link>
           </div>
         </div>
-        <div className="nav-logo lg:hidden block w-20">
+        <div className="nav-logo lg:hidden block w-14 md:w-20">
           <Link>
             <img className="w-24" src="/Images/logo.png" alt="Error" />
           </Link>
@@ -118,7 +120,7 @@ export default function Header() {
           </div>
         </div>
         <div onClick={openMenu} className="nav-menu lg:hidden block">
-          <img src="/Images/icon-menu.png" alt="" />
+        <FontAwesomeIcon icon={faBars} className="text-white size-7" />
         </div>
       </nav>
     </header>

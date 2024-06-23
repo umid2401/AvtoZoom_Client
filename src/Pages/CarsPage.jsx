@@ -5,6 +5,7 @@ export default function CarsPage() {
   return (
     <div>
       <p>Welcome to CarsPage</p>
+      <p>to check git branch</p>
     </div>
   )
 }

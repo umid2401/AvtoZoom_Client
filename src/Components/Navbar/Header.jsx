@@ -65,14 +65,8 @@ export default function Header() {
               className="hide-search block lg:hidden ml-4 text-white size-5"
             />
           </div>
-          <div
-            className={`nav-search ${
-              show_input
-                ? "flex absolute top-24 left-1/2 -translate-x-1/2"
-                : "hidden"
-            } px-2 w-10/12 lg:w-1/2   lg:static  lg:flex items-center bg-custom-gradient rounded-md `}
-          >
-            <button className="bg-transparent text-white px-4 py-2 cursor-pointer">
+          <div className="nav-search flex bg-custom-gradient rounded-md h-10">
+          <button className="bg-transparent text-white px-4 py-2 cursor-pointer">
               <img src="/Images/magnifying-glass.png" alt="" />
             </button>
             <input

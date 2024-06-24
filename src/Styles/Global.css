@@ -7,3 +7,27 @@ body{
     overflow-x: hidden;
     position: relative;
 }
+@font-face {
+    font-family: "Lato";
+    src: url("..//..//public/Fonts/Lato-Light.ttf");
+    font-weight: 700;
+    font-style: normal;
+}
+/* .links{
+    position: relative;
+}
+.links::after {
+    content: "";
+    width: 0;
+    height: 1px;
+    background: orange;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+}
+.links:hover  {
+    .links::after{
+
+        width: 100%;
+    }
+} */

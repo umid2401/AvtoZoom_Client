@@ -12,8 +12,8 @@ export default function Header() {
   const [show_menu, setShov_menu] = useState(false);
   const [show_input, setShow_input] = useState(false);
   const [brand_cars, setBrand_cars] = useState([]);
-  const urlImage =
-    "https://autoapi.dezinfeksiyatashkent.uz/api/uploads/images/";
+  // const urlImage =
+  //   "https://autoapi.dezinfeksiyatashkent.uz/api/uploads/images/";
   const getCarsData = () => {
     fetch("https://autoapi.dezinfeksiyatashkent.uz/api/cars")
       .then((res) => res.json())
@@ -26,7 +26,7 @@ export default function Header() {
   useEffect(() => {
     getCarsData();
     console.log(brand_cars);
-  }, []);
+  }, [brand_cars]);
   const routes = [
     { name: "Cars", to: "/cars" },
     { name: "Brand", to: "/brand" },

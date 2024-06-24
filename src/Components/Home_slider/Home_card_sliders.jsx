@@ -9,7 +9,7 @@ const Home_card_sliders = () => {
    const navigate = useNavigate()
 
    const urlImage = "https://autoapi.dezinfeksiyatashkent.uz/api/uploads/images/"
-console.log(Brands);
+   
    const getBrands = () => {
     fetch("https://autoapi.dezinfeksiyatashkent.uz/api/brands")
     .then((res) => res.json())

@@ -3,7 +3,6 @@ import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
-import { EffectCoverflow, Pagination, Navigation } from 'swiper/modules';
 import { Link } from "react-router-dom";
 // ###################   Cars pictures   ######################
 import ferrari from '../../assets/ferrari.png'

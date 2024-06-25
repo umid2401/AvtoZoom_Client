@@ -6,25 +6,42 @@ import menu from '../../assets/menu.svg'
 import x from '../../assets/x.svg'
 import whatsapp from '../../assets/whatsapp.svg'
 import telegram from '../../assets/telegram.svg'
-import { useState } from 'react'
 
-export default function Cars() {
+// React features
+import { useEffect, useState } from 'react'
+
+export default function CarsPage({ search }) {
+
+  const APIcars = 'https://autoapi.dezinfeksiyatashkent.uz/api/cars'
+  const urlImage = 'https://autoapi.dezinfeksiyatashkent.uz/api/uploads/images/'
 
   const [filter_toggle, set_filter_toggle] = useState(false)
+  const [cars, setCars] = useState(null)
+
+  useEffect(() => {
+    fetch(APIcars)
+    .then((res) => res.json())
+    .then((data) => {
+      setCars(data.data)
+      console.log(data.data)
+    })
+    .catch((err) => console.log(err))
+  }, [])
 
   return (
     <div>
-      <div className="flex bg-[#1E1F27] text-white relative z-0 ">
+      { cars && 
+      <div className="flex bg-[#1E1F27] text-white relative">
 
-        <div className={`${filter_toggle ? 'hidden' : ''} md:hidden   absolute bg-[#272933] top-5 left-5`} onClick={() => set_filter_toggle(true)}>
+        <div className={`${filter_toggle ? 'hidden' : ''} md:hidden absolute bg-[#272933] top-5 left-5`} onClick={() => set_filter_toggle(true)}>
           <img src={menu} alt="filter toggler" width={30}/>
         </div>
-        <div className={`${filter_toggle ? '' : 'hidden'} md:hidden  absolute bg-[#272933] top-5 left-5`} onClick={() => set_filter_toggle(false)}>
+        <div className={`${filter_toggle ? '' : 'hidden'} md:hidden absolute bg-[#272933] top-5 left-5`} onClick={() => set_filter_toggle(false)}>
           <img src={x} alt="filter toggler" width={30}/>
         </div>
 
         {/* Filters */}
-        <div className={`${filter_toggle ? '' : 'hidden'} md:block w-full md:w-auto bg-[#272933] text-white px-5 py-20`}>
+        <div className={`${filter_toggle ? '' : 'hidden'} md:block w-full md:w-auto basis-1/3 bg-[#272933] text-white px-5 py-20`}>
           <p className="text-3xl font-bold">Filtered By</p>
           
           <form className={style.cars_filter_form}>
@@ -187,41 +204,58 @@ export default function Cars() {
             </div>
           </form>
         </div>
-        
+
         {/* Right screen */}
-        <div className={`${filter_toggle ? 'hidden' : ''} md:block px-5 py-20`}>
+        <div className={`${filter_toggle ? 'hidden' : ''} w-auto basis-2/3 md:block px-5 py-20`}>
           <p className="text-[#A5A5A9]">Luxury Cars for Rent in Dubai / Hire the latest supercar</p>
 
           {/* Cars */}
-          <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 mt-20">
+          <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 mt-20 gap-5">
             
             {/* Car Card */}
-            <div className={`${style.car_card} bg-[#2D2E35] p-3 rounded-[10px] border-solid border-[1px] border-zinc-500`}>
-              <div className="border-solid border-b-[1px] border-zinc-500">
-                <img className="my-10" src="https://picsum.photos/seed/picsum/300/200" alt="" />
-                <span className="text-xl">Kia Seltos</span>
-              </div>
-              <p className="font-semibold text-xl">AED 300/$90</p>
-              <p className="mt-2">per day</p>
-              <div className="flex justify-between mt-20">
-                <a href="https://api.whatsapp.com/send/?phone=971558462124&text&type=phone_number&app_absent=0" target="_blank">
-                  <button className="bg-[#00C600] rounded-[10px] p-2 text-xl font-semibold flex">
-                    <img src={whatsapp} alt="whatsapp" width={25}/>
-                    <span className="ml-1">Whatsup</span>
-                  </button>
-                </a>
-                <a href="https://t.me/+971558462124" target="_blank">
-                  <button className="bg-[#2727E0] rounded-[10px] p-2 text-xl font-semibold flex">
-                    <img src={telegram} alt="telegram" width={25}/>
-                    <span className="ml-1">Telegram</span>
-                  </button>
-                </a>
-              </div>
-            </div>
+            {
+              cars
+              .filter((car) => {
+                return car.brand.title.toLowerCase().includes(search.toLowerCase())
+              })
+              .map((car, i) => {
+                return (
+                  <div 
+                    key={i} 
+                    className={`${style.car_card} bg-[#2D2E35] p-3 rounded-[10px] border-solid border-[1px] border-zinc-500`} 
+                    onClick={() => {
+                      document.getElementById('search').value = ''
+                    }}
+                    >
+                    <div className="border-solid border-b-[1px] border-zinc-500">
+                      <img className="my-10" src={`${urlImage}${car.car_images[0].image.src}`} alt={car.brand.title}/>
+                      <span className="text-xl">{car.brand.title} {car.model.name}</span>
+                    </div>
+                    <p className="font-semibold text-xl">{`AED${car.price_in_aed}`} / {`$${car.price_in_usd}`}</p>
+                    <p className="mt-2">per day</p>
+                    <div className="flex justify-between mt-10">
+                      <a href="https://api.whatsapp.com/send/?phone=971558462124&text&type=phone_number&app_absent=0" target="_blank">
+                        <button className="bg-[#00C600] rounded-[10px] p-2 text-xl flex">
+                          <img src={whatsapp} alt="whatsapp" width={25}/>
+                          <span className="ml-1">Whatsup</span>
+                        </button>
+                      </a>
+                      <a href="https://t.me/+971558462124" target="_blank">
+                        <button className="bg-[#2727E0] rounded-[10px] p-2 text-xl flex">
+                          <img src={telegram} alt="telegram" width={25}/>
+                          <span className="ml-1">Telegram</span>
+                        </button>
+                      </a>
+                    </div>
+                  </div>
+                )
+              })
+            }
           </div>
         </div>
 
-      </div>
+      </div> 
+      }
     </div>
   )
 }

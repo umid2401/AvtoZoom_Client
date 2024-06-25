@@ -10,7 +10,14 @@ import { useState } from 'react'
 
 export default function CarsPage() {
 
+  const APIcars = 'https://autoapi.dezinfeksiyatashkent.uz/api/cars'
+
   const [filter_toggle, set_filter_toggle] = useState(false)
+
+  fetch(APIcars)
+  .then((res) => res.json())
+  .then((data) => console.log(data))
+  .catch((err) => console.log(err))
 
   return (
     <div>

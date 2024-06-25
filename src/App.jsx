@@ -4,12 +4,13 @@ import { BrowserRouter, Route, Routes } from 'react-router-dom'
 import Header from './Components/Navbar/Header'
 import Footer from './Components/Footer/Footer'
 import HomePage from "./Pages/HomePage"
-import CarsPage from "./Components/cars/CarsPage"
+
 import BlogPage from "./Pages/BlogPage"
 import BrandPage from "./Pages/BrandPage"
 import ServicePage from "./Pages/ServicePage"
 import ContactPage from "./Pages/ContactPage"
 import AboutUsPage from "./Pages/AboutUsPage"
+import CarsPage from "./Pages/CarsPage"
 export default function App() {
 
   const [search, setSearch] = useState('')

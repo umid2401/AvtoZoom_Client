@@ -20,14 +20,14 @@ export default function Header({ setSearch }) {
       .then((res) => res.json())
       .then((res) => setBrand_cars(res?.data))
       .catch((err) => {
-        console.log(err);
+        alert(err)
       });
   };
 
   useEffect(() => {
     getCarsData();
-    console.log(brand_cars);
-  }, [brand_cars]);
+    
+  }, []);
   const routes = [
     { name: "Cars", to: "/cars" },
     { name: "Brand", to: "/brand" },
@@ -99,7 +99,7 @@ export default function Header({ setSearch }) {
           </Link>
         </div>
         <div className={` ${
-            show_menu ? " translate-x-0  " : "-translate-x-full  "
+            show_menu ? " translate-x-0" : "-translate-x-full  "
           } z-10 transition-all lg:translate-x-0 duration-300  lg:block ease-all w-3/4 nav-right transform  absolute lg:static lg:py-0 lg:px-0 py-4 px-4 top-0 left-0 bg-customColor  lg:w-1/2 h-screen lg:h-auto`}
         >
           <div
@@ -120,7 +120,7 @@ export default function Header({ setSearch }) {
                   {item.name}
                 </Link>
               ))}
-          <div className="phone-links    ">
+          <div className="phone-links">
               <a
                 className="text-white font-lato text-wrap uppercase flex justify-start lg:justify-end"
                 href=""

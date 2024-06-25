@@ -9,7 +9,7 @@ const Home_card_sliders = () => {
    const navigate = useNavigate()
 
    const urlImage = "https://autoapi.dezinfeksiyatashkent.uz/api/uploads/images/"
-   
+
    const getBrands = () => {
     fetch("https://autoapi.dezinfeksiyatashkent.uz/api/brands")
     .then((res) => res.json())
@@ -22,7 +22,8 @@ const Home_card_sliders = () => {
 
    const settings = {
     dots: true,
-    infinite: false,
+    infinite: true,
+    arrows: false,
     slidesToShow: 3,
     speed: 500,
     rows: 2,
@@ -62,7 +63,7 @@ const Home_card_sliders = () => {
                       {
                         Brands.map((brand, index) => (
                             <div key={index} className='p-5' onClick={() => navigate(`/cars/:${brand.id}`)}>
-                                <div className='border border-gray-800 flex flex-col justify-center items-center py-10'>
+                                <div className='border border-gray-800 hover:bg-gray-900 rounded-sm flex flex-col justify-center items-center py-10'>
                                   <img className='h-[50px]' src={`${urlImage}${brand?.image_src}`} alt="" />
                                   <p className='text-[20px] text-gray-400 font-[600] tracking-tighter '>{brand?.title}</p>
                                 </div>

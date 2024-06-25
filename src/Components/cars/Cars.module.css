@@ -32,7 +32,6 @@
     margin: 10px;
 }
 
-.car_card div:nth-child(1) img {
-    width: 100%;
-    height: 200px;
+.car_card {
+    margin: auto;
 }

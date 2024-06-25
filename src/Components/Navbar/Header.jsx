@@ -25,8 +25,8 @@ export default function Header() {
 
   useEffect(() => {
     getCarsData();
-    console.log(brand_cars);
-  }, [brand_cars]);
+    
+  }, []);
   const routes = [
     { name: "Cars", to: "/cars" },
     { name: "Brand", to: "/brand" },

@@ -45,7 +45,7 @@ export default function Header() {
   return (
     <header className="">
       <nav className=" flex items-center py-4  px-4 lg:px-6 justify-between bg-customColor">
-        <div className="nav-left flex gap-0 lg:gap-12 items-center">
+        <div className="nav-left relative z-10 flex gap-0 lg:gap-12 items-center">
           <div className="nav-lang flex items-center gap-2">
             <img
               className="eng_lang cursor-pointer w-6 lg:w-auto"
@@ -65,7 +65,7 @@ export default function Header() {
               className="hide-search block lg:hidden ml-4 text-white size-5"
             />
           </div>
-          <div className={`nav-search ${show_input?"absolute  -translate-x-1/2 w-3/4 flex  ":"hidden"} top-20 left-1/2  lg:static items-center px-2  lg:flex bg-custom-gradient rounded-md `}>
+          <div className={`nav-search z-50 ${show_input?"absolute  -translate-x-1/2 w-3/4 flex  ":"hidden"} top-20 left-1/2  lg:static items-center px-2  lg:flex bg-custom-gradient rounded-md `}>
           <button className="bg-transparent text-white px-4 py-2 cursor-pointer">
               <img src="/Images/magnifying-glass.png" alt="" />
             </button>

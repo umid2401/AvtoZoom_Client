@@ -14,12 +14,12 @@ export default function Cars() {
 
   return (
     <div>
-      <div className="flex bg-[#1E1F27] text-white relative">
+      <div className="flex bg-[#1E1F27] text-white relative z-0 ">
 
-        <div className={`${filter_toggle ? 'hidden' : ''} md:hidden absolute bg-[#272933] top-5 left-5`} onClick={() => set_filter_toggle(true)}>
+        <div className={`${filter_toggle ? 'hidden' : ''} md:hidden   absolute bg-[#272933] top-5 left-5`} onClick={() => set_filter_toggle(true)}>
           <img src={menu} alt="filter toggler" width={30}/>
         </div>
-        <div className={`${filter_toggle ? '' : 'hidden'} md:hidden absolute bg-[#272933] top-5 left-5`} onClick={() => set_filter_toggle(false)}>
+        <div className={`${filter_toggle ? '' : 'hidden'} md:hidden  absolute bg-[#272933] top-5 left-5`} onClick={() => set_filter_toggle(false)}>
           <img src={x} alt="filter toggler" width={30}/>
         </div>
 

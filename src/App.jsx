@@ -12,7 +12,7 @@ import ContactPage from "./Pages/ContactPage"
 import AboutUsPage from "./Pages/AboutUsPage"
 export default function App() {
   return (
-    <div>
+    <div className=''>
       <BrowserRouter>
         <Header/>
          <Routes>

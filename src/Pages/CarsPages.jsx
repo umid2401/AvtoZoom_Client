@@ -1,10 +1,10 @@
 // eslint-disable-next-line no-unused-vars
 import React from 'react'
-
-export default function CarsPage() {
+import CarsPage from '../Components/Cars/CarsPage'
+export default function CarsPages() {
   return (
     <div>
-      <p>Cars </p>
+      <CarsPage/>
     </div>
   )
 }

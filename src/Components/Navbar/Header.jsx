@@ -44,7 +44,7 @@ export default function Header() {
 
   return (
     <header className="">
-      <nav className="  flex items-center py-4  px-4 lg:px-6 justify-between bg-customColor">
+      <nav className=" flex items-center py-4  px-4 lg:px-6 justify-between bg-customColor">
         <div className="nav-left flex gap-0 lg:gap-12 items-center">
           <div className="nav-lang flex items-center gap-2">
             <img
@@ -95,9 +95,9 @@ export default function Header() {
             <img className=" w-16 sm:w-20 md:w-24" src="/Images/logo.png" alt="Error" />
           </Link>
         </div>
-        <div className={`overflow-hidden ${
-            show_menu ? "translate-x-0" : "-translate-x-full"
-          } z-10 transition-all lg:translate-x-0 duration-300 ease-all w-3/4 nav-right transform  absolute lg:static lg:py-0 lg:px-0 py-4 px-4 top-0 left-0 bg-customColor  lg:w-1/2 h-screen lg:h-auto`}
+        <div className={` ${
+            show_menu ? " translate-x-0  " : "-translate-x-full  "
+          } z-10 transition-all lg:translate-x-0 duration-300  lg:block ease-all w-3/4 nav-right transform  absolute lg:static lg:py-0 lg:px-0 py-4 px-4 top-0 left-0 bg-customColor  lg:w-1/2 h-screen lg:h-auto`}
         >
           <div
             onClick={hideMenu}
@@ -132,8 +132,9 @@ export default function Header() {
         <div onClick={openMenu} className="nav-menu lg:hidden block">
           <FontAwesomeIcon icon={faBars} className="text-white size-7" />
         </div>
+        
       </nav>
-      <div className="dropdown bg-dropColor  h-6">
+      <div className="dropdown hidden bg-dropColor  rounded-md w-1/2 h-80 absolute  right-0">
         {brand_cars ? (
           brand_cars.map((item, index) => (
             <Link to="/" className="text-white" key={index}>

@@ -8,7 +8,7 @@ import whatsapp from '../../assets/whatsapp.svg'
 import telegram from '../../assets/telegram.svg'
 import { useState } from 'react'
 
-export default function CarsPage() {
+export default function Cars() {
 
   const [filter_toggle, set_filter_toggle] = useState(false)
 

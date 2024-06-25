@@ -4,12 +4,13 @@ import { BrowserRouter, Route, Routes } from 'react-router-dom'
 import Header from './Components/Navbar/Header'
 import Footer from './Components/Footer/Footer'
 import HomePage from "./Pages/HomePage"
-import CarsPage from "./Pages/CarsPages"
+
 import BlogPage from "./Pages/BlogPage"
 import BrandPage from "./Pages/BrandPage"
 import ServicePage from "./Pages/ServicePage"
 import ContactPage from "./Pages/ContactPage"
 import AboutUsPage from "./Pages/AboutUsPage"
+import CarsPages from './Pages/CarsPages'
 export default function App() {
   return (
     <div className=''>
@@ -17,7 +18,7 @@ export default function App() {
         <Header/>
          <Routes>
           <Route path="/" element={<HomePage />}/>
-          <Route path="/cars" element={<CarsPage />}/>
+          <Route path="/cars" element={<CarsPages />}/>
           <Route path="/brand" element={<BrandPage  />}/>
           <Route path="/contact" element={<ContactPage />}/>
           <Route path="/service" element={<ServicePage />}/>

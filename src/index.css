@@ -1,8 +1,6 @@
- @import "./Styles/Global.css";
+@import "./Styles/Global.css";
 
 /* Tailwind */
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-
- 

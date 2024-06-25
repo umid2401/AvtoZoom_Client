@@ -8,7 +8,8 @@ import {
   faMagnifyingGlass,
   faXmark,
 } from "@fortawesome/free-solid-svg-icons";
-export default function Header() {
+
+export default function Header({ setSearch }) {
   const [show_menu, setShov_menu] = useState(false);
   const [show_input, setShow_input] = useState(false);
   const [brand_cars, setBrand_cars] = useState([]);
@@ -66,13 +67,15 @@ export default function Header() {
             />
           </div>
           <div className={`nav-search ${show_input?"absolute  -translate-x-1/2 w-3/4 flex  ":"hidden"} top-20 left-1/2  lg:static items-center px-2  lg:flex bg-custom-gradient rounded-md `}>
-          <button className="bg-transparent text-white px-4 py-2 cursor-pointer">
+            <button className="bg-transparent text-white px-4 py-2 cursor-pointer">
               <img src="/Images/magnifying-glass.png" alt="" />
             </button>
             <input
+              id="search"
               type="text"
               placeholder="Search..."
               className="px-4 py-2 bg-transparent text-white w-full focus:outline-none"
+              onChange={(e) => setSearch(e.target.value)}
             />
 
             <FontAwesomeIcon

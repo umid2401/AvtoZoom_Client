@@ -10,7 +10,7 @@ import BrandPage from "./Pages/BrandPage"
 import ServicePage from "./Pages/ServicePage"
 import ContactPage from "./Pages/ContactPage"
 import AboutUsPage from "./Pages/AboutUsPage"
-import CarsPage from './Pages/CarsPage'
+import CarsPage from "./Pages/CarsPage"
 export default function App() {
   return (
     <div className=''>

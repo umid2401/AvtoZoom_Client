@@ -65,7 +65,7 @@ export default function Header() {
               className="hide-search block lg:hidden ml-4 text-white size-5"
             />
           </div>
-          <div className={`nav-search ${show_input?"absolute  -translate-x-1/2 w-3/4  ":"hidden"} top-20 left-1/2  lg:static items-center px-2 flex bg-custom-gradient rounded-md `}>
+          <div className={`nav-search ${show_input?"absolute  -translate-x-1/2 w-3/4 flex  ":"hidden"} top-20 left-1/2  lg:static items-center px-2  lg:flex bg-custom-gradient rounded-md `}>
           <button className="bg-transparent text-white px-4 py-2 cursor-pointer">
               <img src="/Images/magnifying-glass.png" alt="" />
             </button>

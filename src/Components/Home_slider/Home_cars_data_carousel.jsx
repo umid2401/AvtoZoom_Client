@@ -8,7 +8,7 @@ const Home_cars_data_carousel = () => {
     const [Cars, setCars] = useState([])
 
     const navigate = useNavigate()
-    console.log(Cars);
+    // console.log(Cars);
 
     const urlImage = "https://autoapi.dezinfeksiyatashkent.uz/api/uploads/images/"
 
@@ -17,6 +17,32 @@ const Home_cars_data_carousel = () => {
         .then((res) => res.json())
         .then((res) => setCars(res?.data))
     }
+
+    const groupCarsByCategory = (cars) => {
+        const groupedCars = {};
+    
+        cars.forEach((car) => {
+          const categoryId = car?.category?.id;
+    
+          if (!groupedCars[categoryId]) {
+            groupedCars[categoryId] = {
+              categoryName: car?.category?.name_en,
+              cars: [],
+            };
+          }
+    
+          groupedCars[categoryId]?.cars?.push(car);
+        });
+    
+        return groupedCars;
+      };
+    
+      const groupedCars = groupCarsByCategory(Cars);
+
+      const handleToCars = (id) =>{
+        navigate(`/carsinfo/${id}`)
+        window.scrollTo(0,0)
+      }
 
     useEffect(() => {
         getCarsData()
@@ -44,27 +70,31 @@ const Home_cars_data_carousel = () => {
             },
           ]
       };
+      
   return (
     <div className="bg-slate-800 py-20  truncate">
         <div className="2xl:w-[1300px] xl:w-[1000px] lg:w-[900px] md:w-[700px] sm:w-[500px] w-[300px] mx-auto">
 
             {
-              Cars?.map((car, index) => (
-                <div key={index}>
-                      <div className="flex flex-row justify-between mt-28">
-                        <h1 className="text-white font-[600] md:text-[30px] text-[20px] ">{car?.category?.name_en}</h1>
-                        <h1 className="text-white font-[600] md:text-[20px] text-[17px] hover:mr-2" onClick={() => navigate(`/cars/${car?.category_id}`)}>SEE ALL <span className="px-2  rounded-full border border-white"> {">"}</span>
+              Object.keys(groupedCars).map((categoryId) => (
+                <div key={categoryId}>
+                      <div className="flex flex-row justify-between items-center mt-28">
+                        <h1 className="text-white font-[600] md:text-[30px] text-[20px] text-wrap">{groupedCars[categoryId]?.categoryName.toUpperCase()}</h1>
+                        <h1 className="text-white font-[600] md:text-[20px] text-[15px] hover:mr-2" onClick={() => navigate(`/cars/${groupedCars[categoryId]}`)}>
+                            SEE ALL 
+                           <span className="px-2  rounded-full border border-white"> {">"}</span>
                         </h1>
                     </div>
                     <div className="slider-container">
                         <Slider {...settings}>
                             {
-                                car?.car_images?.map((images, imgndex) => (
-                                    <div key={imgndex} className="mt-10" onClick={() => navigate(`/cars/:${images?.car_id}`)}>
+                                groupedCars[categoryId]?.cars.map((car, index) => (
+                                    <div key={index} className="mt-10" onClick={()=>handleToCars(car?.id)}>
+                                        {console.log(car)}
                                         <div className="px-6 py-10  w-[300px] rounded-xl hover:bg-slate-500 hover:shadow-xl">
-                                        <img className="h-[160px] my-5 text-center mx-auto" src={`${urlImage}${images?.image?.src}`} alt="" />
+                                        <img className="h-[160px] my-5 text-center mx-auto" src={`${urlImage}${car.car_images[2]?.image.src}`} alt={car?.category?.name_en} />
                                             <p className="text-white border-b pb-2 pt-6 ">
-                                                {car.brand.title} {car?.model?.name}
+                                                {car?.brand?.title} {car?.model?.name}
                                             </p>
                                             {/* ##############  Price  ############## */}
                                             <p className="pt-3">

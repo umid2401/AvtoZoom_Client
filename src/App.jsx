@@ -1,5 +1,5 @@
 // eslint-disable-next-line no-unused-vars
-import React, { useState } from 'react'
+import { useState } from 'react'
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
 import Header from './Components/Navbar/Header'
 import Footer from './Components/Footer/Footer'
@@ -21,7 +21,7 @@ export default function App() {
         <Header setSearch={setSearch} />
          <Routes>
           <Route path="/" element={<HomePage />}/>
-          <Route path="/cars" element={<CarsPage search={search} />}/>
+          <Route path="/cars" element={<CarsPage search={ search } />}/>
           <Route path="/brand" element={<BrandPage  />}/>
           <Route path="/contact" element={<ContactPage />}/>
           <Route path="/service" element={<ServicePage />}/>

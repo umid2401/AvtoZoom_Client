@@ -74,7 +74,7 @@ export default function Header({ setSearch }) {
               id="search"
               type="text"
               placeholder="Search..."
-              className="px-4 py-2 bg-transparent text-white w-full focus:outline-none"
+              className="px-4 py-2 bg-transparent text-white w-full focus:outline-none" 
               onChange={(e) => setSearch(e.target.value)}
             />
 

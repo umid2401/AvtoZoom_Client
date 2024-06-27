@@ -10,7 +10,7 @@ import telegram from '../../assets/telegram.svg'
 // React features
 import { useEffect, useState } from 'react'
 
-export default function CarsPage({ search }) {
+export default function Cars({ search }) {
 
   const APIcars = 'https://autoapi.dezinfeksiyatashkent.uz/api/cars'
   const urlImage = 'https://autoapi.dezinfeksiyatashkent.uz/api/uploads/images/'
@@ -23,7 +23,6 @@ export default function CarsPage({ search }) {
     .then((res) => res.json())
     .then((data) => {
       setCars(data.data)
-      console.log(data.data)
     })
     .catch((err) => console.log(err))
   }, [])
@@ -44,142 +43,142 @@ export default function CarsPage({ search }) {
         <div className={`${filter_toggle ? '' : 'hidden'} md:block w-full md:w-auto basis-1/3 bg-[#272933] text-white px-5 py-20`}>
           <p className="text-3xl font-bold">Filtered By</p>
           
-          <form className={style.cars_filter_form}>
-            <div>
+          <form id="form" className={style.cars_filter_form}>
+            <div id="offer_filter">
               <p>Offers</p>
               <label>
-                <input className="cars_filter_input" type="checkbox" name="" id="" />
+                <input className="cars_filter_input" type="checkbox" value="1" name="" id="" />
                 <span>3 DAYS RENT = 5000 AED🔥 ALL INCLUSIVE</span>
               </label>
               <label>
-                <input className="cars_filter_input" type="checkbox" name="" id="" />
+                <input className="cars_filter_input" type="checkbox" value="1" name="" id="" />
                 <span>3 DAYS RENT = 1300 AED🔥 </span>
               </label>
               <label>
-                <input className="cars_filter_input" type="checkbox" name="" id="" />
+                <input className="cars_filter_input" type="checkbox" value="1" name="" id="" />
                 <span>3 DAYS RENT = 1800 AED🔥</span>
               </label>
               <label>
-                <input className="cars_filter_input" type="checkbox" name="" id="" />
+                <input className="cars_filter_input" type="checkbox" value="1" name="" id="" />
                 <span>NO DEPOSIT</span>
               </label>
               <label>
-                <input className="cars_filter_input" type="checkbox" name="" id="" />
+                <input className="cars_filter_input" type="checkbox" value="1" name="" id="" />
                 <span>5000 AED🔥 ALL INCLUSIVE</span>
               </label>
               <label>
-                <input className="cars_filter_input" type="checkbox" name="" id="" />
+                <input className="cars_filter_input" type="checkbox" value="1" name="" id="" />
                 <span>2 DAYS RENT = 5000 AED🔥 ALL INCLUSIVE</span>
               </label>
               <label>
-                <input className="cars_filter_input" type="checkbox" name="" id="" />
+                <input className="cars_filter_input" type="checkbox" value="1" name="" id="" />
                 <span>Rent Ferrari Dubai</span>
               </label>
               <label>
-                <input className="cars_filter_input" type="checkbox" name="" id="" />
+                <input className="cars_filter_input" type="checkbox" value="1" name="" id="" />
                 <span>4 DAYS RENT = 5000 AED🔥 ALL INCLUSIVE</span>
               </label>
             </div>
 
-            <div>
+            <div id="type_filter">
               <p>Car Type</p>
               <label>
-                <input className="cars_filter_input" type="checkbox" name="" id="" />
+                <input className="cars_filter_input" type="checkbox" value="2" name="" id="" />
                 <span>SUV</span>
               </label>
               <label>
-                <input className="cars_filter_input" type="checkbox" name="" id="" />
+                <input className="cars_filter_input" type="checkbox" value="2" name="" id="" />
                 <span>Sports Cars</span>
               </label>
               <label>
-                <input className="cars_filter_input" type="checkbox" name="" id="" />
+                <input className="cars_filter_input" type="checkbox" value="2" name="" id="" />
                 <span>Luxury Cars</span>
               </label>
               <label>
-                <input className="cars_filter_input" type="checkbox" name="" id="" />
+                <input className="cars_filter_input" type="checkbox" value="2" name="" id="" />
                 <span>Convertible Cars</span>
               </label>
               <label>
-                <input className="cars_filter_input" type="checkbox" name="" id="" />
+                <input className="cars_filter_input" type="checkbox" value="2" name="" id="" />
                 <span>Budget Cars</span>
               </label>
               <label>
-                <input className="cars_filter_input" type="checkbox" name="" id="" />
+                <input className="cars_filter_input" type="checkbox" value="2" name="" id="" />
                 <span>American Brands</span>
               </label>
             </div>
 
-            <div>
+            <div id="model_filter">
               <p>Models</p>
               <label>
-                <input className="cars_filter_input" type="checkbox" name="" id="" />
+                <input className="cars_filter_input" type="checkbox" value="3" name="" id="" />
                 <span>Ferrari</span>
               </label>
               <label>
-                <input className="cars_filter_input" type="checkbox" name="" id="" />
+                <input className="cars_filter_input" type="checkbox" value="3" name="" id="" />
                 <span>Ford</span>
               </label>
               <label>
-                <input className="cars_filter_input" type="checkbox" name="" id="" />
+                <input className="cars_filter_input" type="checkbox" value="3" name="" id="" />
                 <span>Rolls-Royce</span>
               </label>
               <label>
-                <input className="cars_filter_input" type="checkbox" name="" id="" />
+                <input className="cars_filter_input" type="checkbox" value="3" name="" id="" />
                 <span>Porsche</span>
               </label>
               <label>
-                <input className="cars_filter_input" type="checkbox" name="" id="" />
+                <input className="cars_filter_input" type="checkbox" value="3" name="" id="" />
                 <span>McLaren</span>
               </label>
               <label>
-                <input className="cars_filter_input" type="checkbox" name="" id="" />
+                <input className="cars_filter_input" type="checkbox" value="bmw" name="" id="" />
                 <span>BMW</span>
               </label>
               <label>
-                <input className="cars_filter_input" type="checkbox" name="" id="" />
+                <input className="cars_filter_input" type="checkbox" value="3" name="" id="" />
                 <span>Cadillac</span>
               </label>
               <label>
-                <input className="cars_filter_input" type="checkbox" name="" id="" />
+                <input className="cars_filter_input" type="checkbox" value="3" name="" id="" />
                 <span>GMC</span>
               </label>
               <label>
-                <input className="cars_filter_input" type="checkbox" name="" id="" />
+                <input className="cars_filter_input" type="checkbox" value="audi" name="" id="" />
                 <span>Audi</span>
               </label>
               <label>
-                <input className="cars_filter_input" type="checkbox" name="" id="" />
+                <input className="cars_filter_input" type="checkbox" value="3" name="" id="" />
                 <span>Mercedes Benz</span>
               </label>
               <label>
-                <input className="cars_filter_input" type="checkbox" name="" id="" />
+                <input className="cars_filter_input" type="checkbox" value="chevrolet" name="" id="" />
                 <span>Chevrolet</span>
               </label>
               <label>
-                <input className="cars_filter_input" type="checkbox" name="" id="" />
+                <input className="cars_filter_input" type="checkbox" value="3" name="" id="" />
                 <span>Lamborghini</span>
               </label>
               <label>
-                <input className="cars_filter_input" type="checkbox" name="" id="" />
+                <input className="cars_filter_input" type="checkbox" value="3" name="" id="" />
                 <span>Toyota</span>
               </label>
               <label>
-                <input className="cars_filter_input" type="checkbox" name="" id="" />
+                <input className="cars_filter_input" type="checkbox" value="3" name="" id="" />
                 <span>Infiniti</span>
               </label>
               <label>
-                <input className="cars_filter_input" type="checkbox" name="" id="" />
+                <input className="cars_filter_input" type="checkbox" value="kia" name="" id="" />
                 <span>Kia</span>
               </label>
               <label>
-                <input className="cars_filter_input" type="checkbox" name="" id="" />
+                <input className="cars_filter_input" type="checkbox" value="3" name="" id="" />
                 <span>Hyundai</span>
               </label>
             </div>
 
             <div>
               <p>Model</p>
-              <select name="" id="">
+              <select className="text-black" name="" id="">
                 <option value="urus">Urus</option>
                 <option value="elantra">Elantra</option>
                 <option value="yukon">Yukon</option>
@@ -199,9 +198,20 @@ export default function CarsPage({ search }) {
             </div>
 
             <div className="flex justify-between">
-              <button className="rounded-[10px] py-5 text-xl px-10 border-[1px] border-white border-solid">Reset</button>
-              <button className="rounded-[10px] py-5 text-xl px-10 bg-[#00C600]">Apply filter</button>
+              <button 
+              className="rounded-[10px] py-5 text-xl px-10 border-[1px] border-white border-solid" 
+              type="reset"
+              >
+                Reset
+              </button>
+              
+              <button 
+              className="rounded-[10px] py-5 text-xl px-10 bg-[#00C600]" type="submit"
+              >
+                Apply filter
+              </button>
             </div>
+
           </form>
         </div>
 

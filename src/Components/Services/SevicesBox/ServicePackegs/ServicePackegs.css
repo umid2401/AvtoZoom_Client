@@ -1,0 +1,49 @@
+.service_package {
+    width: 100%;
+    display: flex;
+    align-items: center;
+}
+
+.service_package span {
+    width: 1.1rem;
+    height: 1.1rem;
+    background: #fff;
+    margin-right: 1.4rem;
+    position: relative;
+}
+
+.service_package span small {
+    position: absolute;
+    top: -2px; left: 1px;
+    width: 1.4rem;
+    height: .7rem;
+    background: transparent;
+    border: solid #18d018;
+    border-width: 0 0 4px 4px;
+    transform: rotate(-45deg);
+}
+
+.service_package:not(:last-child){
+    margin-bottom: 1.5rem;
+}
+
+@media(max-width: 1024px){
+    .service_package:not(:last-child){
+        margin-bottom: 1rem;
+    }
+
+    .service_package span {
+        width: 1rem;
+        height: 1rem;
+        margin-right: 1.1rem;
+    }
+    
+    .service_package span small {
+        width: 1.2rem;
+        height: .5rem;
+    }
+
+    .service_package p {
+        font-size: .8rem;
+    }
+}

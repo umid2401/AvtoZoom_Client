@@ -32,17 +32,22 @@ export default function App() {
   return (
     <div className=''>
       <BrowserRouter>
-        <Header setSearch={setSearch} />
-         <Routes>
-          <Route path="/" element={<HomePage />}/>
-          <Route path="/cars" element={<CarsPage search={search} />}/>
-          <Route path="/brand" element={<BrandPage  />}/>
-          <Route path="/contact" element={<ContactPage />}/>
-          <Route path="/service" element={<ServicePage />}/>
-          <Route path="/about" element={<AboutUsPage />}/>
-          <Route path="/blog" element={<BlogPage />}/>
-         </Routes>
-         <Footer/>
+        <Header setSearch={setSearch}/>
+          <Routes>
+            <Route path="/" element={<HomePage/>}/>
+            <Route path="cars" element={<CarsPage/>}>
+              <Route index element={<Cars search={search}/>}/>
+              <Route path=":id" element={<CarInfo/>}/>
+            </Route>
+            <Route path="brand" element={<BrandPage/>}/>
+            <Route path="contact" element={<ContactPage/>}/>
+            <Route path="service" element={<ServicePage/>}/>
+            <Route path="/service/sport_car_rent" element={<ServicePage />}/>
+          <Route path="/service/photoshoot-with-luxury-car-in-dubai" element={<ServicePage />}/>
+            <Route path="about" element={<AboutUsPage/>}/>
+            <Route path="blog" element={<BlogPage/>}/>
+          </Routes>
+        <Footer/>
       </BrowserRouter> 
     </div>
   )

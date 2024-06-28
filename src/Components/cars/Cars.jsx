@@ -31,6 +31,7 @@ export default function Cars({ search }) {
 
   return (
     <div>
+      <div className={`${cars ? 'hidden' : ''} w-full h-[1000px] bg-[#1E1F27]`}></div>
       { cars && 
       <div className="flex bg-[#1E1F27] text-white relative">
 

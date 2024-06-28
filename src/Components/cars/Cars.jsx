@@ -9,6 +9,7 @@ import telegram from '../../assets/telegram.svg'
 
 // React features
 import { useEffect, useState } from 'react'
+import { Link } from 'react-router-dom'
 
 export default function Cars({ search }) {
 
@@ -23,6 +24,7 @@ export default function Cars({ search }) {
     .then((res) => res.json())
     .then((data) => {
       setCars(data.data)
+      console.log(data.data)
     })
     .catch((err) => console.log(err))
   }, [])
@@ -230,34 +232,43 @@ export default function Cars({ search }) {
               })
               .map((car, i) => {
                 return (
-                  <div 
-                    key={i} 
+                  <Link to={`${car.id}`} key={i}>
+                    <div  
                     className={`${style.car_card} bg-[#2D2E35] p-3 rounded-[10px] border-solid border-[1px] border-zinc-500`} 
                     onClick={() => {
                       document.getElementById('search').value = ''
                     }}
                     >
-                    <div className="border-solid border-b-[1px] border-zinc-500">
-                      <img className="my-10" src={`${urlImage}${car.car_images[0].image.src}`} alt={car.brand.title}/>
-                      <span className="text-xl">{car.brand.title} {car.model.name}</span>
+                      <div className="border-solid border-b-[1px] border-zinc-500">
+                        <img className="my-10" src={`${urlImage}${car.car_images[0].image.src}`} alt={car.brand.title}/>
+                        <span className="text-xl">
+                          {car.brand.title} {car.model.name}
+                        </span>
+                      </div>
+
+                      <p className="font-semibold text-xl">
+                        {`AED${car.price_in_aed}`} / {`$${car.price_in_usd}`}
+                      </p>
+                      <p className="mt-2">
+                        per day
+                      </p>
+
+                      <div className="flex justify-between mt-10">
+                        <a href="https://api.whatsapp.com/send/?phone=971558462124&text&type=phone_number&app_absent=0" target="_blank">
+                          <button className="bg-[#00C600] rounded-[10px] p-2 text-xl flex">
+                            <img src={whatsapp} alt="whatsapp" width={25}/>
+                            <span className="ml-1">Whatsup</span>
+                          </button>
+                        </a>
+                        <a href="https://t.me/+971558462124" target="_blank">
+                          <button className="bg-[#2727E0] rounded-[10px] p-2 text-xl flex">
+                            <img src={telegram} alt="telegram" width={25}/>
+                            <span className="ml-1">Telegram</span>
+                          </button>
+                        </a>
+                      </div>
                     </div>
-                    <p className="font-semibold text-xl">{`AED${car.price_in_aed}`} / {`$${car.price_in_usd}`}</p>
-                    <p className="mt-2">per day</p>
-                    <div className="flex justify-between mt-10">
-                      <a href="https://api.whatsapp.com/send/?phone=971558462124&text&type=phone_number&app_absent=0" target="_blank">
-                        <button className="bg-[#00C600] rounded-[10px] p-2 text-xl flex">
-                          <img src={whatsapp} alt="whatsapp" width={25}/>
-                          <span className="ml-1">Whatsup</span>
-                        </button>
-                      </a>
-                      <a href="https://t.me/+971558462124" target="_blank">
-                        <button className="bg-[#2727E0] rounded-[10px] p-2 text-xl flex">
-                          <img src={telegram} alt="telegram" width={25}/>
-                          <span className="ml-1">Telegram</span>
-                        </button>
-                      </a>
-                    </div>
-                  </div>
+                  </Link>
                 )
               })
             }

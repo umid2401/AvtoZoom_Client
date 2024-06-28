@@ -214,9 +214,10 @@ export default function CarsPage({ search }) {
             
             {/* Car Card */}
             {
+              
               cars
               .filter((car) => {
-                return car.brand.title.toLowerCase().includes(search.toLowerCase())
+                return car.brand.title.toLowerCase().includes(search)
               })
               .map((car, i) => {
                 return (

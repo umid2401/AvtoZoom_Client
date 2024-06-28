@@ -13,6 +13,19 @@ body{
     src: url("..//..//public/Fonts/Lato-Light.ttf");
     font-weight: 700;
     font-style: normal;
+    
+}
+@font-face {
+    font-family: "Lato-Thin";
+    src: url("..//..//public/Fonts/Lato-Thin.ttf");
+    font-weight: 900;
+    font-style: normal;
+}
+@font-face {
+    font-family: "Lato-Regular";
+    src: url("..//..//public/Fonts/Lato-Bold.ttf");
+    font-weight: 300;
+    font-style: normal;
 }
 /* .links{
     position: relative;

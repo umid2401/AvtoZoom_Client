@@ -4,7 +4,6 @@ import { BrowserRouter, Route, Routes } from 'react-router-dom'
 import Header from './Components/Navbar/Header'
 import Footer from './Components/Footer/Footer'
 import HomePage from "./Pages/HomePage"
-import CarsPage from "./Pages/CarsPage"
 import BlogPage from "./Pages/BlogPage"
 import BrandPage from "./Pages/BrandPage"
 import ServicePage from "./Pages/ServicePage"

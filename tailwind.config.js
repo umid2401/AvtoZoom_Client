@@ -17,6 +17,12 @@ export default {
       },
       fontFamily: {
         lato: ['Lato', 'bold'],
+        thin: ['Lato-Thin'],
+        regular: ['Lato-Regular'],
+
+      },
+      screens: {
+        'custom': '400px',
       },
     },
   },

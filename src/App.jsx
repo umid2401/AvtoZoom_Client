@@ -10,7 +10,9 @@ import BrandPage from "./Pages/BrandPage"
 import ServicePage from "./Pages/ServicePage"
 import ContactPage from "./Pages/ContactPage"
 import AboutUsPage from "./Pages/AboutUsPage"
-import CarsPage from "./Pages/CarsPage"
+// import CarsPage from "./Pages/CarsPage"
+
+
 export default function App() {
 
   const [search, setSearch] = useState('')
@@ -25,6 +27,12 @@ export default function App() {
           <Route path="/brand" element={<BrandPage  />}/>
           <Route path="/contact" element={<ContactPage />}/>
           <Route path="/service" element={<ServicePage />}/>
+
+        {/* Qo'shildi start */}
+          <Route path="/service/sport_car_rent" element={<ServicePage />}/>
+          <Route path="/service/photoshoot-with-luxury-car-in-dubai" element={<ServicePage />}/>
+        {/* Qo'shildi end */}
+        
           <Route path="/about" element={<AboutUsPage />}/>
           <Route path="/blog" element={<BlogPage />}/>
          </Routes>

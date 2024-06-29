@@ -22,9 +22,10 @@ import ServicePage from "./Pages/ServicePage"
 
 // Contact pages
 import ContactPage from "./Pages/ContactPage"
-// import AboutUsPage from "./Pages/AboutUsPage"
-import CarsPage from "./Pages/CarsPage"
-import BlogPage from './Pages/BlogPage'
+import AboutUsPage from "./Pages/AboutUsPage"
+// import CarsPage from "./Pages/CarsPage"
+
+
 export default function App() {
 
   const [search, setSearch] = useState('')

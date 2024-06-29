@@ -41,7 +41,7 @@ useEffect(()=>{
     console.log(cities)
 },[])
   return (
-    <section className="faq bg-[rgb(30,31,39)]  max-w-[1352px] mx-auto">
+    <section className="faq bg-[rgb(30,31,39)]  ">
             <div className="2xl:w-[1300px] xl:w-[1120px] lg:w-[950px] md:w-[750px] sm:w-[540px] custom:w-[380px] w-[300px]  mx-auto">
             <h2 className="text-white md:text-3xl text-2xl py-2 font-lato uppercase">Follow Us Instagram</h2>
             <div className="gallery py-5 w-[90%] mx-auto justify-center flex items-center gap-4 lg:flex-nowrap flex-wrap">

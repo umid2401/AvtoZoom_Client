@@ -44,7 +44,7 @@ export default function Header({ setSearch }) {
   };
 
   return (
-    <header className=" max-w-[1352px] mx-auto">
+    <header className=" ">
       <nav className=" flex items-center py-4  px-4 lg:px-6 justify-between bg-customColor">
         <div className="nav-left z-10 flex gap-0 lg:gap-12 items-center">
           <div className="nav-lang flex items-center gap-2">

@@ -12,8 +12,9 @@ import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 
 export default function Cars({ search }) {
-  const APIcars = 'https://autoapi.dezinfeksiyatashkent.uz/api/cars'
-  const urlImage = 'https://autoapi.dezinfeksiyatashkent.uz/api/uploads/images/'
+  const APIcars = "https://autoapi.dezinfeksiyatashkent.uz/api/cars";
+  const urlImage =
+    "https://autoapi.dezinfeksiyatashkent.uz/api/uploads/images/";
 
   const [filter_toggle, set_filter_toggle] = useState(false);
   const [cars, setCars] = useState(null);
@@ -28,65 +29,63 @@ export default function Cars({ search }) {
       .catch((err) => console.log(err));
   }, []);
 
-
   // Filtering
 
-  const [filteredCars, setFilteredCars] = useState(null)
-  const [applyFilter, setApplyFilter] = useState(false)
-  
+  const [filteredCars, setFilteredCars] = useState(null);
+  const [applyFilter, setApplyFilter] = useState(false);
+
   const filterFunction = () => {
-    let a = 0
-    const filters = []
-    const modelFilter = document.getElementById('model_filter')
-    modelFilter.querySelectorAll('input').forEach((e) => {
+    let a = 0;
+    const filters = [];
+    const modelFilter = document.getElementById("model_filter");
+    modelFilter.querySelectorAll("input").forEach((e) => {
       if (e.checked) {
         cars.map((car) => {
           if (e.value == car.brand.title.toLowerCase()) {
-            if (!filters.includes(car.brand_id))
-              filters.push(car.brand_id)
+            if (!filters.includes(car.brand_id)) filters.push(car.brand_id);
           }
-        })
+        });
       }
-    })
+    });
 
-    modelFilter.querySelectorAll('input').forEach((e) => {
+    modelFilter.querySelectorAll("input").forEach((e) => {
       if (e.checked) {
-        a = a + 1
+        a = a + 1;
       }
-    })
+    });
 
     if (a == 0) {
-      setApplyFilter(false)
+      setApplyFilter(false);
     }
 
     const abc = filters.map((filter, i) => {
       if (i == 0) {
-        return `?brand_id=${filter}&`
+        return `?brand_id=${filter}&`;
       } else if (i != filters.length - 1) {
-        return `brand_id=${filter}&`
+        return `brand_id=${filter}&`;
       } else {
-        return `brand_id=${filter}`
+        return `brand_id=${filter}`;
       }
-    })
+    });
 
-    const filtered_cars_url = `https://autoapi.dezinfeksiyatashkent.uz/api/cars${abc.join('')}`
+    const filtered_cars_url = `https://autoapi.dezinfeksiyatashkent.uz/api/cars${abc.join(
+      ""
+    )}`;
 
     fetch(filtered_cars_url)
-    .then((res) => res.json())
-    .then((data) => setFilteredCars(data.data))
-    .catch((err) => console.log(err))
-  }
+      .then((res) => res.json())
+      .then((data) => setFilteredCars(data.data))
+      .catch((err) => console.log(err));
+  };
 
   return (
     <div>
       <div
-      className={`${
-        cars ? "hidden" : ""
-      } w-full h-[1000px] bg-[#1E1F27]`}
-      >
-      </div>
+        className={`${
+          cars ? "hidden" : ""
+        } w-full h-[1000px] bg-[#1E1F27]`}></div>
       <div>
-        {cars && 
+        {cars && (
           <div className="flex bg-[#1E1F27] text-white relative">
             <div
               className={`${
@@ -259,9 +258,7 @@ export default function Cars({ search }) {
                   </label>
                 </div>
 
-                <div 
-                id="model_filter" 
-                onClick={filterFunction}>
+                <div id="model_filter" onClick={filterFunction}>
                   <p>Models</p>
                   <label>
                     <input
@@ -428,23 +425,23 @@ export default function Cars({ search }) {
                 <div>
                   <p>Model</p>
                   <select className="text-black" name="" id="">
-                    {!applyFilter && 
-                    cars
-                    .map((car) => {
-                      return (
-                        <option value={car.brand.title}>{car.brand.title}</option>
-                      )
-                    })
-                    }
-                    {applyFilter && 
-                    filteredCars && 
-                    filteredCars
-                    .map((car) => {
-                      return (
-                        <option value={car.brand.title}>{car.brand.title}</option>
-                      )
-                    })
-                    }
+                    {!applyFilter &&
+                      cars.map((car) => {
+                        return (
+                          <option value={car.brand.title}>
+                            {car.brand.title}
+                          </option>
+                        );
+                      })}
+                    {applyFilter &&
+                      filteredCars &&
+                      filteredCars.map((car) => {
+                        return (
+                          <option value={car.brand.title}>
+                            {car.brand.title}
+                          </option>
+                        );
+                      })}
                   </select>
                 </div>
 
@@ -459,8 +456,8 @@ export default function Cars({ search }) {
                     className="rounded-[10px] py-5 text-xl px-10 bg-[#00C600]"
                     type="submit"
                     onClick={(e) => {
-                      e.preventDefault()
-                      setApplyFilter(true)
+                      e.preventDefault();
+                      setApplyFilter(true);
                     }}>
                     Apply filter
                   </button>
@@ -478,7 +475,10 @@ export default function Cars({ search }) {
               </p>
 
               {/* Cars */}
-              <div className={`${applyFilter ? 'hidden' : ''} grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 mt-20 gap-5`}>
+              <div
+                className={`${
+                  applyFilter ? "hidden" : ""
+                } grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 mt-20 gap-5`}>
                 {/* Car Card */}
                 {cars
                   .filter((car) => {
@@ -506,7 +506,8 @@ export default function Cars({ search }) {
                           </div>
 
                           <p className="font-semibold text-xl">
-                            {`AED${car.price_in_aed}`} / {`$${car.price_in_usd}`}
+                            {`AED${car.price_in_aed}`} /{" "}
+                            {`$${car.price_in_usd}`}
                           </p>
                           <p className="mt-2">per day</p>
 
@@ -519,7 +520,9 @@ export default function Cars({ search }) {
                                 <span className="ml-1 text-sm">Whatsup</span>
                               </button>
                             </a>
-                            <a href="https://t.me/+971558462124" target="_blank">
+                            <a
+                              href="https://t.me/+971558462124"
+                              target="_blank">
                               <button className="bg-[#2727E0] rounded-[10px] p-2 text-xl flex">
                                 <img src={telegram} alt="telegram" width={20} />
                                 <span className="ml-1 text-sm">Telegram</span>
@@ -528,70 +531,82 @@ export default function Cars({ search }) {
                           </div>
                         </div>
                       </Link>
-                    )
-                  })
-                }
+                    );
+                  })}
               </div>
 
               {/* Filtered cars this section only appears when filter applied */}
-              <div className={`${applyFilter ? '' : 'hidden'} grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 mt-20 gap-5`}>
+              <div
+                className={`${
+                  applyFilter ? "" : "hidden"
+                } grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 mt-20 gap-5`}>
                 {/* Car Card */}
-                {filteredCars && 
+                {filteredCars &&
                   filteredCars
-                  .filter((car) => {
-                    return car.brand.title
-                      .toLowerCase()
-                      .includes(search.toLowerCase());
-                  })
-                  .map((car, i) => {
-                    return (
-                      <Link to={`${car.id}`} key={i}>
-                        <div
-                          className={`${style.car_card} bg-[#2D2E35] p-3 rounded-[10px] border-solid border-[1px] border-zinc-500`}
-                          onClick={() => {
-                            document.getElementById("search").value = "";
-                          }}>
-                          <div className="border-solid border-b-[1px] border-zinc-500">
-                            <img
-                              className="my-10"
-                              src={`${urlImage}${car.car_images[0].image.src}`}
-                              alt={car.brand.title}
-                            />
-                            <span className="text-xl">
-                              {car.brand.title} {car.model.name}
-                            </span>
-                          </div>
+                    .filter((car) => {
+                      return car.brand.title
+                        .toLowerCase()
+                        .includes(search.toLowerCase());
+                    })
+                    .map((car, i) => {
+                      return (
+                        <Link to={`${car.id}`} key={i}>
+                          <div
+                            className={`${style.car_card} bg-[#2D2E35] p-3 rounded-[10px] border-solid border-[1px] border-zinc-500`}
+                            onClick={() => {
+                              document.getElementById("search").value = "";
+                            }}>
+                            <div className="border-solid border-b-[1px] border-zinc-500">
+                              <img
+                                className="my-10"
+                                src={`${urlImage}${car.car_images[0].image.src}`}
+                                alt={car.brand.title}
+                              />
+                              <span className="text-xl">
+                                {car.brand.title} {car.model.name}
+                              </span>
+                            </div>
 
-                          <p className="font-semibold text-xl">
-                            {`AED${car.price_in_aed}`} / {`$${car.price_in_usd}`}
-                          </p>
-                          <p className="mt-2">per day</p>
+                            <p className="font-semibold text-xl">
+                              {`AED${car.price_in_aed}`} /{" "}
+                              {`$${car.price_in_usd}`}
+                            </p>
+                            <p className="mt-2">per day</p>
 
-                          <div className="flex justify-between mt-10">
-                            <a
-                              href="https://api.whatsapp.com/send/?phone=971558462124&text&type=phone_number&app_absent=0"
-                              target="_blank">
-                              <button className="bg-[#00C600] rounded-[10px] p-2 text-xl flex">
-                                <img src={whatsapp} alt="whatsapp" width={20} />
-                                <span className="ml-1 text-sm">Whatsup</span>
-                              </button>
-                            </a>
-                            <a href="https://t.me/+971558462124" target="_blank">
-                              <button className="bg-[#2727E0] rounded-[10px] p-2 text-xl flex">
-                                <img src={telegram} alt="telegram" width={20} />
-                                <span className="ml-1 text-sm">Telegram</span>
-                              </button>
-                            </a>
+                            <div className="flex justify-between mt-10">
+                              <a
+                                href="https://api.whatsapp.com/send/?phone=971558462124&text&type=phone_number&app_absent=0"
+                                target="_blank">
+                                <button className="bg-[#00C600] rounded-[10px] p-2 text-xl flex">
+                                  <img
+                                    src={whatsapp}
+                                    alt="whatsapp"
+                                    width={20}
+                                  />
+                                  <span className="ml-1 text-sm">Whatsup</span>
+                                </button>
+                              </a>
+                              <a
+                                href="https://t.me/+971558462124"
+                                target="_blank">
+                                <button className="bg-[#2727E0] rounded-[10px] p-2 text-xl flex">
+                                  <img
+                                    src={telegram}
+                                    alt="telegram"
+                                    width={20}
+                                  />
+                                  <span className="ml-1 text-sm">Telegram</span>
+                                </button>
+                              </a>
+                            </div>
                           </div>
-                        </div>
-                      </Link>
-                    )
-                  })
-                }
+                        </Link>
+                      );
+                    })}
               </div>
             </div>
           </div>
-        }
+        )}
       </div>
     </div>
   );

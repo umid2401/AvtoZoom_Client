@@ -46,7 +46,7 @@ useEffect(()=>{
             <h2 className="text-white md:text-3xl text-2xl py-2 font-lato uppercase">Follow Us Instagram</h2>
             <div className="gallery py-5 w-[90%] mx-auto justify-center flex items-center gap-4 lg:flex-nowrap flex-wrap">
                 {images&&images.map((item, index)=>(
-                    <div key={index} className="card lg:w-[170px] md:w-[320px] sm:w-[250px] w-[140px] h-[180px]">
+                    <div key={index} className="card lg:w-[170px] md:w-[320px] sm:w-[250px] w-[125px] h-[180px]">
 
                         <img className="w-full h-full object-cover"  src={item.imgurl} alt="Err" />
                     </div>

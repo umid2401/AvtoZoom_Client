@@ -42,7 +42,7 @@ const Home_slider = () => {
       };
   
   return (
-    <div className="truncate max-w-[1352px] w-full mx-auto">
+    <div className="truncate ">
         <div className="bg-[rgb(17,18,25)] mx-auto w-full flex flex-col items-center gap-2 lg:pb-10 pb-10 lg:pt-10 pt-6">
             <h1 className="text-white lg:text-[35px]  text-[28px] font-lato font-[600]">TOP LUXURY CAR</h1>
             <h1 className="text-white lg:text-[28px]  text-[24px] font-thin font-[600]">RENTAL DUBAI</h1>

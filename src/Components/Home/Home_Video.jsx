@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 
 export default function Home_Video() {
   return (
-    <section className="videosection  gap-10 lg:max-w-[1352px] lg:w-100% bg-[rgb(17,18,25)] mx-auto">
+    <section className="videosection  gap-10  bg-[rgb(17,18,25)] mx-auto">
       <div className="video pb-10 flex items-start w-full flex-wrap">
        
           <div className="lg:w-[60%]  w-full h-[320px] relative" >

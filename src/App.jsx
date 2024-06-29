@@ -22,8 +22,11 @@ import ServicePage from "./Pages/ServicePage"
 
 // Contact pages
 import ContactPage from "./Pages/ContactPage"
-import AboutUsPage from "./Pages/AboutUsPage"
-// import CarsPage from "./Pages/CarsPage"
+// import AboutUsPage from "./Pages/AboutUsPage"
+import CarsPage from "./Pages/CarsPage"
+
+// BlogPage page
+import BlogPage from './Pages/BlogPage';
 
 
 export default function App() {
@@ -44,7 +47,7 @@ export default function App() {
             <Route path="contact" element={<ContactPage/>}/>
             <Route path="service" element={<ServicePage/>}/>
             <Route path="/service/sport_car_rent" element={<ServicePage />}/>
-          <Route path="/service/photoshoot-with-luxury-car-in-dubai" element={<ServicePage />}/>
+            <Route path="/service/photoshoot-with-luxury-car-in-dubai" element={<ServicePage />}/>
             <Route path="about" element={<AboutUsPage/>}/>
             <Route path="blog" element={<BlogPage/>}/>
           </Routes>

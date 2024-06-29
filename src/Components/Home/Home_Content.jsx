@@ -1,6 +1,6 @@
 export default function Home_Content() {
   return (
-    <section className="bg-[rgb(39,41,51)] py-4">
+    <section className="bg-[rgb(39,41,51)] max-w-[1352px] mx-auto py-4 ">
       <div className="container 2xl:w-[1300px] xl:w-[1120px] lg:w-[950px] md:w-[750px] sm:w-[540px] custom:w-[380px] w-[300px]  mx-auto">
         <h2 className="text-white md:text-3xl text-2xl py-2 font-lato">LUXURY CAR RENTAL IN DUBAI</h2>
         <p className="text-white lg:text-[18px] lg:leading-9 text-[14px] leading-7 py-2 font-lato">

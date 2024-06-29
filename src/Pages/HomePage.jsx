@@ -6,15 +6,19 @@ import Home_cars_data_carousel from '../Components/Home_slider/Home_cars_data_ca
 import Home_Content from '../Components/Home/Home_Content'
 import Home_Video from "../Components/Home/Home_Video"
 import Faq from "../Components/Home/Faq"
+import Services from "../Components/Services/Services"
+import FollowUs from '../Components/Home/FollowUs'
 export default function HomePage() {
   return (
     <div>
       <Home_slider/>
       <Home_card_sliders/>
       <Home_cars_data_carousel/>
+      <Services/>
       <Home_Content/>
       <Home_Video/>
       <Faq/>
+      <FollowUs/>
     </div>
   );
 }

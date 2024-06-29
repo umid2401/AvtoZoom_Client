@@ -27,12 +27,43 @@ body{
     font-weight: 300;
     font-style: normal;
 }
+.ant-collapse-header{
+  align-items: center !important;
+  gap: 20px;
+  padding: 12px 0 !important;
+}
+.ant-collapse-header-text{
+    border-bottom:  1px solid white;
+    padding: .5rem 0;
+}
+.ant-collapse-expand-icon{
+    border: 1px solid white;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+    height: auto !important;
+    /* width: 35px !important;
+    height: 35px !important; */
+    padding-inline-end: 0 !important;
+    
+    color: white;
+    
+}
+.ant-collapse-expand-icon span{
+    padding: .6rem;
+    /* transform: translateX(-50%); */
+}
+.ant-collapse-content-box p{
+    padding-left: 50px !important;
 
-section {
+}
+/* section {
     width: 100%;
     max-width: 1200px;
     margin: 0 auto;
-}
+} */
 /* .links{
     position: relative;
 }

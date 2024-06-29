@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 
 export default function Home_Video() {
   return (
-    <section className="videosection  gap-10 lg:max-w-[1352px] lg:w-100% bg-[rgb(17,18,25)] mx-auto">
+    <section className="videosection  gap-10  bg-[rgb(17,18,25)] mx-auto">
       <div className="video pb-10 flex items-start w-full flex-wrap">
        
           <div className="lg:w-[60%]  w-full h-[320px] relative" >
@@ -33,7 +33,7 @@ export default function Home_Video() {
             Mercedes Benz, Porsche, and Range Rover, to name a few. Rent a car
             with the best car rental company in Dubai.
           </p>
-          <Link className="text-white uppercase text-[16px] lg:text-[20px] md:text-[18px] font-lato my-3 flex items-center gap-2">
+          <Link to="/service" className="text-white uppercase text-[16px] lg:text-[20px] md:text-[18px] font-lato my-3 flex items-center gap-2">
                 <span>Learn More</span>
                 <FontAwesomeIcon icon={faCircleArrowRight} />
               </Link>

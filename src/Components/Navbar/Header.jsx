@@ -16,7 +16,7 @@ export default function Header({ setSearch }) {
   // const urlImage =
   //   "https://autoapi.dezinfeksiyatashkent.uz/api/uploads/images/";
   const getCarsData = () => {
-    fetch("https://autoapi.dezinfeksiyatashkent.uz/api/cars")
+    fetch("https://autoapi.dezinfeksiyatashkent.uz/api/brands")
       .then((res) => res.json())
       .then((res) => setBrand_cars(res?.data))
       .catch((err) => {
@@ -44,9 +44,9 @@ export default function Header({ setSearch }) {
   };
 
   return (
-    <header className="">
+    <header className=" ">
       <nav className=" flex items-center py-4  px-4 lg:px-6 justify-between bg-customColor">
-        <div className="nav-left relative z-10 flex gap-0 lg:gap-12 items-center">
+        <div className="nav-left z-10 flex gap-0 lg:gap-12 items-center">
           <div className="nav-lang flex items-center gap-2">
             <img
               className="eng_lang cursor-pointer w-6 lg:w-auto"

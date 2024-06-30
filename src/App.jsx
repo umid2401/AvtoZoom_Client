@@ -46,8 +46,8 @@ export default function App() {
             <Route path="/service" element={<ServicePage/>}/>
             <Route path="/service/sport_car_rent" element={<ServicePage />}/>
           <Route path="/service/photoshoot-with-luxury-car-in-dubai" element={<ServicePage />}/>
-            <Route path="/about" element={<AboutUsPage/>}/>
-            <Route path="/blog" element={<BlogPage/>}/>
+            <Route path="about" element={<AboutUsPage/>}/>
+            <Route path="blog" element={<BlogPage/>}/>
           </Routes>
         <Footer/>
       </BrowserRouter> 

@@ -12,9 +12,9 @@ export default function Services() {
     <div className='service w-full bg-[#111219] p-[1rem]'>
         <section
             style={{
-                width: dates && '98%',
-                maxWidth: dates && '100%',
+                maxWidth: dates ? '1300px' : '1200px',
                 padding: dates && '1rem',
+                margin: '0 auto'
             }}
         >
             <div className='service_inner w-full'>

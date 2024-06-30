@@ -1,5 +1,4 @@
 import React from 'react';
-import foto from '../../../assets/Services/service-item-img1-BcBiZjWi.jpg';
 import ServicePackegs from './ServicePackegs/ServicePackegs';
 
 export default function ServiceBoxInner({avatar, type, count, person, title, packages}) {
@@ -7,7 +6,7 @@ export default function ServiceBoxInner({avatar, type, count, person, title, pac
     <div className='box_inner md:w-[31%] sm:w-[48%] bg-[#1e1f27] text-[#fff] rounded-[.6rem] overflow-hidden'>
         
         <div className='box_inner_images w-full lg:h-[13rem] overflow-hidden lg:mb-[2rem] md:h-[8rem] md:mb-[1rem]'>
-            <img src={`/src/assets/Services/${avatar}`} alt="" className='w-[100%]' />
+            <img src={avatar} alt="" className='w-[100%]' />
         </div>
 
         <div className='box_inner_title lg:p-[1rem] p-[.6rem]'>

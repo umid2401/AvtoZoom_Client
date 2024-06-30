@@ -10,7 +10,7 @@ export default function SevicesBox({avatar, title, paragraf, link}) {
   return (
     <div className='service_box lg:w-[29%] md:w-[29%] ms:w-[29%] lg:mr-[2.8rem] md:mr-[2.8rem] ms:mr-[2.8rem]'>
         <div className='box_images h-[13rem] overflow-hidden flex items-center justfy-center'>
-          <img src={`src/assets/Services/${avatar}`} alt="" className='w-[100%]' />
+          <img src={avatar} alt="" className='w-[100%]' />
         </div>
         <div className='box_title'>
           <h2 className='text-[#fff] lg:text-[1.7rem] md:text-[1.2rem] font-bold uppercase lg:my-[1.5rem] md:my-[.8rem] my-[1.5rem]'>{title}</h2>

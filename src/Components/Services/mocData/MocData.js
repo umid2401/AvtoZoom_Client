@@ -1,14 +1,24 @@
+import SportCar from '../../../assets/Services/serviceImg1-Dm8nxdJt.jpg';
+import PhotoShoot from '../../../assets/Services/serviceImg2-LkBjqsZl.jpg';
+
+import ServiceSportCar1 from '../../../assets/Services/service-item-img1-BcBiZjWi.jpg';
+import ServiceSportCar2 from '../../../assets/Services/service-item2-Xron-uur.jpg';
+import ServiceSportCar3 from '../../../assets/Services/service-item3-BUPsL4LT.jpg';
+
+import PhotoThootCar1 from '../../../assets/Services/service-item-img1-BcBiZjWi.jpg'
+import PhotoThootCar2 from '../../../assets/Services/service-item2-Xron-uur.jpg'
+
 export const dataService = [
     {
         id: 1,
-        avatar: 'serviceImg1-Dm8nxdJt.jpg',
+        avatar: SportCar,
         title: 'Sports Car Rental Dubai Style Tour in Dubai',
         paragraf: 'Experience the thrill of a dune buggy tour in Dubai with us. We offer free hotel pick-up & drop-off service. Book now!',
         link: '/sport_car_rent'
     },
     {
         id: 2,
-        avatar: 'serviceImg2-LkBjqsZl.jpg',
+        avatar: PhotoShoot,
         title: 'Photoshoot with luxury car rental Dubai ',
         paragraf: 'Professional car photoshoot as an additional type of service at Auto Zoom Car Rental',
         link: '/photoshoot-with-luxury-car-in-dubai'
@@ -18,7 +28,7 @@ export const dataService = [
 export const sportCars = [
     {
         id: 1,
-        avatar: 'service-item-img1-BcBiZjWi.jpg',
+        avatar: ServiceSportCar1,
         serviceId: 1,
         type: 'BASIC',
         count: 1000,
@@ -30,7 +40,7 @@ export const sportCars = [
     },
     {
         id: 2,
-        avatar: 'service-item2-Xron-uur.jpg',
+        avatar: ServiceSportCar2,
         serviceId: 1,
         type: 'STRONG',
         count: 2000,
@@ -42,7 +52,7 @@ export const sportCars = [
     },
     {
         id: 3,
-        avatar: 'service-item3-BUPsL4LT.jpg',
+        avatar: ServiceSportCar3,
         serviceId: 1,
         type: 'PREMIUM',
         count: 3000,
@@ -57,7 +67,7 @@ export const sportCars = [
 export const photoShoot = [
     {
         id: 1,
-        avatar: 'service-item-img1-BcBiZjWi.jpg',
+        avatar: PhotoThootCar1,
         serviceId: 2,
         type: 'BASIC',
         count: 2000,
@@ -68,7 +78,7 @@ export const photoShoot = [
     },
     {
         id: 2,
-        avatar: 'service-item2-Xron-uur.jpg',
+        avatar: PhotoThootCar2,
         serviceId: 2,
         type: 'PREMIUM',
         count: 4000,

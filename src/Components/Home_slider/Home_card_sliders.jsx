@@ -56,13 +56,13 @@ const Home_card_sliders = () => {
   return (
     <div className='bg-zinc-900 py-20  truncate'>
         <div  className='2xl:w-[1300px] xl:w-[1000px] lg:w-[900px] md:w-[700px] sm:w-[500px] w-[300px] mx-auto'>
-            <h1 className='font-[600] text-[40px] text-white pl-5'>BRANDS</h1>
+        <h2 className="text-white md:text-3xl text-2xl py-2 font-lato">Brands</h2>
             <div className="slider-containe">
                 <Slider {...settings}>
                   
                       {
                         Brands.map((brand, index) => (
-                            <div key={index} className='p-5' onClick={() => navigate(`/cars/:${brand.id}`)}>
+                            <div key={index} className='p-5' >
                                 <div className='border border-gray-800 hover:bg-gray-900 rounded-sm flex flex-col justify-center items-center py-10'>
                                   <img className='h-[50px]' src={`${urlImage}${brand?.image_src}`} alt="" />
                                   <p className='text-[20px] text-gray-400 font-[600] tracking-tighter '>{brand?.title}</p>

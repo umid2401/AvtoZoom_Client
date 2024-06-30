@@ -45,8 +45,8 @@ const Home_cars_data_carousel = () => {
           ]
       };
   return (
-    <div className="bg-slate-800 py-20  truncate">
-        <div className="2xl:w-[1300px] xl:w-[1000px] lg:w-[900px] md:w-[700px] sm:w-[500px] w-[300px] mx-auto">
+    <div className="bg-[rgb(39,41,51)] py-20  truncate">
+        <div className="2xl:w-[1300px] xl:w-[1120px] lg:w-[900px] md:w-[700px] sm:w-[500px] w-[300px] mx-auto">
 
             {
               Cars?.map((car, index) => (

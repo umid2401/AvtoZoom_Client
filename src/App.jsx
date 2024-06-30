@@ -24,8 +24,18 @@ import ServicePage from "./Pages/ServicePage"
 import ContactPage from "./Pages/ContactPage"
 // import AboutUsPage from "./Pages/AboutUsPage"
 import CarsPage from "./Pages/CarsPage"
-import BlogPage from './Pages/BlogPage'
+
 import Faq from './Components/Home/Faq'
+
+// BlogPage page
+import BlogPage from './Pages/BlogPage';
+import Blog from './Components/Blog/Blog'
+
+// BlogInfo Page 
+import BlogInfo from './Components/Blog/BlogInfo/BlogInfo'
+
+
+
 export default function App() {
 
   const [search, setSearch] = useState('')
@@ -45,9 +55,11 @@ export default function App() {
             <Route path="/contact" element={<ContactPage/>}/>
             <Route path="/service" element={<ServicePage/>}/>
             <Route path="/service/sport_car_rent" element={<ServicePage />}/>
-          <Route path="/service/photoshoot-with-luxury-car-in-dubai" element={<ServicePage />}/>
+            <Route path="/service/photoshoot-with-luxury-car-in-dubai" element={<ServicePage />}/>
             <Route path="about" element={<AboutUsPage/>}/>
-            <Route path="blog" element={<BlogPage/>}/>
+            <Route path="blog" element={<BlogPage/>}>
+              <Route path=":id" element={<BlogInfo/>} />
+            </Route>
           </Routes>
         <Footer/>
       </BrowserRouter> 

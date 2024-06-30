@@ -1,0 +1,12 @@
+.blog_box:not(:last-child) {
+    margin-bottom: 3.4rem;
+}
+
+.blog_box .blog_box_btn {
+    margin-right: 2.8rem;
+    transition: .4s ease;
+}
+
+.blog_box .blog_box_btn:hover {
+    margin-right: 1.8rem;
+}

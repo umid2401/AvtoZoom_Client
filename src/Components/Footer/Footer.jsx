@@ -11,11 +11,11 @@ const Footer = () => {
   const scrollToTop = () => {
     window.scrollTo({
       top: 0,
-      behavior: 'smooth' // Silliq o'tish uchun
+      behavior: 'smooth' 
     });
   };
-  const toPage = (routes) =>{
-    navigate(routes);
+  const toPage = () =>{
+    
     scrollToTop();   
    // eslint-disable-next-line react-hooks/rules-of-hooks
    
@@ -58,16 +58,16 @@ const Footer = () => {
             </ul>
           </div>
           <div>
-            <Link onClick={()=>toPage("/contact")} className="text-lg font-lato lg:mb-4 mb-2 block">CONTACT</Link>
-            <Link to="/blog" className="text-lg font-lato lg:mb-4 mb-2 block">BLOG</Link>
-            <Link to="/" className="text-lg font-lato lg:mb-4 mb-2 block">SERVICE</Link>
+            <Link onClick={()=>toPage()} to="/contact" className="text-lg font-lato lg:mb-4 mb-2 block">CONTACT</Link>
+            <Link onClick={()=>toPage()} to="/blog" className="text-lg font-lato lg:mb-4 mb-2 block">BLOG</Link>
+            <Link onClick={()=>toPage()} to="/service" className="text-lg font-lato lg:mb-4 mb-2 block">SERVICE</Link>
             <p className='font-lato '>Elite 3 Sports City, Dubai 26W8 24J, United Arab Emirates</p>
             <p className='font-lato'>+971 55 8462124</p>
             <p className='font-lato'>Working hours: 24/7</p>
           </div>
           <div>
-          <Link  className="text-lg font-lato lg:mb-4 mb-2 block">ABOUT US</Link>
-          <Link className="text-lg font-lato lg:mb-4 mb-2 block">FAQ</Link>
+          <Link onClick={()=>toPage()} to="/about"  className="text-lg font-lato lg:mb-4 mb-2 block">ABOUT US</Link>
+          <Link onClick={()=>toPage()} to="/faq" className="text-lg font-lato lg:mb-4 mb-2 block">FAQ</Link>
             <h3 className="text-lg font-lato lg:mb-4 mb-2 uppercase">Follow Us</h3>
             <div className="flex space-x-3 items-center">
               <a href="#" className="text-xl"><FontAwesomeIcon className='hover:text-orange-500' icon={faInstagram}/></a>

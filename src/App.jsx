@@ -25,6 +25,7 @@ import ContactPage from "./Pages/ContactPage"
 // import AboutUsPage from "./Pages/AboutUsPage"
 import CarsPage from "./Pages/CarsPage"
 import BlogPage from './Pages/BlogPage'
+import Faq from './Components/Home/Faq'
 export default function App() {
 
   const [search, setSearch] = useState('')
@@ -40,6 +41,7 @@ export default function App() {
               <Route path=":id" element={<CarInfo/>}/>
             </Route>
             <Route path="/brand" element={<BrandPage/>}/>
+            <Route path="/faq" element={<Faq/>}/>
             <Route path="/contact" element={<ContactPage/>}/>
             <Route path="/service" element={<ServicePage/>}/>
             <Route path="/service/sport_car_rent" element={<ServicePage />}/>

@@ -1,5 +1,5 @@
 import { Collapse } from "antd";
-import { DownOutlined, RightOutlined } from '@ant-design/icons';
+
 const texts = [
   {
     label: "What is the minimum age requirements to rent a car in Dubai ?",

@@ -1,9 +1,9 @@
 import "./AboutUs.css";
 const AboutUs = () => {
   return (
-    <section className="about-us">
-      <div className="container 2xl:w-[1300px] xl:w-[1120px] lg:w-[950px] md:w-[750px] sm:w-[540px] custom:w-[380px] w-[300px]  mx-auto">
-        <h1 className="uppercase text-white mb-8">about us</h1>
+    <section className="about-us ">
+      <div className=" py-12 container 2xl:w-[1300px] xl:w-[1120px] lg:w-[950px] md:w-[750px] sm:w-[540px] custom:w-[380px] w-[300px]  mx-auto">
+        <h1 className="uppercase text-white mb-8 ">about us</h1>
         <p className="text-white text-2xl mb-7">
           Welcome to Auto Zoom Car Rental Co LLC – Your Partner in Unforgettable
           Journeys in Dubai!

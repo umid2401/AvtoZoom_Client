@@ -22,7 +22,7 @@ const Footer = () => {
    
   }
   const getCars = () =>{
-    fetch("https://autoapi.dezinfeksiyatashkent.uz/api/cars")
+    fetch("https://autoapi.dezinfeksiyatashkent.uz/api/categories")
     .then(res=>res.json())
     .then(res=>{
       setCars(res?.data)
@@ -33,6 +33,7 @@ const Footer = () => {
   }
   useEffect(()=>{
     getCars();
+    console.log(cars)
     
   },[])
   return (
@@ -50,7 +51,7 @@ const Footer = () => {
             <ul>
               {cars&&cars.map((item,index)=>(
                  <li key={item.id} className="mb-3 font-lato text-[16px]  ">
-                  <Link>{item?.category?.name_en}</Link>
+                  <Link to={`/cars/${item?.id}`} >{item?.name_en}</Link>
                  </li>
               ))}
              

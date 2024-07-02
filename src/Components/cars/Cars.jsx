@@ -9,13 +9,14 @@ import telegram from '../../assets/telegram.svg'
 
 // React features
 import { useEffect, useState } from 'react'
-import { Link } from 'react-router-dom'
+import { Link, useParams } from 'react-router-dom'
 
 export default function Cars({ search }) {
 
   const APIcars = 'https://autoapi.dezinfeksiyatashkent.uz/api/cars'
   const urlImage = 'https://autoapi.dezinfeksiyatashkent.uz/api/uploads/images/'
-
+  const { id } = useParams();
+  console.log(id)
   const [filter_toggle, set_filter_toggle] = useState(false)
   const [cars, setCars] = useState(null)
 

@@ -49,7 +49,7 @@ export default function App() {
             <Route path="/cars" element={<CarsPage/>}>
               <Route index element={<Cars search={search}/>}/>
               <Route path=":id" element={<CarInfo/>}/>
-            </Route>
+            </Route>  
             <Route path="/brand" element={<BrandPage/>}/>
             <Route path="/faq" element={<Faq/>}/>
             <Route path="/contact" element={<ContactPage/>}/>

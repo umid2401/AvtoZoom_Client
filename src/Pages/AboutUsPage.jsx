@@ -1,10 +1,9 @@
 // eslint-disable-next-line no-unused-vars
-import React from 'react';
-
+import AboutUs from "../Components/AboutUs/AboutUs";
 export default function AboutUsPage() {
   return (
     <div>
-      <p>Welcome to AbouPage</p>
+      <AboutUs />
     </div>
-  )
+  );
 }

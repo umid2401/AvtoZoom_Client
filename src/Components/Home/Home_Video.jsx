@@ -50,7 +50,7 @@ export default function Home_Video() {
           <p className="text-white  lg:text-[18px] lg:leading-9 text-[14px] leading-7 py-2 font-lato">
           Hire the latest supercar
           </p>
-          <Link className="text-white uppercase text-[16px] lg:text-[20px] md:text-[18px] font-lato my-3 flex items-center gap-2">
+          <Link to="/cars" className="text-white uppercase text-[16px] lg:text-[20px] md:text-[18px] font-lato my-3 flex items-center gap-2">
                 <span>See All</span>
                 <FontAwesomeIcon icon={faCircleArrowRight} />
               </Link>

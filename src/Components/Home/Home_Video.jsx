@@ -1,10 +1,10 @@
-import { faCircleArrowRight } from "@fortawesome/free-solid-svg-icons";
+import { faChevronRight, faCircleArrowRight } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Link } from "react-router-dom";
 
 export default function Home_Video() {
   return (
-    <section className="videosection  gap-10  bg-[rgb(17,18,25)] mx-auto">
+    <section className="videosection  gap-10  bg-[rgb(17,18,25)] mx-auto section">
       <div className="video pb-10 flex items-start w-full flex-wrap">
        
           <div className="lg:w-[60%]  w-full h-[320px] relative" >
@@ -35,7 +35,10 @@ export default function Home_Video() {
           </p>
           <Link to="/service" className="text-white uppercase text-[16px] lg:text-[20px] md:text-[18px] font-lato my-3 flex items-center gap-2">
                 <span>Learn More</span>
-                <FontAwesomeIcon icon={faCircleArrowRight} />
+                <FontAwesomeIcon 
+              className='ml-[.6rem] text-[.8rem] divide-solid border-[2px] tetx-[#fff] py-[6px] px-[8px] rounded-[50%]'
+              icon={faChevronRight} 
+            />
               </Link>
         </div>
       </div>
@@ -52,8 +55,10 @@ export default function Home_Video() {
           </p>
           <Link to="/cars" className="text-white uppercase text-[16px] lg:text-[20px] md:text-[18px] font-lato my-3 flex items-center gap-2">
                 <span>See All</span>
-                <FontAwesomeIcon icon={faCircleArrowRight} />
-              </Link>
+                <FontAwesomeIcon 
+              className='ml-[.6rem] text-[.8rem] divide-solid border-[2px] tetx-[#fff] py-[6px] px-[8px] rounded-[50%]'
+              icon={faChevronRight} 
+            />              </Link>
         </div>
       </div>
     </section>

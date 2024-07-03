@@ -10,12 +10,12 @@ export default function Blog() {
     const [dates] = BlogControl(id);
     
   return (
-    <div className='blog w-full bg-[#1e1f27] text-[#fff] xl:p-[1.6rem] lg:p-[1.6rem] md:p-[1.6rem]'>
-        <div className='blog_innrt w-[100%] max-w-[100%] xl:max-w-[1300px] lg:max-w-[1300px] md:max-w-[1300px] mx-auto'>
+    <div className='blog w-full bg-[#1e1f27] text-[#fff] xl:p-[1.6rem] lg:p-[1.6rem] md:p-[1.6rem] section'>
+        <div className="container 2xl:w-[1300px] xl:w-[1120px] lg:w-[950px] md:w-[750px] sm:w-[540px] custom:w-[380px] w-[300px]  mx-auto">
 
             <div className='blog_title p-[1.4rem]'>
-                <p className='text-[.9rem] text-[#a5a5a9] mb-[1.2rem]'>Luxury Cars fr Rent in Dubai / Blog {dates && '/ ' + dates.title}</p>
-                <h2 className='uppercase font-bold text-[2.7rem]'
+                <p className='text-[.9rem] font-lato text-[#a5a5a9] mb-[1.2rem]'>Luxury Cars fr Rent in Dubai / Blog {dates && '/ ' + dates.title}</p>
+                <h2 className='uppercase font-lato   text-[2.7rem]'
                     style={{
                         display: id ? 'none' : 'block'
                     }}

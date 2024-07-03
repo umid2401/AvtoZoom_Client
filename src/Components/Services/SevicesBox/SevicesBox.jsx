@@ -13,9 +13,9 @@ export default function SevicesBox({avatar, title, paragraf, link}) {
           <img src={avatar} alt="" className='w-[100%]' />
         </div>
         <div className='box_title'>
-          <h2 className='text-[#fff] lg:text-[1.7rem] md:text-[1.2rem] font-bold uppercase lg:my-[1.5rem] md:my-[.8rem] my-[1.5rem]'>{title}</h2>
-          <p className='text-[#fff] lg:text-[1.1rem] md:text-[.8rem] lg:leading-8 md:leading-6 mb-[2rem]'>{paragraf}</p>
-          <button className='text-[#fff] mb-[1rem] flex items-center' onClick={() => navigate(`/service${link}`)}>
+          <h2 className='text-[#fff] lg:text-[1.7rem] md:text-[1.2rem] font-lato uppercase lg:my-[1.5rem] md:my-[.8rem] my-[1.5rem]'>{title}</h2>
+          <p className='text-[#fff] lg:text-[1.1rem] md:text-[.8rem] font-lato lg:leading-8 md:leading-6 mb-[2rem]'>{paragraf}</p>
+          <button className='text-[#fff] mb-[1rem] font-lato flex items-center' onClick={() => navigate(`/service${link}`)}>
             LEARN MORE 
             <FontAwesomeIcon 
               className='ml-[1rem] text-[.8rem] divide-solid border-[2px] tetx-[#fff] py-[6px] px-[8px] rounded-[50%]'

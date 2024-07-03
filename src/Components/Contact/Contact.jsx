@@ -7,25 +7,25 @@ import { faEnvelopeOpenText } from '@fortawesome/free-solid-svg-icons';
 
 export default function Contact() {
   return (
-    <div className='contact bg-[#111219] h-[100%] text-[#fff] py-[2rem]'>
-        <div className='contact_inner w-[100%] max-w-[1240px] my-[0] mx-[auto] px-[1rem]'>
+    <div className='contact bg-[#111219] h-[100%] text-[#fff] py-[2rem] section'>
+        <div className="container 2xl:w-[1300px] xl:w-[1120px] lg:w-[950px] md:w-[750px] sm:w-[540px] custom:w-[380px] w-[300px]  mx-auto">
 
             <div className='contact_title mt-[2rem] mb-[4rem]'>
-                <p className='xl:text-[.9rem] lg:text-[.9rem] md:text-[.9rem] text-[.9rem] text-[#a5a5a9] mb-[1.8rem]'>Luxury Cars fr Rent in Dubai / Contacts </p>
-                <h2 className='xl:text-[2.3rem] lg:text-[2.3rem] md:text-[2.3rem] text-[1.3rem] font-bold'>HAVE ANY QUESTIONS?</h2>
-                <p className='xl:text-[1.1rem] lg:text-[1.1rem] md:text-[1.1rem] text-[.8rem] text-[#a5a5a9] mb-[.2rem] mt-[2.3rem]'>We woud love to help</p>
-                <p className='xl:text-[1.1rem] lg:text-[1.1rem] md:text-[1.1rem] text-[.8rem] text-[#a5a5a9] '>Auto Zoom Car Rental Dubai, is the best luxury car
+                <p className='xl:text-[.9rem] font-lato lg:text-[.9rem] md:text-[.9rem] text-[.9rem] text-[#a5a5a9] mb-[1.8rem]'>Luxury Cars fr Rent in Dubai / Contacts </p>
+                <h2 className='xl:text-[2.3rem] font-lato lg:text-[2.3rem] md:text-[2.3rem] text-[1.3rem] font-bold'>HAVE ANY QUESTIONS?</h2>
+                <p className='xl:text-[1.1rem] font-lato lg:text-[1.1rem] md:text-[1.1rem] text-[.8rem] text-[#a5a5a9] mb-[.2rem] mt-[2.3rem]'>We woud love to help</p>
+                <p className='xl:text-[1.1rem] font-lato lg:text-[1.1rem] md:text-[1.1rem] text-[.8rem] text-[#a5a5a9] '>Auto Zoom Car Rental Dubai, is the best luxury car
                     rental Dubai based company.
                 </p>
             </div>
 
             <div className='contact border-solid border-[#ccc] border-b-[1px] pb-[1rem]'>
-                <h2 className='text-[1.9rem] font-bold ml-[2.8rem]'>Head office</h2>
-                <p className='my-[1rem] block xl:text-[1.4rem] lg:text-[1.4rem] md:text-[1.4rem] text-[.8rem]'>
+                <h2 className='text-[1.9rem] font-lato ml-[2.8rem]'>Head office</h2>
+                <p className='my-[1rem] font-lato block xl:text-[1.4rem] lg:text-[1.4rem] md:text-[1.4rem] text-[.8rem]'>
                     <FontAwesomeIcon icon={faLocationDot} className='text-[#a5a5a9] xl:text-[1.2rem] lg:text-[1.2rem] md:text-[1.2rem] text-[.9rem] mr-[1.1rem]' />
                     Elite 3 Sports City, Dubai 26W8 24J, United Arab Emirates
                 </p>
-                <Link className='my-[1rem] block xl:text-[1.4rem] lg:text-[1.4rem] md:text-[1.4rem] text-[.8rem]'>
+                <Link className='my-[1rem] font-lato block xl:text-[1.4rem] lg:text-[1.4rem] md:text-[1.4rem] text-[.8rem]'>
                     <FontAwesomeIcon icon={faPhone} className='text-[#a5a5a9] xl:text-[1.2rem] lg:text-[1.2rem] md:text-[1.2rem] text-[.9rem] mr-[1.1rem]' />
                     +971 (55) 846 21 24
                 </Link>

@@ -20,29 +20,46 @@ const Home_slider = () => {
     };
     
     const settings = {
-        dots: true,
-        infinite: true,
-        speed: 500,
-        slidesToShow: 1,
-        slidesToScroll: 1,
-        className: "center",
-        centerPadding: "60px",
-        arrows: true,
-        responsive: [
-            {
-              breakpoint: 1024,
-              settings: {
-                slidesToShow: 1,
-                slidesToScroll: 1,
-                infinite: true,
-                dots: true
-              }
-            }
-          ]
-      };
+      dots: false,
+      infinite: true,
+      speed: 500,
+      slidesToShow: 1,
+      slidesToScroll: 0,
+      initialSlide: 0,
+      rows:1,
+      arrows:false,
+      
+      responsive: [
+        {
+          breakpoint: 1024,
+          settings: {
+            slidesToShow: 3,
+            slidesToScroll: 3,
+            infinite: true,
+            dots: true
+          }
+        },
+        {
+          breakpoint: 600,
+          settings: {
+            slidesToShow: 2,
+            slidesToScroll: 2,
+            initialSlide: 2
+          }
+        },
+        {
+          breakpoint: 480,
+          settings: {
+            slidesToShow: 1,
+            slidesToScroll: 1,
+            
+          }
+        }
+      ]
+    };
   
   return (
-    <div className="truncate ">
+    <div className="section ">
         <div className="bg-[rgb(17,18,25)] mx-auto w-full flex flex-col items-center gap-2 lg:pb-10 pb-10 lg:pt-10 pt-6">
             <h1 className="text-white lg:text-[35px]  text-[28px] font-lato font-[600]">TOP LUXURY CAR</h1>
             <h1 className="text-white lg:text-[28px]  text-[24px] font-thin font-[600]">RENTAL DUBAI</h1>
@@ -53,7 +70,7 @@ const Home_slider = () => {
             RENT A CAR DUBAI CATALOG
             </p>
         </div>
-        <div className='w-screen bg-[rgb(17,18,25)]'>
+        <div className=' bg-[rgb(17,18,25)]'>
             <div className="slider-container truncate">
                 <Slider  ref={slider => {
                     sliderRef = slider;

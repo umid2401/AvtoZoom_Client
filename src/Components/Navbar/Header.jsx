@@ -50,7 +50,7 @@ export default function Header({ setSearch }) {
     }
   }
   return (
-    <header className=" ">
+    <header className="section relative">
       <nav className=" flex items-center py-4  px-4 lg:px-6 justify-between bg-customColor">
         <div className="nav-left z-20 flex gap-0 lg:gap-12 items-center">
           <div className="nav-lang flex items-center gap-2">

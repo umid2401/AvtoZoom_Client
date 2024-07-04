@@ -8,7 +8,7 @@ import { faEnvelopeOpenText } from '@fortawesome/free-solid-svg-icons';
 export default function Contact() {
   return (
     <div className='contact bg-[#111219] h-[100%] text-[#fff] py-[2rem] section'>
-        <div className="container 2xl:w-[1300px] xl:w-[1120px] lg:w-[950px] md:w-[750px] sm:w-[540px] custom:w-[380px] w-[300px]  mx-auto">
+        <div className=" 2xl:w-[1300px] xl:w-[1120px] lg:w-[950px] md:w-[750px] sm:w-[540px] custom:w-[380px] w-[300px]  mx-auto">
 
             <div className='contact_title mt-[2rem] mb-[4rem]'>
                 <p className='xl:text-[.9rem] font-lato lg:text-[.9rem] md:text-[.9rem] text-[.9rem] text-[#a5a5a9] mb-[1.8rem]'>Luxury Cars fr Rent in Dubai / Contacts </p>

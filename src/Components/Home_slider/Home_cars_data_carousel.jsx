@@ -64,7 +64,7 @@ const Home_cars_data_carousel = () => {
   };
   return (
     <div className="bg-[rgb(39,41,51)] py-20  section">
-      <div className="container 2xl:w-[1300px] xl:w-[1120px] lg:w-[950px] md:w-[750px] sm:w-[540px] custom:w-[380px] w-[300px]  mx-auto">
+      <div className=" 2xl:w-[1300px] xl:w-[1120px] lg:w-[950px] md:w-[750px] sm:w-[540px] custom:w-[380px] w-[300px]  mx-auto">
         {Cars?.map((car, index) => (
           <div key={index}>
             <div className="flex md:flex-row flex-col gap-4 justify-between mt-28">
@@ -82,7 +82,7 @@ const Home_cars_data_carousel = () => {
             />
               </h1>
             </div>
-            <div className="slider-container">
+            <div className="slider-">
               <Slider {...settings}>
                 {car?.car_images?.map((images, imgndex) => (
                   <div

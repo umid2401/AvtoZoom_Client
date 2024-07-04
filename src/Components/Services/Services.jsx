@@ -10,7 +10,7 @@ export default function Services() {
     
   return (
     <div className='service w-full bg-[#111219] p-[1rem] section'>
-        <div className="container 2xl:w-[1300px] xl:w-[1120px] lg:w-[950px] md:w-[750px] sm:w-[540px] custom:w-[380px] w-[300px]  mx-auto">
+        <div className=" 2xl:w-[1300px] xl:w-[1120px] lg:w-[950px] md:w-[750px] sm:w-[540px] custom:w-[380px] w-[300px]  mx-auto">
             <div className='service_inner w-full'>
 
                 <div className='servic_title mt-[5.1rem]'>

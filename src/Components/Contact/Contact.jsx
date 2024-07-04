@@ -15,20 +15,20 @@ export default function Contact() {
 
             <div className='contact_title '>
                 <p className='xl:text-[1rem] font-lato lg:text-[2rem] md:text-[.9rem] text-[.9rem] text-[#a5a5a9] mb-[1.8rem]'><span className='cursor-pointer' onClick={()=>navigate("/")}>{t("cars-f")}</span>/{t("contact")} </p>
-                <h2 className='xl:text-[2.3rem] font-lato lg:text-[2.3rem] md:text-[2.3rem] text-[1.3rem] '>{t("have")} </h2>
-                <p className='xl:text-[1.1rem] font-lato lg:text-[1.1rem] md:text-[1.1rem] text-[.8rem] text-[#a5a5a9] mb-[.2rem] mt-[2.3rem]'>{t("we-would")} </p>
-                <p className='xl:text-[1.1rem] font-lato lg:text-[1.1rem] md:text-[1.1rem] text-[.8rem] text-[#a5a5a9] '>{t("a-car")}
+                <h2 className='text-white md:text-3xl text-xl py-2 font-lato'>{t("have")} </h2>
+                <p className='text-white  lg:text-[18px] lg:leading-9 text-[14px] leading-7 py-2 font-lato'>{t("we-would")} </p>
+                <p className='text-white  lg:text-[18px] lg:leading-9 text-[14px] leading-7 py-2 font-lato '>{t("a-car")}
                     
                 </p>
             </div>
 
             <div className='contact border-solid border-[#ccc] border-b-[1px] pb-[1rem]'>
-                <h2 className='text-[1.9rem] font-lato ml-[0rem]'>{t("head")} </h2>
-                <p className='my-[1rem] font-lato block xl:text-[1.4rem] lg:text-[1.4rem] md:text-[1.4rem] text-[.8rem]'>
+                <h2 className='text-white md:text-3xl text-xl py-2 font-lato'>{t("head")} </h2>
+                <p className='text-white  lg:text-[18px] lg:leading-9 text-[14px] leading-7 py-2 font-lato'>
                     <FontAwesomeIcon icon={faLocationDot} className='text-[#a5a5a9] xl:text-[1.2rem] lg:text-[1.2rem] md:text-[1.2rem] text-[.9rem] mr-[1.1rem]' />
                     {t("location")}
                 </p>
-                <Link className='my-[1rem] font-lato block xl:text-[1.4rem] lg:text-[1.4rem] md:text-[1.4rem] text-[.8rem]'>
+                <Link className='text-white  lg:text-[18px] lg:leading-9 text-[14px] leading-7 py-2 font-lato'>
                     <FontAwesomeIcon icon={faPhone} className='text-[#a5a5a9] xl:text-[1.2rem] lg:text-[1.2rem] md:text-[1.2rem] text-[.9rem] mr-[1.1rem]' />
                     +971 (55) 846 21 24
                 </Link>

@@ -49,10 +49,10 @@ const Footer = () => {
                 className="mb-4 w-20 lg:w-24 md:w-20"
               />
             </Link>
-            <h2 className="text-xl font-lato mb-4">
+            <h2 className="uppercase text-white  lg:text-[18px] lg:leading-9 text-[16px] leading-7 py-2 font-lato mb-4">
              {t("luxury-car-rental")}
             </h2>
-            <p className="font-lato text-[15px]">
+            <p className="text-white  lg:text-[16px] lg:leading-9 text-[14px] leading-7 py-2 font-lato">
               {t("rent-s")}
             </p>
             <button className="mt-4 px-6 font-lato hover:bg-orange-500 py-3 bg-black text-white border rounded-xl ">
@@ -60,11 +60,11 @@ const Footer = () => {
             </button>
           </div>
           <div>
-            <Link className="text-lg font-lato lg:mb-4 mb-2 block">CARS</Link>
+            <Link className="uppercase text-white  lg:text-[17px] lg:leading-9 text-[15px] leading-7 py-2 font-lato block">CARS</Link>
             <ul>
               {cars &&
                 cars.map((item, index) => (
-                  <li key={item.id}  className="mb-3 font-lato text-[16px]  ">
+                  <li key={item.id}  className="uppercase text-white  lg:text-[16px] lg:leading-9 text-[15px] leading-7 py-2 font-lato  ">
                     <Link to={`/cars/${item?.id}`}>{item?.[t("lan")]}</Link>
                   </li>
                 ))}
@@ -74,25 +74,25 @@ const Footer = () => {
             <Link
               onClick={() => toPage()}
               to="/contact"
-              className="text-lg uppercase font-lato lg:mb-4 mb-2 block"
+              className="uppercase text-white  lg:text-[17px] lg:leading-9 text-[15px] leading-7 py-2 font-latoblock"
             >
               {t("contact")}
             </Link>
             <Link
               onClick={() => toPage()}
               to="/blog"
-              className="text-lg uppercase font-lato lg:mb-4 mb-2 block"
+              className="uppercase text-white  lg:text-[17px] lg:leading-9 text-[15px] leading-7 py-2 font-lato block"
             >
               {t("blog")}
             </Link>
             <Link
               onClick={() => toPage()}
               to="/service"
-              className="text-lg uppercase font-lato lg:mb-4 mb-2 block"
+              className=" uppercase text-white  lg:text-[17px] lg:leading-9 text-[15px] leading-7 py-2 font-lato"
             >
               {t("service")}
             </Link>
-            <p className="font-lato ">
+            <p className="text-white  lg:text-[16px] lg:leading-9 text-[14px] leading-7 py-2 font-lato">
               {t("elit")}
             </p>
             
@@ -101,18 +101,18 @@ const Footer = () => {
             <Link
               onClick={() => toPage()}
               to="/about"
-              className="lg:text-lg uppercase font-lato lg:mb-4 mb-2 block"
+              className="uppercase text-white  lg:text-[17px] lg:leading-9 text-[15px] leading-7 py-2 font-lato block"
             >
               {t("about")}
             </Link>
             <Link
               onClick={() => toPage()}
               to="/faq"
-              className="text-lg font-lato lg:mb-4 mb-2 block"
+              className="uppercase text-white  lg:text-[17px] lg:leading-9 text-[15px] leading-7 py-2 font-lato block"
             >
               {t("faq")}
             </Link>
-            <h3 className="text-lg font-lato lg:mb-4 mb-2 uppercase">
+            <h3 className="uppercase text-white  lg:text-[17px] lg:leading-9 text-[15px] leading-7 py-2 font-lato uppercase">
              {t("follow-us")}
             </h3>
             <div className="flex space-x-3 items-center">
@@ -138,8 +138,8 @@ const Footer = () => {
           </div>
         </div>
         <div className="border-t border-gray-700 mt-8 pt-4 text-center">
-          <p> {t("zoom")} </p>
-          <a href="#" className="block mt-2">
+          <p className="text-white  lg:text-[18px] lg:leading-9 text-[14px] leading-7  font-lato"> {t("zoom")} </p>
+          <a href="#" className="block text-white  lg:text-[18px] lg:leading-9 text-[14px] leading-7  font-lato mt-2">
            {t("app")}
           </a>
         </div>

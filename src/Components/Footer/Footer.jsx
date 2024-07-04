@@ -44,7 +44,7 @@ const Footer = () => {
           <div>
             <Link to="/" onClick={toPage}>
               <img
-                src="/Images/logo.png"
+                src="/Images/red1.png"
                 alt="Auto Zoom"
                 className="mb-4 w-20 lg:w-24 md:w-20"
               />

@@ -72,11 +72,11 @@ const Home_cars_data_carousel = () => {
         {Cars?.map((car, index) => (
           <div key={index}>
             <div className="flex md:flex-row my-5 items-center flex-wrap  justify-between ">
-              <h1 className="text-white uppercase  font-lato md:text-[30px] text-[16px] ">
+              <h1 className="text-white uppercase text-wrap font-regular md:text-[30px] text-[16px] ">
                 {car?.category[t("lan")]}
               </h1>
               <h1
-                className="text-white uppercase flex items-center  font-thin md:text-[20px] text-[12px] cursor-pointer hover:mr-2"
+                className="text-white uppercase flex items-center  font-regular md:text-[20px] text-[12px] cursor-pointer hover:mr-2"
                 onClick={() => navigate(`/cars/${car?.category_id}`)}
               >
                 <span>{t("see-all")}</span>
@@ -94,7 +94,7 @@ const Home_cars_data_carousel = () => {
                     className="my-5"
                     onClick={() => navigate(`/cars/:${images?.car_id}`)}
                   >
-                    <div className=" py-5 lg:px-6 md:px-5 px-0 ml-[0px] cursor-pointer rounded-xl hover:bg-slate-500 hover:shadow-xl">
+                    <div className=" py-5 lg:px-10 md:px-5 px-0 ml-[0px] cursor-pointer rounded-xl hover:bg-[rgb(30,31,39)] hover:shadow-xl">
                      
                       <img
                         className="h-[160px] mx-auto text-center "
@@ -104,7 +104,7 @@ const Home_cars_data_carousel = () => {
                       <p className=" font-lato text-[16px] md:text-[18px] lg:text-[20px] text-white border-b pb-2 pt-6 ">
                         {car.brand.title} {car?.model?.name}
                       </p>
-                      {/* ##############  Price  ############## */}
+                      
                       <p className=" font-lato text-[17px] md:text-[19px] lg:text-[22px] pt-3">
                         <span className="text-white">
                           AED {car?.price_in_aed} /

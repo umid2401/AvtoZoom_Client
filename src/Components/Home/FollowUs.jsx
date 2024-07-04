@@ -1,8 +1,11 @@
 
+import { faXmark } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { Modal } from "antd";
 import { useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { Link } from "react-router-dom";
-
+// import 'antd/dist/antd.css';
 
 export default function FollowUs() {
     const { t } = useTranslation();
@@ -42,14 +45,20 @@ useEffect(()=>{
     getCities();
     getLocations();
     
-},[])
+},[]);
+const [visible, setVisible] = useState(false);
+const [url, setUrl] = useState(null);
+const openModal = (item) =>{
+    setVisible(true)
+    setUrl(item);
+}
   return (
     <section className="faq bg-[rgb(30,31,39)] section ">
             <div className="2xl:w-[1300px] xl:w-[1250px] lg:w-[950px] md:w-[750px] sm:w-[540px] custom:w-[380px] w-[300px]  mx-auto">
             <h2 className="text-white md:text-3xl text-2xl py-2 font-lato uppercase">{t("follow")}</h2>
             <div className="gallery py-5 w-[90%] mx-auto justify-center flex items-center gap-4 lg:flex-nowrap flex-wrap">
                 {images&&images.map((item, index)=>(
-                    <div key={index} className="card lg:w-[170px] md:w-[320px] sm:w-[250px] w-[125px] h-[180px]">
+                    <div onClick={()=>openModal(item.imgurl)} key={index} className="card lg:w-[170px] md:w-[320px] sm:w-[250px] w-[125px] h-[180px]">
 
                         <img className="w-full h-full object-cover"  src={item.imgurl} alt="Err" />
                     </div>
@@ -70,6 +79,20 @@ useEffect(()=>{
                 </div>
             </div>
             </div>
+            <Modal
+        
+        // This was removed
+        // centered
+        visible={visible}
+        onOk={() => setVisible(false)}
+        onCancel={() => setVisible(false)}
+        footer={null}
+        // This was removed
+        // width={'1000'}
+      >
+       <FontAwesomeIcon onClick={()=>setVisible(false)} icon={faXmark} className="ml-auto block cursor-pointer text-white size-7" />
+      <img className="mx-auto transform translate-y-[-50%] translate-x-[-50%] absolute top-[50%] left-[50%]" src={url} alt="err" />
+      </Modal>
     </section>
   )
 }

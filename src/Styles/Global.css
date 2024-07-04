@@ -27,6 +27,23 @@ body{
     font-weight: 300;
     font-style: normal;
 }
+.ant-modal{
+    background-color: black !important;
+    opacity: 0.9;
+}
+.ant-modal, .ant-modal-content {
+    height: 100vh;
+    width: 100% !important;
+    margin: 0;
+    top: 0;
+    background-color: black !important;
+    
+   }
+   .ant-modal-body {
+    height: calc(100vh - 110px);
+    margin: 0 auto;
+    background-color: black !important;
+   }
 .ant-collapse-header{
   align-items: center !important;
   gap: 20px;

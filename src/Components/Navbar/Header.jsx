@@ -110,15 +110,15 @@ export default function Header({ setSearch }) {
 
           <div className="nav-logo hidden lg:block">
             <Link to="/">
-              <img className="w-24" src="/Images/logo.png" alt="Error" />
+              <img className="w-28" src="/Images/red1.png" alt="Error" />
             </Link>
           </div>
         </div>
         <div className="nav-logo lg:hidden block ">
           <Link to="/">
             <img
-              className=" w-16 sm:w-20 md:w-24"
-              src="/Images/logo.png"
+              className=" w-20 sm:w-20 md:w-24"
+              src="/Images/red1.png"
               alt="Error"
             />
           </Link>
@@ -143,7 +143,7 @@ export default function Header({ setSearch }) {
                   // onMouseLeave={()=>onEvent(item?.name)}
                   key={index}
                   to={item.to}
-                  className="px-1  links transition duration-300 ease-in-out  text-white hover:text-orange-500 hover:underline-offset-2 font-lato text-nowrap uppercase"
+                  className="px-1 text-[15px]  links transition duration-300 ease-in-out  text-white hover:text-orange-500 hover:underline-offset-2 font-lato text-nowrap uppercase"
                 >
                   {item.name}
                 </Link>

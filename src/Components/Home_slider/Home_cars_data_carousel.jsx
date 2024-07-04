@@ -67,11 +67,11 @@ const Home_cars_data_carousel = () => {
     ],
   };
   return (
-    <div className="bg-[rgb(39,41,51)] py-20  section">
+    <div className="bg-[rgb(39,41,51)] lg:py-20 py-10  section">
       <div className="container 2xl:w-[1300px] xl:w-[1250px] lg:w-[950px] md:w-[750px] sm:w-[540px] custom:w-[380px] w-[300px]  mx-auto">
         {Cars?.map((car, index) => (
           <div key={index}>
-            <div className="flex md:flex-row flex-col gap-4 justify-between mt-28">
+            <div className="flex md:flex-row flex-col gap-4 justify-between ">
               <h1 className="text-white   font-lato md:text-[30px] text-[20px] ">
                 {car?.category[t("lan")]}
               </h1>

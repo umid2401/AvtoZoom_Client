@@ -9,6 +9,7 @@ import {
   faXmark,
 } from "@fortawesome/free-solid-svg-icons";
 import { useTranslation } from "react-i18next";
+import { LikeOutlined } from "@ant-design/icons";
 
 export default function Header({ setSearch }) {
   const [show_menu, setShov_menu] = useState(false);
@@ -38,12 +39,12 @@ export default function Header({ setSearch }) {
     
   };
   const routes = [
-    { name: t("cars"), to: "/cars" },
-    { name: t("brand") },
-    { name: t("about"), to: "/about" },
-    { name: t("service"), to: "/service" },
-    { name: t("contact"), to: "/contact" },
-    { name: t("blog"), to: "/blog" },
+    {  id:"1",name: t("cars"), to: "/cars" },
+    {  id:"brand",name: t("brand") },
+    {  id:"1",name: t("about"), to: "/about" },
+    {  id:"1",name: t("service"), to: "/service" },
+    {  id:"1",name: t("contact"), to: "/contact" },
+    {  id:"1",name: t("blog"), to: "/blog" },
   ];
   const openMenu = () => {
     setShov_menu(true);
@@ -53,7 +54,7 @@ export default function Header({ setSearch }) {
   };
   
   const onEvent = (item) =>{
-    if(item==="Brand"){
+    if(item==="brand"){
       setShow_modal(!show_modal)
     }
   }
@@ -138,7 +139,7 @@ export default function Header({ setSearch }) {
               routes.map((item, index) => (
                 <Link
                   onClick={hideMenu}
-                  onMouseEnter={()=>onEvent(item?.name)}
+                  onMouseEnter={()=>onEvent(item?.id)}
                   // onMouseLeave={()=>onEvent(item?.name)}
                   key={index}
                   to={item.to}
@@ -161,22 +162,22 @@ export default function Header({ setSearch }) {
           <FontAwesomeIcon icon={faBars} className="text-white size-7" />
         </div>
       </nav>
-      <div onMouseLeave={()=>setShow_modal(false)} className={`${show_modal?"flex":"hidden"} dropdown md:z-[20]   bg-dropColor flex flex-wrap justify-start gap-4 rounded-lg w-[65%] px-4 py-8 absolute top-[60px]  right-0`}>
+      <div onMouseLeave={()=>setShow_modal(false)} className={`${show_modal?"flex":"hidden"} dropdown md:z-[20] z-40  bg-dropColor flex flex-wrap justify-start gap-4 rounded-lg lg:w-[65%] px-4 py-8 absolute top-[60px]  right-0`}>
         {brand_cars ? (
           brand_cars.map((item, index) => (
-            <Link onClick={()=>setShow_modal(false)} to={`cars/${item?.id}`} className="w-[30%] text-white flex items-center  " key={index}>
-              <div className="w-12 h-12 rounded-[50%] overflow-hidden ">
+            <Link onClick={()=>setShow_modal(false)} to={`cars/${item?.id}`} className="w-[100%] lg:w-[65%] text-white flex items-start  " key={index}>
+              <div className="w-[40px] h-[40px] rounded-[50%] overflow-hidden ">
                 <img
-                  className="w-full h-full object-cover"
+                  className="w-[40px] h-[40px] object-cover"
                   src={`${urlImage}${item?.image_src}`}
                   alt={item?.title}
                   
                 />
               </div>
               <p>
-                <span className="mx-2">Rent</span>
+                <span className="mx-2 font-lato">Rent</span>
                 {item?.title}
-                <span className="mx-2">Dubai</span>{" "}
+                <span className="mx-2 font-lato">Dubai</span>{" "}
               </p>
             </Link>
           ))

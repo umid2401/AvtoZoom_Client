@@ -165,7 +165,7 @@ export default function Header({ setSearch }) {
       <div onMouseLeave={()=>setShow_modal(false)} className={`${show_modal?"flex":"hidden"} dropdown md:z-[20] z-40  bg-dropColor flex flex-wrap justify-start gap-4 rounded-lg lg:w-[65%] px-4 py-8 absolute top-[60px]  right-0`}>
         {brand_cars ? (
           brand_cars.map((item, index) => (
-            <Link onClick={()=>setShow_modal(false)} to={`cars/${item?.id}`} className="w-[100%] lg:w-[65%] text-white flex items-start  " key={index}>
+            <Link onClick={()=>setShow_modal(false)} to={`cars/${item?.id}`} className="w-[100%] lg:w-[25%] text-white flex items-start  " key={index}>
               <div className="w-[40px] h-[40px] rounded-[50%] overflow-hidden ">
                 <img
                   className="w-[40px] h-[40px] object-cover"

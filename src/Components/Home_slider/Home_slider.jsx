@@ -61,12 +61,12 @@ const Home_slider = () => {
   return (
     <div className="section ">
         <div className="bg-[rgb(17,18,25)] mx-auto w-full flex flex-col items-center gap-2 lg:pb-10 pb-10 lg:pt-10 pt-6">
-            <h1 className="text-white lg:text-[35px]  text-[28px] font-lato font-[600]">  {t("luxury-car")}</h1>
-            <h1 className="text-white lg:text-[28px]  text-[24px] font-thin font-[600]">  {t("rental-dubai")}</h1>
-            <p className="text-white md:text-[20px] text-[16px ] font-lato font-[600] text-wrap lg:w-[700px] w-full lg:px-0 px-20 text-center">
+            <h1 className="text-white lg:text-[35px] text-center text-[24px] font-lato font-[600]">  {t("luxury-car")}</h1>
+            <h1 className="text-white lg:text-[28px]  text-[22px] font-thin font-[600]">  {t("rental-dubai")}</h1>
+            <p className="text-white md:text-[20px] text-center text-[16px ] font-lato font-[600] text-wrap lg:w-[700px] w-full lg:px-0 px-20 text-center">
              {t("best-sport")}
             </p>
-            <p className="text-white md:text-[20px] font-thin text-[18px]  flex-wrap pt-2">
+            <p className="text-white md:text-[20px] text-center font-thin text-[18px]  flex-wrap pt-2">
             {t("rent-car")}
             </p>
         </div>

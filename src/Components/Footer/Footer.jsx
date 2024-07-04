@@ -55,7 +55,7 @@ const Footer = () => {
             <p className="text-white  lg:text-[16px] lg:leading-9 text-[14px] leading-7 py-2 font-lato">
               {t("rent-s")}
             </p>
-            <button className="mt-4 px-6 font-lato hover:bg-orange-500 py-3 bg-black text-white border rounded-xl ">
+            <button className="mt-4 px-6   lg:text-[16px] lg:leading-9 text-[14px] leading-7 font-lato hover:bg-orange-500 py-2 bg-black text-white border rounded-xl ">
               {t("get")}
             </button>
           </div>

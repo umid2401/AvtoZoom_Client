@@ -15,9 +15,9 @@ export default function Blog() {
     <div className='blog  bg-[#1e1f27] py-5 text-[#fff]  section'>
         <div className="container 2xl:w-[1300px] xl:w-[1250px] lg:w-[950px] md:w-[750px] sm:w-[540px] custom:w-[380px] w-[300px]  mx-auto">
 
-            <div className='blog_title p-[1.4rem]'>
+            <div className='blog_title '>
                 <p className='text-[20px] font-lato text-[#a5a5a9] mb-[1.2rem]'>{t("fr")} / {t("blog")} </p>
-                <h2 className='uppercase font-lato   text-[2.7rem]'
+                <h2 className='uppercase text-white md:text-3xl text-2xl py-2 font-lato'
                     style={{
                         display: id ? 'none' : 'block'
                     }}
@@ -26,7 +26,7 @@ export default function Blog() {
 
              {
                 id ? <BlogInfo {...dates} /> :
-                <div className='blog_boxes xl:my-[2rem] my-10 lg:my-[2rem] md:my-[2rem] bg-[#272933] p-[1.4rem]'>
+                <div className='blog_boxes xl:my-[2rem] my-5 lg:my-[2rem] md:my-[2rem] bg-[#272933] lg:p-[1.4rem] py-[1rem] px-[.5rem]'>
                     {
                         BlogData?.map((item, index) => <BlogBox key={index} {...item} index={index} />)
                     }

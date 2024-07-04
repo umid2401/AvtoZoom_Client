@@ -86,7 +86,7 @@ const Home_cars_data_carousel = () => {
             />
               </h1>
             </div>
-            <div className="slider-container">
+            <div className="slider-">
               <Slider {...settings}>
                 {car?.car_images?.map((images, imgndex) => (
                   <div

@@ -71,7 +71,7 @@ const Home_slider = () => {
             </p>
         </div>
         <div className=' bg-[rgb(17,18,25)]'>
-            <div className="slider-container truncate">
+            <div className="slider- truncate">
                 <Slider  ref={slider => {
                     sliderRef = slider;
                     }}

@@ -1,8 +1,11 @@
+
 import { useEffect, useState } from "react";
+import { useTranslation } from "react-i18next";
 import { Link } from "react-router-dom";
 
 
 export default function FollowUs() {
+    const { t } = useTranslation();
     const images = [
         {imgurl:"/Images/insta-img-1.webp"},
         {imgurl:"/Images/insta-img-2.webp"},
@@ -38,12 +41,12 @@ const getLocations = () =>{
 useEffect(()=>{
     getCities();
     getLocations();
-    console.log(cities)
+    
 },[])
   return (
     <section className="faq bg-[rgb(30,31,39)] section ">
-            <div className="2xl:w-[1300px] xl:w-[1120px] lg:w-[950px] md:w-[750px] sm:w-[540px] custom:w-[380px] w-[300px]  mx-auto">
-            <h2 className="text-white md:text-3xl text-2xl py-2 font-lato uppercase">Follow Us Instagram</h2>
+            <div className="2xl:w-[1300px] xl:w-[1250px] lg:w-[950px] md:w-[750px] sm:w-[540px] custom:w-[380px] w-[300px]  mx-auto">
+            <h2 className="text-white md:text-3xl text-2xl py-2 font-lato uppercase">{t("follow")}</h2>
             <div className="gallery py-5 w-[90%] mx-auto justify-center flex items-center gap-4 lg:flex-nowrap flex-wrap">
                 {images&&images.map((item, index)=>(
                     <div key={index} className="card lg:w-[170px] md:w-[320px] sm:w-[250px] w-[125px] h-[180px]">

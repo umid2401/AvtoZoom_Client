@@ -1,18 +1,18 @@
 import {
   faFacebook,
-  faGoogle,
   faInstagram,
   faYoutube,
 } from "@fortawesome/free-brands-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { useEffect, useState } from "react";
 
-import { Link, useNavigate } from "react-router-dom";
+import { useEffect, useState } from "react";
+import { useTranslation } from "react-i18next";
+
+import { Link } from "react-router-dom";
 
 const Footer = () => {
   const [cars, setCars] = useState([]);
-  const navigate = useNavigate();
-
+  const { t } = useTranslation();
   const scrollToTop = () => {
     window.scrollTo({
       top: 0,
@@ -21,7 +21,7 @@ const Footer = () => {
   };
   const toPage = () => {
     scrollToTop();
-    // eslint-disable-next-line react-hooks/rules-of-hooks
+   
   };
   const getCars = () => {
     fetch("https://autoapi.dezinfeksiyatashkent.uz/api/categories")
@@ -35,7 +35,7 @@ const Footer = () => {
   };
   useEffect(() => {
     getCars();
-    console.log(cars);
+    
   }, []);
   return (
     <footer className="bg-black text-white py-10  section">
@@ -50,15 +50,13 @@ const Footer = () => {
               />
             </Link>
             <h2 className="text-xl font-lato mb-4">
-              LUXURY CAR RENTAL IN DUBAI
+             {t("luxury-car-rental")}
             </h2>
             <p className="font-lato text-[15px]">
-              Rent sports and luxury cars directly without intermediaries. Rent
-              a car in Dubai with Auto Zoom Car Rental - safety and driving
-              pleasure
+              {t("rent-s")}
             </p>
             <button className="mt-4 px-6 font-lato hover:bg-orange-500 py-3 bg-black text-white border rounded-xl ">
-              GET BEST OFFER
+              {t("get")}
             </button>
           </div>
           <div>
@@ -66,8 +64,8 @@ const Footer = () => {
             <ul>
               {cars &&
                 cars.map((item, index) => (
-                  <li key={item.id} className="mb-3 font-lato text-[16px]  ">
-                    <Link to={`/cars/${item?.id}`}>{item?.name_en}</Link>
+                  <li key={item.id}  className="mb-3 font-lato text-[16px]  ">
+                    <Link to={`/cars/${item?.id}`}>{item?.[t("lan")]}</Link>
                   </li>
                 ))}
             </ul>
@@ -76,47 +74,46 @@ const Footer = () => {
             <Link
               onClick={() => toPage()}
               to="/contact"
-              className="text-lg font-lato lg:mb-4 mb-2 block"
+              className="text-lg uppercase font-lato lg:mb-4 mb-2 block"
             >
-              CONTACT
+              {t("contact")}
             </Link>
             <Link
               onClick={() => toPage()}
               to="/blog"
-              className="text-lg font-lato lg:mb-4 mb-2 block"
+              className="text-lg uppercase font-lato lg:mb-4 mb-2 block"
             >
-              BLOG
+              {t("blog")}
             </Link>
             <Link
               onClick={() => toPage()}
               to="/service"
-              className="text-lg font-lato lg:mb-4 mb-2 block"
+              className="text-lg uppercase font-lato lg:mb-4 mb-2 block"
             >
-              SERVICE
+              {t("service")}
             </Link>
             <p className="font-lato ">
-              Elite 3 Sports City, Dubai 26W8 24J, United Arab Emirates
+              {t("elit")}
             </p>
-            <p className="font-lato">+971 55 8462124</p>
-            <p className="font-lato">Working hours: 24/7</p>
+            
           </div>
           <div>
             <Link
               onClick={() => toPage()}
               to="/about"
-              className="text-lg font-lato lg:mb-4 mb-2 block"
+              className="lg:text-lg uppercase font-lato lg:mb-4 mb-2 block"
             >
-              ABOUT US
+              {t("about")}
             </Link>
             <Link
               onClick={() => toPage()}
               to="/faq"
               className="text-lg font-lato lg:mb-4 mb-2 block"
             >
-              FAQ
+              {t("faq")}
             </Link>
             <h3 className="text-lg font-lato lg:mb-4 mb-2 uppercase">
-              Follow Us
+             {t("follow-us")}
             </h3>
             <div className="flex space-x-3 items-center">
               <a href="#" className="text-xl">
@@ -141,9 +138,9 @@ const Footer = () => {
           </div>
         </div>
         <div className="border-t border-gray-700 mt-8 pt-4 text-center">
-          <p>© 2024 Auto Zoom Car Rental. United Arab Emirates.</p>
+          <p> {t("zoom")} </p>
           <a href="#" className="block mt-2">
-            Terms and Conditions
+           {t("app")}
           </a>
         </div>
       </div>

@@ -33,6 +33,7 @@ import Blog from './Components/Blog/Blog'
 
 // BlogInfo Page 
 import BlogInfo from './Components/Blog/BlogInfo/BlogInfo'
+import PageNot from './Components/PageNotFound/PageNot'
 
 
 
@@ -45,6 +46,7 @@ export default function App() {
       <BrowserRouter>
         <Header setSearch={setSearch}/>
           <Routes>
+            <Route path='*' element={<PageNot/>}/>
             <Route path="/" element={<HomePage/>}/>
             <Route path="/cars" element={<CarsPage/>}>
               <Route index element={<Cars search={search}/>}/>
@@ -58,8 +60,10 @@ export default function App() {
             <Route path="/service/photoshoot-with-luxury-car-in-dubai" element={<ServicePage />}/>
             <Route path="about" element={<AboutUsPage/>}/>
             <Route path="blog" element={<BlogPage/>}>
-              <Route path=":id" element={<BlogInfo/>} />
+            <Route path=":id" element={<BlogInfo/>} />
             </Route>
+           
+
           </Routes>
         <Footer/>
       </BrowserRouter> 

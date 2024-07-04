@@ -3,11 +3,12 @@ import { useNavigate } from "react-router-dom";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+import { useTranslation } from "react-i18next";
 
 const Home_card_sliders = () => {
   const [Brands, setBrands] = useState([]);
   const navigate = useNavigate();
-
+  const { t } = useTranslation();
   const urlImage =
     "https://autoapi.dezinfeksiyatashkent.uz/api/uploads/images/";
 
@@ -66,9 +67,9 @@ const Home_card_sliders = () => {
 
   return (
     <div className="bg-[rgb(30,31,39)] py-20  section">
-     <div className="faq-container 2xl:w-[1300px] xl:w-[1120px] lg:w-[950px] md:w-[750px] sm:w-[540px] custom:w-[380px] w-[300px]  mx-auto">
+     <div className="faq-container 2xl:w-[1300px] xl:w-[1250px] lg:w-[950px] md:w-[750px] sm:w-[540px] custom:w-[380px] w-[300px]  mx-auto">
         <h2 className="text-white md:text-3xl text-2xl py-2 font-lato uppercase">
-          Brands
+         {t("brand")}
         </h2>
         <div className="">
          
@@ -78,7 +79,7 @@ const Home_card_sliders = () => {
             <div
               onClick={() => navigate(`cars/${brand?.id}`)}
               key={index}
-              className="p-5  w-[200px] cursor-pointer border my-[.5rem]  border-gray-800 hover:bg-gray-900 rounded-sm flex flex-col justify-center items-center py-5"
+              className="p-5  w-[200px] cursor-pointer border  my-[.4rem]  border-gray-800 hover:bg-gray-900 rounded-sm flex flex-col justify-center items-center py-5"
             >
               <div className=" w-[120px] h-[180px] mx-auto ">
                 <img

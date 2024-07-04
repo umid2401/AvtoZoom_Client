@@ -9,11 +9,14 @@ import ferrari from '../../assets/ferrari.png'
 import audi from '../../assets/audi.png'
 import rols_roy from '../../assets/rols-roy.png'
 import mers from '../../assets/mers.png'
+import { useTranslation } from "react-i18next";
 
 const Home_slider = () => {
+  const { t, i18n } = useTranslation();
     let sliderRef = useRef(null);
     const next = () => {
       sliderRef.slickNext();
+      
     };
     const previous = () => {
       sliderRef.slickPrev();
@@ -22,52 +25,49 @@ const Home_slider = () => {
     const settings = {
       dots: false,
       infinite: true,
-      speed: 500,
       slidesToShow: 1,
-      slidesToScroll: 0,
-      initialSlide: 0,
-      rows:1,
-      arrows:false,
+      slidesToScroll: 1,
+      autoplay: true,
+      autoplaySpeed: 2000,
       
       responsive: [
         {
           breakpoint: 1024,
           settings: {
-            slidesToShow: 3,
-            slidesToScroll: 3,
+            slidesToShow: 2,
+            slidesToScroll: 1,
             infinite: true,
-            dots: true
-          }
+            dots: false,
+          },
         },
         {
-          breakpoint: 600,
+          breakpoint: 768,
           settings: {
-            slidesToShow: 2,
-            slidesToScroll: 2,
-            initialSlide: 2
-          }
+            slidesToShow: 1,
+            slidesToScroll: 1,
+            initialSlide: 2,
+          },
         },
         {
           breakpoint: 480,
           settings: {
             slidesToShow: 1,
             slidesToScroll: 1,
-            
-          }
-        }
-      ]
+          },
+        },
+      ],
     };
   
   return (
     <div className="section ">
         <div className="bg-[rgb(17,18,25)] mx-auto w-full flex flex-col items-center gap-2 lg:pb-10 pb-10 lg:pt-10 pt-6">
-            <h1 className="text-white lg:text-[35px]  text-[28px] font-lato font-[600]">TOP LUXURY CAR</h1>
-            <h1 className="text-white lg:text-[28px]  text-[24px] font-thin font-[600]">RENTAL DUBAI</h1>
+            <h1 className="text-white lg:text-[35px]  text-[28px] font-lato font-[600]">  {t("luxury-car")}</h1>
+            <h1 className="text-white lg:text-[28px]  text-[24px] font-thin font-[600]">  {t("rental-dubai")}</h1>
             <p className="text-white md:text-[20px] text-[16px ] font-lato font-[600] text-wrap lg:w-[700px] w-full lg:px-0 px-20 text-center">
-              Best sports car & supercar rental Dubai, Exclusive offers on luxury car rental Dubai Cheap price
+             {t("best-sport")}
             </p>
             <p className="text-white md:text-[20px] font-thin text-[18px]  flex-wrap pt-2">
-            RENT A CAR DUBAI CATALOG
+            {t("rent-car")}
             </p>
         </div>
         <div className=' bg-[rgb(17,18,25)]'>

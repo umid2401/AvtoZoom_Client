@@ -8,6 +8,7 @@ import {
   faMagnifyingGlass,
   faXmark,
 } from "@fortawesome/free-solid-svg-icons";
+import { useTranslation } from "react-i18next";
 
 export default function Header({ setSearch }) {
   const [show_menu, setShov_menu] = useState(false);
@@ -21,21 +22,28 @@ export default function Header({ setSearch }) {
       .then((res) => res.json())
       .then((res) => setBrand_cars(res?.data))
       .catch((err) => {
-        alert(er);
+        
       });
   };
 
   useEffect(() => {
     getCarsData();
-    console.log(brand_cars);
+    
   }, []);
+  const { t, i18n } = useTranslation();
+  const changeLanguage = (lng) => {
+    localStorage.setItem('lan', lng);
+    i18n.changeLanguage(lng);
+    
+    
+  };
   const routes = [
-    { name: "Cars", to: "/cars" },
-    { name: "Brand" },
-    { name: "About Us", to: "/about" },
-    { name: "Service", to: "/service" },
-    { name: "Contact", to: "/contact" },
-    { name: "Blog", to: "/blog" },
+    { name: t("cars"), to: "/cars" },
+    { name: t("brand") },
+    { name: t("about"), to: "/about" },
+    { name: t("service"), to: "/service" },
+    { name: t("contact"), to: "/contact" },
+    { name: t("blog"), to: "/blog" },
   ];
   const openMenu = () => {
     setShov_menu(true);
@@ -58,12 +66,14 @@ export default function Header({ setSearch }) {
               className="eng_lang cursor-pointer w-6 lg:w-auto"
               src="/Images/great.png"
               alt=""
+              onClick={()=>changeLanguage("en")}
             />
 
             <img
               className=" ru_lang cursor-pointer w-6 lg:w-auto"
               src="/Images/russia.png"
               alt=""
+              onClick={()=>changeLanguage("ru")}
             />
 
             <FontAwesomeIcon

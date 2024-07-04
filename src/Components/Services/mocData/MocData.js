@@ -10,20 +10,20 @@ import PhotoThootCar2 from '../../../assets/Services/service-item2-Xron-uur.jpg'
 
 export const dataService = [
     {
-        id: 1,
-        avatar: SportCar,
-        title: 'Sports Car Rental Dubai Style Tour in Dubai',
-        paragraf: 'Experience the thrill of a dune buggy tour in Dubai with us. We offer free hotel pick-up & drop-off service. Book now!',
-        link: '/sport_car_rent'
+      id: 1,
+      avatar: ServiceSportCar1,
+      title: 'services.sportsCarRental.title',
+      paragraf: 'services.sportsCarRental.paragraf',
+      link: '/sport_car_rent'
     },
     {
-        id: 2,
-        avatar: PhotoShoot,
-        title: 'Photoshoot with luxury car rental Dubai ',
-        paragraf: 'Professional car photoshoot as an additional type of service at Auto Zoom Car Rental',
-        link: '/photoshoot-with-luxury-car-in-dubai'
+      id: 2,
+      avatar: ServiceSportCar2,
+      title: 'services.photoshoot.title',
+      paragraf: 'services.photoshoot.paragraf',
+      link: '/photoshoot-with-luxury-car-in-dubai'
     },
-];
+  ];
 
 export const sportCars = [
     {

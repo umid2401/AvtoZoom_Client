@@ -1,3 +1,4 @@
+// eslint-disable-next-line no-unused-vars
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import Slider from "react-slick";
@@ -6,11 +7,13 @@ import "slick-carousel/slick/slick-theme.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faChevronRight } from "@fortawesome/free-solid-svg-icons";
 
+import { useTranslation } from "react-i18next";
+
 const Home_cars_data_carousel = () => {
   const [Cars, setCars] = useState([]);
-
+  const { t } = useTranslation();
   const navigate = useNavigate();
-  console.log(Cars);
+ 
 
   const urlImage =
     "https://autoapi.dezinfeksiyatashkent.uz/api/uploads/images/";
@@ -23,6 +26,7 @@ const Home_cars_data_carousel = () => {
 
   useEffect(() => {
     getCarsData();
+    
   }, []);
 
   const settings = {
@@ -48,9 +52,9 @@ const Home_cars_data_carousel = () => {
       {
         breakpoint: 600,
         settings: {
-          slidesToShow: 2,
+          slidesToShow: 1,
           slidesToScroll: 2,
-          initialSlide: 2,
+          initialSlide: 1,
         },
       },
       {
@@ -64,18 +68,18 @@ const Home_cars_data_carousel = () => {
   };
   return (
     <div className="bg-[rgb(39,41,51)] py-20  section">
-      <div className="container 2xl:w-[1300px] xl:w-[1120px] lg:w-[950px] md:w-[750px] sm:w-[540px] custom:w-[380px] w-[300px]  mx-auto">
+      <div className="container 2xl:w-[1300px] xl:w-[1250px] lg:w-[950px] md:w-[750px] sm:w-[540px] custom:w-[380px] w-[300px]  mx-auto">
         {Cars?.map((car, index) => (
           <div key={index}>
             <div className="flex md:flex-row flex-col gap-4 justify-between mt-28">
-              <h1 className="text-white  font-[600] font-lato md:text-[30px] text-[20px] ">
-                {car?.category?.name_en}
+              <h1 className="text-white   font-lato md:text-[30px] text-[20px] ">
+                {car?.category[t("lan")]}
               </h1>
               <h1
-                className="text-white flex items-center font-[600] font-thin md:text-[20px] text-[17px] cursor-pointer hover:mr-2"
+                className="text-white uppercase flex items-center  font-thin md:text-[20px] text-[17px] cursor-pointer hover:mr-2"
                 onClick={() => navigate(`/cars/${car?.category_id}`)}
               >
-                <span>SEE ALL</span>
+                <span>{t("see-all")}</span>
                 <FontAwesomeIcon 
               className='ml-[.6rem] text-[.8rem] divide-solid border-[2px] tetx-[#fff] py-[6px] px-[8px] rounded-[50%]'
               icon={faChevronRight} 
@@ -90,7 +94,8 @@ const Home_cars_data_carousel = () => {
                     className="mt-10"
                     onClick={() => navigate(`/cars/:${images?.car_id}`)}
                   >
-                    <div className="px-6 py-10  w-[300px] rounded-xl hover:bg-slate-500 hover:shadow-xl">
+                    <div className="px-6 py-10 ml-[0px] cursor-pointer rounded-xl hover:bg-slate-500 hover:shadow-xl">
+                     
                       <img
                         className="h-[160px] my-5 text-center mx-auto"
                         src={`${urlImage}${images?.image?.src}`}

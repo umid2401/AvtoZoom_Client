@@ -62,6 +62,7 @@ body{
 .slick-track {
     display: flex;
     gap: 1rem;
+    margin: 0;
 }
 .section{
     width: 100%;

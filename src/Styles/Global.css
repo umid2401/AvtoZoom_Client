@@ -1,63 +1,57 @@
-
-
-body{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    overflow-x: hidden !important;
-   
-   
+body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  overflow-x: hidden !important;
+  height: 100%;
 }
 @font-face {
-    font-family: "Lato";
-    src: url("..//..//public/Fonts/Lato-Light.ttf");
-    font-weight: 700;
-    font-style: normal;
-    
+  font-family: "Lato";
+  src: url("..//..//public/Fonts/Lato-Light.ttf");
+  font-weight: 700;
+  font-style: normal;
 }
 @font-face {
-    font-family: "Lato-Thin";
-    src: url("..//..//public/Fonts/Lato-Thin.ttf");
-    font-weight: 900;
-    font-style: normal;
+  font-family: "Lato-Thin";
+  src: url("..//..//public/Fonts/Lato-Thin.ttf");
+  font-weight: 900;
+  font-style: normal;
 }
 @font-face {
-    font-family: "Lato-Regular";
-    src: url("..//..//public/Fonts/Lato-Bold.ttf");
-    font-weight: 300;
-    font-style: normal;
+  font-family: "Lato-Regular";
+  src: url("..//..//public/Fonts/Lato-Bold.ttf");
+  font-weight: 300;
+  font-style: normal;
 }
-.ant-collapse-header{
+.ant-collapse-header {
   align-items: center !important;
   gap: 20px;
   padding: 12px 0 !important;
 }
-.ant-collapse-header-text{
-    border-bottom:  1px solid white;
-    padding: .5rem 0;
+.ant-collapse-header-text {
+  border-bottom: 1px solid white;
+  padding: 0.5rem 0;
 }
-.ant-collapse-expand-icon{
-    border: 1px solid white;
-    border-radius: 50%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin: 0 auto;
-    height: auto !important;
-    /* width: 35px !important;
+.ant-collapse-expand-icon {
+  border: 1px solid white;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
+  height: auto !important;
+  /* width: 35px !important;
     height: 35px !important; */
-    padding-inline-end: 0 !important;
-    
-    color: white;
-    
-}
-.ant-collapse-expand-icon span{
-    padding: .6rem;
-    /* transform: translateX(-50%); */
-}
-.ant-collapse-content-box p{
-    padding-left: 50px !important;
+  padding-inline-end: 0 !important;
 
+  color: white;
+}
+.ant-collapse-expand-icon span {
+  padding: 0.6rem;
+  /* transform: translateX(-50%); */
+}
+.ant-collapse-content-box p {
+  padding-left: 50px !important;
 }
 /* section {
     width: 100%;

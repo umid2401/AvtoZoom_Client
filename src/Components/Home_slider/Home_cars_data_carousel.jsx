@@ -67,16 +67,16 @@ const Home_cars_data_carousel = () => {
     ],
   };
   return (
-    <div className="bg-[rgb(39,41,51)] py-20  section">
+    <div className="bg-[rgb(39,41,51)] py-10 lg:py-20  section">
       <div className="container 2xl:w-[1300px] xl:w-[1250px] lg:w-[950px] md:w-[750px] sm:w-[540px] custom:w-[380px] w-[300px]  mx-auto">
         {Cars?.map((car, index) => (
           <div key={index}>
-            <div className="flex md:flex-row flex-col gap-4 justify-between ">
-              <h1 className="text-white   font-lato md:text-[30px] text-[20px] ">
+            <div className="flex md:flex-row my-5 items-center flex-wrap  justify-between ">
+              <h1 className="text-white uppercase  font-lato md:text-[30px] text-[16px] ">
                 {car?.category[t("lan")]}
               </h1>
               <h1
-                className="text-white uppercase flex items-center  font-thin md:text-[20px] text-[15px] cursor-pointer hover:mr-2"
+                className="text-white uppercase flex items-center  font-thin md:text-[20px] text-[12px] cursor-pointer hover:mr-2"
                 onClick={() => navigate(`/cars/${car?.category_id}`)}
               >
                 <span>{t("see-all")}</span>
@@ -91,13 +91,13 @@ const Home_cars_data_carousel = () => {
                 {car?.car_images?.map((images, imgndex) => (
                   <div
                     key={imgndex}
-                    className=""
+                    className="my-5"
                     onClick={() => navigate(`/cars/:${images?.car_id}`)}
                   >
-                    <div className="px-6 py-5 ml-[0px] cursor-pointer rounded-xl hover:bg-slate-500 hover:shadow-xl">
+                    <div className=" py-5 lg:px-6 md:px-5 px-0 ml-[0px] cursor-pointer rounded-xl hover:bg-slate-500 hover:shadow-xl">
                      
                       <img
-                        className="h-[160px] my-5 text-center mx-auto"
+                        className="h-[160px] mx-auto text-center "
                         src={`${urlImage}${images?.image?.src}`}
                         alt=""
                       />

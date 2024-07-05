@@ -91,10 +91,10 @@ const Home_cars_data_carousel = () => {
                 {car?.car_images?.map((images, imgndex) => (
                   <div
                     key={imgndex}
-                    className="my-5"
+                    className="my-5 w-[20%]"
                     onClick={() => navigate(`/cars/:${images?.car_id}`)}
                   >
-                    <div className=" py-5 lg:px-10 md:px-5 px-0 ml-[0px] cursor-pointer rounded-xl hover:bg-[rgb(30,31,39)] hover:shadow-xl">
+                    <div className=" py-5 w-[290px] lg:w-[300px]  md:px-5 mr-8 px-0 ml-[0px] cursor-pointer rounded-xl hover:bg-[rgb(30,31,39)] hover:shadow-xl">
                      
                       <img
                         className="h-[160px] mx-auto text-center "

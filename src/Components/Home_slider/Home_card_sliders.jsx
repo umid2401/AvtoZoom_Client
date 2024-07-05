@@ -26,7 +26,7 @@ const Home_card_sliders = () => {
     dots: false,
     infinite: true,
     speed: 500,
-    slidesToShow: 5,
+    slidesToShow: 4,
     slidesToScroll: 0,
     initialSlide: 0,
     rows:2,
@@ -79,7 +79,7 @@ const Home_card_sliders = () => {
             <div
               onClick={() => navigate(`cars/${brand?.id}`)}
               key={index}
-              className="p-5  w-[200px] cursor-pointer border  my-[.4rem]  border-gray-800 hover:bg-gray-900 rounded-sm flex flex-col justify-center items-center py-5"
+              className="p-5  !w-[290px] cursor-pointer border  my-4  border-gray-800 hover:bg-gray-900 rounded-sm flex flex-col justify-center items-center py-5"
             >
               <div className=" w-[120px] h-[180px] mx-auto ">
                 <img

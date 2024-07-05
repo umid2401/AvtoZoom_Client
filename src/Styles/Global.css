@@ -77,8 +77,9 @@ body{
 
 }
 .slick-track {
-    display: flex;
-    gap: 1rem;
+    display: flex !important;
+    /* gap: 1rem; */
+    justify-content: start !important;
     margin: 0;
 }
 .section{

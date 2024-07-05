@@ -60,13 +60,13 @@ const Home_slider = () => {
   
   return (
     <div className="section ">
-        <div className="bg-[rgb(17,18,25)] mx-auto w-full flex flex-col items-center gap-2 lg:pb-10 pb-10 lg:pt-10 pt-6">
-            <h1 className="text-white lg:text-[35px] text-center text-[24px] font-lato font-[600]">  {t("luxury-car")}</h1>
-            <h1 className="text-white lg:text-[28px]  text-[22px] font-thin font-[600]">  {t("rental-dubai")}</h1>
-            <p className="text-white md:text-[20px] text-center text-[16px ] font-lato font-[600] text-wrap lg:w-[700px] w-full lg:px-0 px-20 text-center">
+        <div className="bg-[rgb(17,18,25)] mx-auto w-full  items-center gap-2 lg:pb-10 pb-10 lg:pt-10 pt-6">
+            <h1 className="text-white md:text-4xl text-xl py-2 font-regular text-center w-[100%]">  {t("luxury-car")}</h1>
+            <h1 className="text-white md:text-[30px] text-center  text-[20px] font-regular ">  {t("rental-dubai")}</h1>
+            <p className="text-white  mx-auto w-[90%] md:w-[60%] text-center px-4 lg:text-[20px] lg:leading-9 text-[14px] leading-7 py-2 font-lato ">
              {t("best-sport")}
             </p>
-            <p className="text-white md:text-[20px] text-center font-thin text-[18px]  flex-wrap pt-2">
+            <p className="text-white md:text-[20px] px-4 text-center font-regular text-[18px]   pt-2">
             {t("rent-car")}
             </p>
         </div>

@@ -68,7 +68,7 @@ const Home_card_sliders = () => {
   return (
     <div className="bg-[rgb(30,31,39)]  py-10 lg:py-20 section">
      <div className="faq-container 2xl:w-[1300px] xl:w-[1250px] lg:w-[950px] md:w-[750px] sm:w-[540px] custom:w-[380px] w-[300px]  mx-auto">
-        <h2 className="text-white md:text-3xl text-2xl py-2 font-lato uppercase">
+        <h2 className="text-white text-center md:text-left md:text-3xl text-2xl py-2 font-lato uppercase">
          {t("brand")}
         </h2>
         <div className="">

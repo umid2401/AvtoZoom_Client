@@ -71,7 +71,7 @@ const Home_cars_data_carousel = () => {
       <div className="container 2xl:w-[1300px] xl:w-[1250px] lg:w-[950px] md:w-[750px] sm:w-[540px] custom:w-[380px] w-[300px]  mx-auto">
         {Cars?.map((car, index) => (
           <div key={index}>
-            <div className="flex md:flex-row my-5 items-center flex-wrap  justify-between ">
+            <div className="flex md:flex-row my-5 items-center flex-col gap-2  md:justify-between ">
               <h1 className="text-white uppercase text-wrap font-regular md:text-[30px] text-[16px] ">
                 {car?.category[t("lan")]}
               </h1>
@@ -91,7 +91,7 @@ const Home_cars_data_carousel = () => {
                 {car?.car_images?.map((images, imgndex) => (
                   <div
                     key={imgndex}
-                    className="my-5 w-[20%]"
+                    className="md:my-5 my-2 w-[20%]"
                     onClick={() => navigate(`/cars/:${images?.car_id}`)}
                   >
                     <div className=" py-5 w-[290px] lg:w-[300px]  md:px-5 mr-8 px-0 ml-[0px] cursor-pointer rounded-xl hover:bg-[rgb(30,31,39)] hover:shadow-xl">
@@ -101,12 +101,12 @@ const Home_cars_data_carousel = () => {
                         src={`${urlImage}${images?.image?.src}`}
                         alt=""
                       />
-                      <p className=" font-lato text-[16px] md:text-[18px] lg:text-[20px] text-white border-b pb-2 pt-6 ">
+                      <p className="text-center md:text-left font-lato text-[16px] md:text-[18px] lg:text-[20px] text-white border-b pb-2 pt-6 ">
                         {car.brand.title} {car?.model?.name}
                       </p>
                       
-                      <p className=" font-lato text-[17px] md:text-[19px] lg:text-[22px] pt-3">
-                        <span className="text-white">
+                      <p className="text-center md:text-left font-lato text-[17px] md:text-[19px] lg:text-[22px] pt-3">
+                        <span className="text-white ">
                           AED {car?.price_in_aed} /
                         </span>
                         <span className="text-gray-600 font-lato text-[14px] md:text-[16px] lg:text-[18px]">
@@ -114,7 +114,7 @@ const Home_cars_data_carousel = () => {
                           $ {car?.price_in_usd}
                         </span>
                       </p>
-                      <p className="text-white font-lato text-[16px] md:text-[18px] lg:text-[20px]">per day</p>
+                      <p className="text-center md:text-left text-white font-lato text-[16px] md:text-[18px] lg:text-[20px]">per day</p>
                     </div>
                   </div>
                 ))}

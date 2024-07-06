@@ -48,8 +48,10 @@ export default function App() {
           <Routes>
             <Route path='*' element={<PageNot/>}/>
             <Route path="/" element={<HomePage/>}/>
+           
             <Route path="/cars" element={<CarsPage/>}>
-              <Route index element={<Cars search={search}/>}/>
+              <Route index path="" element={<Cars search={search}/>}/>
+              <Route  path=":id" element={<Cars/>}/>
               <Route path=":id" element={<CarInfo/>}/>
             </Route>  
             <Route path="/brand" element={<BrandPage/>}/>

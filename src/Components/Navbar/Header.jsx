@@ -1,6 +1,6 @@
 // eslint-disable-next-line no-unused-vars
 import React, { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faBars,
@@ -16,6 +16,7 @@ export default function Header({ setSearch }) {
   const [show_modal, setShow_modal] = useState(false)
   const [show_input, setShow_input] = useState(false);
   const [brand_cars, setBrand_cars] = useState([]);
+  const navigate = useNavigate();
   const urlImage =
     "https://autoapi.dezinfeksiyatashkent.uz/api/uploads/images/";
   const getCarsData = () => {
@@ -26,7 +27,10 @@ export default function Header({ setSearch }) {
         
       });
   };
-
+  const onchange = (e) =>{
+      setSearch(e.target.value)
+      navigate("/cars")
+  }
   useEffect(() => {
     getCarsData();
     
@@ -96,7 +100,7 @@ export default function Header({ setSearch }) {
               type="text"
               placeholder="Search..."
               className="px-4 py-2 bg-transparent text-white w-full focus:outline-none"
-              onChange={(e) => setSearch(e.target.value)}
+              onChange={onchange}
             />
 
             <FontAwesomeIcon

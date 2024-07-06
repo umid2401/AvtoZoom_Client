@@ -9,7 +9,7 @@ import telegram from '../../assets/telegram.svg'
 
 // React features
 import { useEffect, useState } from 'react'
-import { Link, useParams } from 'react-router-dom'
+import { Link, useLocation, useParams } from 'react-router-dom'
 
 export default function Cars({ search }) {
 
@@ -19,13 +19,14 @@ export default function Cars({ search }) {
   console.log(id)
   const [filter_toggle, set_filter_toggle] = useState(false)
   const [cars, setCars] = useState(null)
-
+  
+  console.log(location)
   useEffect(() => {
     fetch(APIcars)
     .then((res) => res.json())
     .then((data) => {
       setCars(data.data)
-      console.log(data.data)
+      console.log(id)
     })
     .catch((err) => console.log(err))
   }, [])
@@ -220,7 +221,7 @@ export default function Cars({ search }) {
         </div>
 
         {/* Right screen */}
-        <div className={`${filter_toggle ? 'hidden' : ''} w-auto basis-2/3 md:block px-5 py-20`}>
+        <div className={`${filter_toggle ? 'hidden' : ''} w-full  md:block px-5 py-20`}>
           <p className="text-[#A5A5A9]">Luxury Cars for Rent in Dubai / Hire the latest supercar</p>
 
           {/* Cars */}

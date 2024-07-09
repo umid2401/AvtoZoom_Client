@@ -1,8 +1,7 @@
-import React, { useRef } from "react";
+import  { useRef } from "react";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-
 import { Link } from "react-router-dom";
 // ###################   Cars pictures   ######################
 import ferrari from '../../assets/ferrari.png'
@@ -12,16 +11,14 @@ import mers from '../../assets/mers.png'
 import { useTranslation } from "react-i18next";
 
 const Home_slider = () => {
-  const { t, i18n } = useTranslation();
+  const { t } = useTranslation();
     let sliderRef = useRef(null);
     const next = () => {
       sliderRef.slickNext();
-      
     };
     const previous = () => {
       sliderRef.slickPrev();
     };
-    
     const settings = {
       dots: false,
       infinite: true,
@@ -57,7 +54,6 @@ const Home_slider = () => {
         },
       ],
     };
-  
   return (
     <div className="section ">
         <div className="bg-[rgb(17,18,25)] mx-auto w-full  items-center gap-2 lg:pb-10 pb-10 lg:pt-10 pt-6">
@@ -104,7 +100,6 @@ const Home_slider = () => {
             <div className="flex justify-center 2xl:gap-48  lg:gap-28 pb-10 md:gap-80 sm:gap-40 gap-20">
 
                 <button className="button border-b-2  w-[100px] border-l-2 h-[30px]" onClick={previous}>
-               
                 </button>
                 <button className="button border-b-2  w-[100px] border-r-2 h-[30px]" onClick={next}>
                 

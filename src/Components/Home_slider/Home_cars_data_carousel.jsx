@@ -9,16 +9,15 @@ import { faChevronRight } from "@fortawesome/free-solid-svg-icons";
 
 import { useTranslation } from "react-i18next";
 
-const Home_cars_data_carousel = () => {
+const Home_cars_data_carousel = ({setLoader}) => {
   const [Cars, setCars] = useState([]);
   const { t } = useTranslation();
   const navigate = useNavigate();
- 
-
   const urlImage =
     "https://autoapi.dezinfeksiyatashkent.uz/api/uploads/images/";
 
   const getCarsData = () => {
+    
     fetch("https://autoapi.dezinfeksiyatashkent.uz/api/cars")
       .then((res) => res.json())
       .then((res) => setCars(res?.data));
@@ -28,7 +27,17 @@ const Home_cars_data_carousel = () => {
     getCarsData();
     
   }, []);
-
+  const scrollToTop = () =>{
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth",
+    });
+  }
+  const toCarInfo = (item) =>{
+    scrollToTop();
+    navigate(`/carinfo/${item}`);
+    setLoader(true);
+  }
   const settings = {
     dots: false,
     infinite: true,
@@ -77,7 +86,7 @@ const Home_cars_data_carousel = () => {
               </h1>
               <h1
                 className="text-white uppercase flex items-center  font-regular md:text-[20px] text-[12px] cursor-pointer hover:mr-2"
-                onClick={() => navigate(`/cars/${car?.category_id}`)}
+                onClick={() => navigate("/cars")}
               >
                 <span>{t("see-all")}</span>
                 <FontAwesomeIcon 
@@ -92,7 +101,7 @@ const Home_cars_data_carousel = () => {
                   <div
                     key={imgndex}
                     className="md:my-5 my-2 w-[20%]"
-                    onClick={() => navigate(`/cars/:${images?.car_id}`)}
+                    onClick={() =>toCarInfo(images?.car_id) }
                   >
                     <div className=" py-5 w-[290px] lg:w-[300px]  md:px-5 mr-8 px-0 ml-[0px] cursor-pointer rounded-xl hover:bg-[rgb(30,31,39)] hover:shadow-xl">
                      

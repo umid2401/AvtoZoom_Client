@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
@@ -18,6 +18,13 @@ const Home_card_sliders = () => {
       .then((data) => setBrands(data?.data));
   };
 
+  const toBrand = (brand) => {
+    navigate(`cars/brand/${brand}`);
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth",
+    });
+  };
   useEffect(() => {
     getBrands();
   }, []);
@@ -29,9 +36,8 @@ const Home_card_sliders = () => {
     slidesToShow: 4,
     slidesToScroll: 0,
     initialSlide: 0,
-    rows:2,
-    arrows:false,
-    
+    rows: 2,
+    arrows: false,
     responsive: [
       {
         breakpoint: 1024,
@@ -39,8 +45,8 @@ const Home_card_sliders = () => {
           slidesToShow: 3,
           slidesToScroll: 3,
           infinite: true,
-          dots: true
-        }
+          dots: true,
+        },
       },
       {
         breakpoint: 600,
@@ -48,36 +54,33 @@ const Home_card_sliders = () => {
           slidesToShow: 2,
           slidesToScroll: 2,
           initialSlide: 2,
-          autoplay:true,
-          rows:2,
-        }
+          autoplay: true,
+          rows: 2,
+        },
       },
       {
         breakpoint: 480,
         settings: {
           slidesToShow: 1,
           slidesToScroll: 1,
-          rows:1,
-          autoplay:true
-          
-        }
-      }
-    ]
+          rows: 1,
+          autoplay: true,
+        },
+      },
+    ],
   };
 
   return (
     <div className="bg-[rgb(30,31,39)]  py-10 lg:py-20 section">
-     <div className="faq-container 2xl:w-[1300px] xl:w-[1250px] lg:w-[950px] md:w-[750px] sm:w-[540px] custom:w-[380px] w-[300px]  mx-auto">
+      <div className="faq-container 2xl:w-[1300px] xl:w-[1250px] lg:w-[950px] md:w-[750px] sm:w-[540px] custom:w-[380px] w-[300px]  mx-auto">
         <h2 className="text-white text-center md:text-left md:text-3xl text-2xl py-2 font-lato uppercase">
-         {t("brand")}
+          {t("brand")}
         </h2>
-        <div className="">
-         
-        </div>
-        <Slider  className=""  {...settings}>
-        {Brands.map((brand, index) => (
+        <div className=""></div>
+        <Slider className="" {...settings}>
+          {Brands.map((brand, index) => (
             <div
-              onClick={() => navigate(`cars/${brand?.id}`)}
+              onClick={() => toBrand(brand?.id)}
               key={index}
               className="p-5  !w-[290px] cursor-pointer border  my-4  border-gray-800 hover:bg-gray-900 rounded-sm flex flex-col justify-center items-center py-5"
             >
@@ -88,9 +91,9 @@ const Home_card_sliders = () => {
                   alt=""
                 />
               </div>
-                <p className="text-[20px] text-center text-gray-400 font-[600] tracking-tighter ">
-                  {brand?.title}
-                </p>
+              <p className="text-[20px] text-center text-gray-400 font-[600] tracking-tighter ">
+                {brand?.title}
+              </p>
             </div>
           ))}
         </Slider>

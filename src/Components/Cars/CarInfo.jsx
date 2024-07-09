@@ -23,14 +23,15 @@ import speed from "./InfoIcons/speed.svg";
 import wheel from "./InfoIcons/wheel.svg";
 import { text } from "@fortawesome/fontawesome-svg-core";
 
-function CarInfo() {
+function CarInfo({setLoader}) {
   const { id } = useParams();
+  
   const carInfoUrl = "https://autoapi.dezinfeksiyatashkent.uz/api/cars/" + id;
   const urlImage =
     "https://autoapi.dezinfeksiyatashkent.uz/api/uploads/images/";
   const contentStyle = {
     margin: 0,
-    height: "400px",
+    height: "300px",
   };
 
   const onChange = (currentSlide) => {
@@ -45,6 +46,7 @@ function CarInfo() {
       .then((res) => res.json())
       .then((info) => {
         setCarInfo(info.data);
+        setLoader(false)
         fetch(
           `https://autoapi.dezinfeksiyatashkent.uz/api/cars?brand_id=${info.data.brand_id}`
         )
@@ -84,20 +86,21 @@ function CarInfo() {
   };
 
   return (
-    <div className="bg-[#272933] text-white">
+    <div className="bg-[#272933] text-white section">
       {carInfo && (
-        <div className="flex flex-wrap w-[80%] mx-auto">
-          <h2 className="text-6xl font-semibold basis-full my-10">
+        <div className=" 2xl:w-[1300px] xl:w-[1250px] lg:w-[950px] md:w-[750px] sm:w-[540px] custom:w-[380px] w-[300px]  mx-auto ">
+          <h2 className="text-2xl md:text-3xl lg:text-5xl !block font-regular basis-full py-5">
             {carInfo.brand.title} {carInfo.model.name}{" "}
             {`(${carInfo.color.toUpperCase()})`}
           </h2>
 
           {/* Left side */}
-          <div className="basis-1/2">
+          <div className="flex flex-wrap">
+          <div className="w-full lg:w-[50%]">
             {/* Carousel */}
             <div className="flex">
               {/* Left side of carousel */}
-              <div className="flex flex-col basis-1/4">
+              <div className="md:flex flex-col basis-1/4 hidden">
                 {carInfo.car_images.map((image, i) => {
                   return (
                     <img
@@ -116,7 +119,7 @@ function CarInfo() {
                   arrows
                   dots={false}
                   afterChange={onChange}
-                  className="w-[400px] h-[400px] mx-auto">
+                  className="w-[280px] h-[280px]  md:w-[400px] md:h-[400px] mx-auto">
                   {carInfo.car_images.map((image, i) => {
                     return (
                       <div key={i} className="">
@@ -134,8 +137,8 @@ function CarInfo() {
             </div>
 
             {/* Information under carousel */}
-            <div>
-              <h3 className="text-3xl font-semibold mt-10">
+            <div className="">
+              <h3 className="text-2xl md:text-3xl font-regular mt-7 md:mt-10">
                 Go to know about {carInfo.brand.title} {carInfo.model.name}{" "}
                 {`(${carInfo.color.toUpperCase()})`}
               </h3>
@@ -156,7 +159,7 @@ function CarInfo() {
           </div>
 
           {/* Right side */}
-          <div className="basis-1/2">
+          <div className="w-full lg:w-[50%]">
             <div className="flex">
               <div className="basis-2/5">
                 <h4 className="font-semibold">
@@ -236,7 +239,7 @@ function CarInfo() {
               </div>
             </div>
 
-            <div className="my-10 flex justify-center">
+            <div className="my-10 w-full flex justify-center">
               <span className="bg-green-500 rounded-[10px] mx-2 px-5 py-3">
                 <img src={whatsapp} alt="whatsapp" width={30} />
               </span>
@@ -248,7 +251,7 @@ function CarInfo() {
               </span>
             </div>
 
-            <div>
+            <div className="w-full">
               <form
                 id="contact_form"
                 className={`${style.form_car_info} flex flex-col`}
@@ -282,13 +285,15 @@ function CarInfo() {
               </p>
             </div>
           </div>
+          </div>
+         
         </div>
       )}
 
       {similarCarsInfo && (
         <div className="w-[80%] mx-auto">
-          <h2 className="text-4xl font-semibold my-5">Similar Cars</h2>
-          <div className="grid grid-cols-4 gap-5">
+          <h2 className="text-4xl font-regular my-5">Similar Cars</h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5">
             {similarCarsInfo.map((similarCar, i) => {
               return (
                 <Link to={`${similarCar.id}`} key={i}>

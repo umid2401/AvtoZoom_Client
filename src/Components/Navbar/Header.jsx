@@ -9,22 +9,26 @@ import {
   faXmark,
 } from "@fortawesome/free-solid-svg-icons";
 import { useTranslation } from "react-i18next";
-import { LikeOutlined } from "@ant-design/icons";
 
-export default function Header({ setSearch }) {
+
+export default function Header({ setSearch ,setLoader}) {
   const [show_menu, setShov_menu] = useState(false);
-  const [show_modal, setShow_modal] = useState(false)
+  const [show_modal, setShow_modal] = useState(false);
   const [show_input, setShow_input] = useState(false);
   const [brand_cars, setBrand_cars] = useState([]);
   const navigate = useNavigate();
   const urlImage =
     "https://autoapi.dezinfeksiyatashkent.uz/api/uploads/images/";
   const getCarsData = () => {
+    
     fetch("https://autoapi.dezinfeksiyatashkent.uz/api/brands")
       .then((res) => res.json())
-      .then((res) => setBrand_cars(res?.data))
+      .then((res) => {
+        setBrand_cars(res?.data)
+        setLoader(false)
+      })
       .catch((err) => {
-        
+        console.log(err)
       });
   };
   const onchange = (e) =>{
@@ -64,7 +68,7 @@ export default function Header({ setSearch }) {
   }
   return (
     <header className="section relative">
-      <nav className=" flex items-center py-4  px-4 lg:px-6 justify-between bg-customColor">
+      <nav className=" flex items-center py-4 px-6  lg:px-10 justify-between bg-customColor">
         <div className="nav-left z-20 flex gap-0 lg:gap-12 items-center">
           <div className="nav-lang flex items-center gap-2">
             <img
@@ -147,7 +151,7 @@ export default function Header({ setSearch }) {
                   // onMouseLeave={()=>onEvent(item?.name)}
                   key={index}
                   to={item.to}
-                  className="px-1 text-[15px]  links transition duration-300 ease-in-out  text-white hover:text-orange-500 hover:underline-offset-2 font-lato text-nowrap uppercase"
+                  className="px-1 text-[14px]  links transition duration-300 ease-in-out  text-white hover:text-orange-500 hover:underline-offset-2 font-lato text-nowrap uppercase"
                 >
                   {item.name}
                 </Link>
@@ -169,7 +173,11 @@ export default function Header({ setSearch }) {
       <div onMouseLeave={()=>setShow_modal(false)} className={`${show_modal?"flex":"hidden"} dropdown md:z-[20] z-40  bg-dropColor flex flex-wrap justify-start gap-4 rounded-lg lg:w-[65%] px-4 py-8 absolute top-[60px]  right-0`}>
         {brand_cars ? (
           brand_cars.map((item, index) => (
-            <Link onClick={()=>setShow_modal(false)} to={`cars/${item?.id}`} className="w-[100%] lg:w-[25%] text-white flex items-start  " key={index}>
+            <div onClick={()=>{
+              setShow_modal(false);
+              navigate(`cars/brand/${item?.id}`)
+              // setLoader(true)
+            }}  className="w-[100%] cursor-pointer lg:w-[25%] text-white flex items-center " key={index}>
               <div className="w-[40px] h-[40px] rounded-[50%] overflow-hidden ">
                 <img
                   className="w-[40px] h-[40px] object-cover"
@@ -183,7 +191,7 @@ export default function Header({ setSearch }) {
                 {item?.title}
                 <span className="mx-2 font-lato">Dubai</span>{" "}
               </p>
-            </Link>
+            </div>
           ))
         ) : (
           <div>
@@ -191,6 +199,7 @@ export default function Header({ setSearch }) {
           </div>
         )}
       </div>
+      
     </header>
   );
 }

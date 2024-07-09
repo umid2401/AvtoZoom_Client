@@ -21,7 +21,6 @@ const Footer = () => {
   };
   const toPage = () => {
     scrollToTop();
-   
   };
   const getCars = () => {
     fetch("https://autoapi.dezinfeksiyatashkent.uz/api/categories")
@@ -35,7 +34,6 @@ const Footer = () => {
   };
   useEffect(() => {
     getCars();
-    
   }, []);
   return (
     <footer className="bg-black text-white py-10  section">
@@ -50,7 +48,7 @@ const Footer = () => {
               />
             </Link>
             <h2 className="uppercase text-white  lg:text-[18px] lg:leading-9 text-[16px] leading-7 py-2 font-lato mb-4">
-             {t("luxury-car-rental")}
+              {t("luxury-car-rental")}
             </h2>
             <p className="text-white  lg:text-[16px] lg:leading-9 text-[14px] leading-7 py-2 font-lato">
               {t("rent-s")}
@@ -60,12 +58,17 @@ const Footer = () => {
             </button>
           </div>
           <div>
-            <Link className="uppercase text-white  lg:text-[17px] lg:leading-9 text-[15px] leading-7 py-2 font-lato block">CARS</Link>
+            <Link className="uppercase text-white  lg:text-[17px] lg:leading-9 text-[15px] leading-7 py-2 font-lato block">
+              CARS
+            </Link>
             <ul>
               {cars &&
-                cars.map((item, index) => (
-                  <li key={item.id}  className="uppercase text-white  lg:text-[16px] lg:leading-9 text-[15px] leading-7 py-2 font-lato  ">
-                    <Link to={`/cars/${item?.id}`}>{item?.[t("lan")]}</Link>
+                cars.map((item,index) => (
+                  <li
+                    key={index}
+                    className="lowercase text-white  lg:text-[16px] lg:leading-9 text-[15px] leading-7 py-2 font-lato  "
+                  >
+                    <Link onClick={scrollToTop} to={`/cars/category/${item?.id}`}>{item?.[t("lan")]}</Link>
                   </li>
                 ))}
             </ul>
@@ -95,7 +98,6 @@ const Footer = () => {
             <p className="text-white  lg:text-[16px] lg:leading-9 text-[14px] leading-7 py-2 font-lato">
               {t("elit")}
             </p>
-            
           </div>
           <div>
             <Link
@@ -112,8 +114,8 @@ const Footer = () => {
             >
               {t("faq")}
             </Link>
-            <h3 className="uppercase text-white  lg:text-[17px] lg:leading-9 text-[15px] leading-7 py-2 font-lato uppercase">
-             {t("follow-us")}
+            <h3 className=" text-white  lg:text-[17px] lg:leading-9 text-[15px] leading-7 py-2 font-lato uppercase">
+              {t("follow-us")}
             </h3>
             <div className="flex space-x-3 items-center">
               <a href="#" className="text-xl">
@@ -138,9 +140,15 @@ const Footer = () => {
           </div>
         </div>
         <div className="border-t border-gray-700 mt-8 pt-4 text-center">
-          <p className="text-white  lg:text-[18px] lg:leading-9 text-[14px] leading-7  font-lato"> {t("zoom")} </p>
-          <a href="#" className="block text-white  lg:text-[18px] lg:leading-9 text-[14px] leading-7  font-lato mt-2">
-           {t("app")}
+          <p className="text-white  lg:text-[18px] lg:leading-9 text-[14px] leading-7  font-lato">
+            {" "}
+            {t("zoom")}{" "}
+          </p>
+          <a
+            href="#"
+            className="block text-white  lg:text-[18px] lg:leading-9 text-[14px] leading-7  font-lato mt-2"
+          >
+            {t("app")}
           </a>
         </div>
       </div>

@@ -8,12 +8,12 @@ import Home_Video from "../Components/Home/Home_Video"
 import Faq from "../Components/Home/Faq"
 import Services from "../Components/Services/Services"
 import FollowUs from '../Components/Home/FollowUs'
-export default function HomePage() {
+export default function HomePage({setLoader}) {
   return (
     <div>
       <Home_slider/>
       <Home_card_sliders/>
-      <Home_cars_data_carousel/>
+      <Home_cars_data_carousel setLoader={setLoader}/>
       <Services/>
       <Home_Content/>
       <Home_Video/>

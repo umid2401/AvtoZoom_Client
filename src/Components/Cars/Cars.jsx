@@ -9,28 +9,145 @@ import telegram from '../../assets/telegram.svg'
 
 // React features
 import { useEffect, useState } from 'react'
-import { Link, useLocation, useParams } from 'react-router-dom'
+import { Link, useLocation, useNavigate, useParams } from 'react-router-dom'
+import {
+  base_url,
+  getBrands,
+  getCars,
+  getCategories,
+  getModels,
+} from "../../getData/getData";
+import axios from 'axios'
+export default function Cars({ search ,setLoader}) {
 
-export default function Cars({ search }) {
-
-  const APIcars = 'https://autoapi.dezinfeksiyatashkent.uz/api/cars'
+ 
   const urlImage = 'https://autoapi.dezinfeksiyatashkent.uz/api/uploads/images/'
-  const { id } = useParams();
-  console.log(id)
-  const [filter_toggle, set_filter_toggle] = useState(false)
-  const [cars, setCars] = useState(null)
-  
-  console.log(location)
+  const { type, id } = useParams();
+  const location = useLocation();
+  const [brands, setBrands] = useState([]);
+  const [models, setModels] = useState([]);
+  const [categories, setCategories] = useState([]);
+  const [selectedOptions, setSelectedOptions] = useState([]);
+  const [selectedCategory, setSelectedCategory] = useState([]);
+  const [selectedBrands, setSelectedBrands] = useState([]);
+  const [filter_toggle, set_filter_toggle] = useState(false);
+  const [activeModel, setActiveModel] = useState("");
+  const [cars, setCars] = useState(null);
+  const [offers, setOffers] = useState([
+    {
+      id: 1,
+      text: "3 DAYS RENT = 5000 AED🔥 ALL INCLUSIVE",
+      value: "three_days_price=5000",
+    },
+    {
+      id: 2,
+      text: "3 DAYS RENT = 1300 AED🔥 ()",
+      value: "three_days_price=1300",
+    },
+    { id: 3, text: "3 DAYS RENT = 1800 AED🔥", value: "three_days_price=1800" },
+    { id: 4, text: "NO DEPOSIT", value: "no_deposit=1300" },
+    { id: 5, text: "5000 AED🔥 ALL INCLUSIVE", value: "three_days_price=5000" },
+    {
+      id: 6,
+      text: "2 DAYS RENT = 5000 AED🔥 ALL INCLUSIVE",
+      value: "all_inclusive=0",
+    },
+    { id: 7, text: "Rent Ferrari Dubai", value: "rent_ferrari=1800" },
+    {
+      id: 8,
+      text: "4 DAYS RENT = 5000 AED🔥 ALL INCLUSIVE",
+      value: "four_days_price=5000",
+    },
+  ]);
+  const navigate = useNavigate();
   useEffect(() => {
-    fetch(APIcars)
+   
+    fetch(`https://autoapi.dezinfeksiyatashkent.uz/api/cars?${type}_id=${id}`)
     .then((res) => res.json())
     .then((data) => {
       setCars(data.data)
-      console.log(id)
+      
     })
     .catch((err) => console.log(err))
-  }, [])
+  }, [location]);
+  useEffect(()=>{
+    getData();
+  }
+  ,[]);
+  const PreventDefault = (e) => {
+    e.preventDefault();
+  };
+  const getData = async () => {
+    const cars = await getCars();
+    const brands = await getBrands();
+    setBrands(brands?.data);
+    if (!id) {
+      setCars(cars?.data);
+    }
+    const models = await getModels();
+    setModels(models?.data);
+    const categories = await getCategories();
+    setCategories(categories?.data);
+  };
+const scrollTo = (item) =>{
+  window.scrollTo({
+    top: 0,
+    behavior: "smooth",
+  });
+  setLoader(true);
+  navigate(`/carinfo/${item}`)
+}
+const handleCheckboxChange = (event) => {
+  const { value, checked } = event.target;
+  if (checked) {
+    setSelectedOptions([...selectedOptions, value]);
+  } else {
+    setSelectedOptions(selectedOptions.filter((option) => option !== value));
+  }
+};
+const queryParams = selectedOptions.map(option => option).join('&');
 
+  const handleCategoryChange = (event) => {
+    const { value, checked } = event.target;
+    if (checked) {
+      setSelectedCategory([...selectedCategory, value]);
+    } else {
+      setSelectedCategory(selectedCategory.filter((option) => option !== value));
+    }
+  };
+  const handleModels = (e) => {
+    setActiveModel(e.target.value);
+  };
+  const queryCategory = selectedCategory.map(option => `category_id=${option}`).join('&');
+
+  const handleBrandsChange = (event) => {
+    const { value, checked } = event.target;
+    if (checked) {
+      setSelectedBrands([...selectedBrands, value]);
+    } else {
+      setSelectedBrands(selectedBrands.filter((option) => option !== value));
+    }
+  };
+
+  const queryBrands = selectedBrands.map(option => `brands_id=${option}`).join('&');
+  const applyFilter = () => {
+    axios
+      .get(
+        `${base_url}/cars?${queryParams}&${queryBrands}&${queryCategory}&model_id=${activeModel}`
+      )
+      .then((res) => {
+        setCars(res?.data?.data);
+        console.log(res?.data?.data);
+        if (res?.data?.data.length === 0) {
+          // setNotFound(true);
+        }
+      });
+      window.scrollTo({
+        top: 0,
+        behavior: "smooth",
+      });
+    console.log(cars)
+  };
   return (
     <div>
       <div className={`${cars ? 'hidden' : ''} w-full h-[1000px] bg-[#1E1F27]`}></div>
@@ -48,158 +165,82 @@ export default function Cars({ search }) {
         <div className={`${filter_toggle ? '' : 'hidden'} md:block w-full md:w-auto basis-1/3 bg-[#272933] text-white px-5 py-20`}>
           <p className="text-3xl font-bold">Filtered By</p>
           
-          <form id="form" className={style.cars_filter_form}>
+          <form id="form" onSubmit={PreventDefault} className={style.cars_filter_form}>
             <div id="offer_filter">
               <p>Offers</p>
-              <label>
-                <input className="cars_filter_input" type="checkbox" value="1" name="" id="" />
-                <span>3 DAYS RENT = 5000 AED🔥 ALL INCLUSIVE</span>
-              </label>
-              <label>
-                <input className="cars_filter_input" type="checkbox" value="1" name="" id="" />
-                <span>3 DAYS RENT = 1300 AED🔥 </span>
-              </label>
-              <label>
-                <input className="cars_filter_input" type="checkbox" value="1" name="" id="" />
-                <span>3 DAYS RENT = 1800 AED🔥</span>
-              </label>
-              <label>
-                <input className="cars_filter_input" type="checkbox" value="1" name="" id="" />
-                <span>NO DEPOSIT</span>
-              </label>
-              <label>
-                <input className="cars_filter_input" type="checkbox" value="1" name="" id="" />
-                <span>5000 AED🔥 ALL INCLUSIVE</span>
-              </label>
-              <label>
-                <input className="cars_filter_input" type="checkbox" value="1" name="" id="" />
-                <span>2 DAYS RENT = 5000 AED🔥 ALL INCLUSIVE</span>
-              </label>
-              <label>
-                <input className="cars_filter_input" type="checkbox" value="1" name="" id="" />
-                <span>Rent Ferrari Dubai</span>
-              </label>
-              <label>
-                <input className="cars_filter_input" type="checkbox" value="1" name="" id="" />
-                <span>4 DAYS RENT = 5000 AED🔥 ALL INCLUSIVE</span>
-              </label>
+              {offers?.map((item, index) => {
+              return (
+                <div className='flex !mb-1' key={index}>
+                  <input
+                    type="checkbox"
+                    id={item?.id}
+                    value={item?.value}
+                    onChange={handleCheckboxChange}
+                  />
+                  <label className='font-lato lowercase !my-0 !p-2' htmlFor={item?.id}>{item?.text}</label>
+                </div>
+              );
+            })}
             </div>
 
             <div id="type_filter">
               <p>Car Type</p>
-              <label>
-                <input className="cars_filter_input" type="checkbox" value="2" name="" id="" />
-                <span>SUV</span>
-              </label>
-              <label>
-                <input className="cars_filter_input" type="checkbox" value="2" name="" id="" />
-                <span>Sports Cars</span>
-              </label>
-              <label>
-                <input className="cars_filter_input" type="checkbox" value="2" name="" id="" />
-                <span>Luxury Cars</span>
-              </label>
-              <label>
-                <input className="cars_filter_input" type="checkbox" value="2" name="" id="" />
-                <span>Convertible Cars</span>
-              </label>
-              <label>
-                <input className="cars_filter_input" type="checkbox" value="2" name="" id="" />
-                <span>Budget Cars</span>
-              </label>
-              <label>
-                <input className="cars_filter_input" type="checkbox" value="2" name="" id="" />
-                <span>American Brands</span>
-              </label>
+              {categories?.map((item, index) => {
+              return (
+                <div className='flex gap-1 !mb-0' key={index}>
+                  <input
+                    type="checkbox"
+                    id={item?.id}
+                    value={item?.id}
+                    onChange={handleCategoryChange}
+                  />
+                  <label className='!ml-0 my-2 px-2 lowercase' htmlFor={item?.id}>{item?.name_en}</label>
+                </div>
+              );
+            })}
             </div>
 
             <div id="model_filter">
-              <p>Models</p>
-              <label>
-                <input className="cars_filter_input" type="checkbox" value="3" name="" id="" />
-                <span>Ferrari</span>
-              </label>
-              <label>
-                <input className="cars_filter_input" type="checkbox" value="3" name="" id="" />
-                <span>Ford</span>
-              </label>
-              <label>
-                <input className="cars_filter_input" type="checkbox" value="3" name="" id="" />
-                <span>Rolls-Royce</span>
-              </label>
-              <label>
-                <input className="cars_filter_input" type="checkbox" value="3" name="" id="" />
-                <span>Porsche</span>
-              </label>
-              <label>
-                <input className="cars_filter_input" type="checkbox" value="3" name="" id="" />
-                <span>McLaren</span>
-              </label>
-              <label>
-                <input className="cars_filter_input" type="checkbox" value="bmw" name="" id="" />
-                <span>BMW</span>
-              </label>
-              <label>
-                <input className="cars_filter_input" type="checkbox" value="3" name="" id="" />
-                <span>Cadillac</span>
-              </label>
-              <label>
-                <input className="cars_filter_input" type="checkbox" value="3" name="" id="" />
-                <span>GMC</span>
-              </label>
-              <label>
-                <input className="cars_filter_input" type="checkbox" value="audi" name="" id="" />
-                <span>Audi</span>
-              </label>
-              <label>
-                <input className="cars_filter_input" type="checkbox" value="3" name="" id="" />
-                <span>Mercedes Benz</span>
-              </label>
-              <label>
-                <input className="cars_filter_input" type="checkbox" value="chevrolet" name="" id="" />
-                <span>Chevrolet</span>
-              </label>
-              <label>
-                <input className="cars_filter_input" type="checkbox" value="3" name="" id="" />
-                <span>Lamborghini</span>
-              </label>
-              <label>
-                <input className="cars_filter_input" type="checkbox" value="3" name="" id="" />
-                <span>Toyota</span>
-              </label>
-              <label>
-                <input className="cars_filter_input" type="checkbox" value="3" name="" id="" />
-                <span>Infiniti</span>
-              </label>
-              <label>
-                <input className="cars_filter_input" type="checkbox" value="kia" name="" id="" />
-                <span>Kia</span>
-              </label>
-              <label>
-                <input className="cars_filter_input" type="checkbox" value="3" name="" id="" />
-                <span>Hyundai</span>
-              </label>
+              <p>Brands</p>
+              {brands?.map((item, index) => {
+              return (
+                <div className='flex gap-1 !mb-0' key={index}>
+                  <input
+                    type="checkbox"
+                    id={item?.id}
+                    value={item?.id}
+                    onChange={handleBrandsChange}
+                  />
+                  <label className='!ml-0 my-2 px-2 lowercase' htmlFor={item?.id}>{item?.title}</label>
+                </div>
+              );
+            })}
             </div>
 
             <div>
               <p>Model</p>
-              <select className="text-black" name="" id="">
-                <option value="urus">Urus</option>
-                <option value="elantra">Elantra</option>
-                <option value="yukon">Yukon</option>
-                <option value="k5">K 5</option>
-                <option value="escalade">Escalade</option>
-                <option value="traverse">Traverse</option>
-                <option value="cullinan">Cullinan</option>
-                <option value="Seltos">Seltos</option>
-                <option value="audia3">Audi A3</option>
-                <option value="mclaren720s">Mclaren 720s</option>
-                <option value="porsche911">Porsche 911</option>
-                <option value="camaro">Camaro</option>
-                <option value="fiesta">Fiesta</option>
-                <option value="g63">G63</option>
-                <option value="ferrari458">Ferrari 458</option>
-              </select>
+              <select onChange={handleModels}>
+              <option value="" >
+                Models
+              </option>
+              {selectedBrands.length
+                ? models
+                    ?.filter((item) => selectedBrands?.includes(item?.brand_id))
+                    ?.map((item, index) => {
+                      return (
+                        <option className='text-black' value={item?.id} key={index}>
+                          {item?.name}
+                        </option>
+                      );
+                    })
+                : models?.map((item, index) => {
+                    return (
+                      <option value={item?.id} key={index}>
+                        {item?.name}
+                      </option>
+                    );
+                  })}
+            </select>
             </div>
 
             <div className="flex justify-between">
@@ -211,6 +252,7 @@ export default function Cars({ search }) {
               </button>
               
               <button 
+              onClick={applyFilter}
               className="rounded-[10px] py-5 text-xl px-10 bg-[#00C600]" type="submit"
               >
                 Apply filter
@@ -229,14 +271,16 @@ export default function Cars({ search }) {
             
             {/* Car Card */}
             {
-              
-              cars
+              cars.length>0?(
+                cars
               .filter((car) => {
-                return car.brand.title.toLowerCase().includes(search)
+               
+                return search?.length>0?car.brand.title.toLowerCase().includes(search):(car)
               })
               .map((car, i) => {
+                
                 return (
-                  <Link to={`${car.id}`} key={i}>
+                  <div onClick={()=>scrollTo(car?.id)} className='cursor-pointer'  key={i}>
                     <div  
                     className={`${style.car_card} bg-[#2D2E35] p-3 rounded-[10px] border-solid border-[1px] border-zinc-500`} 
                     onClick={() => {
@@ -272,9 +316,15 @@ export default function Cars({ search }) {
                         </a>
                       </div>
                     </div>
-                  </Link>
+                  </div>
                 )
               })
+              ):(
+                <div className='text-white text-left font-lato uppercase text-sm md:text-xl  '>
+                  Data not found
+                </div>
+              )
+              
             }
           </div>
         </div>

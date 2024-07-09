@@ -1,26 +1,14 @@
-// Style
-import style from './Cars.module.css'
 
-// Icons
+import style from './Cars.module.css'
 import menu from '../../assets/menu.svg'
 import x from '../../assets/x.svg'
 import whatsapp from '../../assets/whatsapp.svg'
 import telegram from '../../assets/telegram.svg'
-
-// React features
 import { useEffect, useState } from 'react'
-import { Link, useLocation, useNavigate, useParams } from 'react-router-dom'
-import {
-  base_url,
-  getBrands,
-  getCars,
-  getCategories,
-  getModels,
-} from "../../getData/getData";
+import {  useLocation, useNavigate, useParams } from 'react-router-dom'
+import { base_url, getBrands, getCars, getCategories, getModels,} from "../../getData/getData";
 import axios from 'axios'
 export default function Cars({ search ,setLoader}) {
-
- 
   const urlImage = 'https://autoapi.dezinfeksiyatashkent.uz/api/uploads/images/'
   const { type, id } = useParams();
   const location = useLocation();
@@ -96,6 +84,10 @@ const scrollTo = (item) =>{
   });
   setLoader(true);
   navigate(`/carinfo/${item}`)
+};
+const resetAll = () =>{
+  getData();
+  // navigate("/cars")
 }
 const handleCheckboxChange = (event) => {
   const { value, checked } = event.target;
@@ -149,7 +141,7 @@ const queryParams = selectedOptions.map(option => option).join('&');
     console.log(cars)
   };
   return (
-    <div>
+    <div className='cars section'>
       <div className={`${cars ? 'hidden' : ''} w-full h-[1000px] bg-[#1E1F27]`}></div>
       { cars && 
       <div className="flex bg-[#1E1F27] text-white relative">
@@ -219,7 +211,7 @@ const queryParams = selectedOptions.map(option => option).join('&');
 
             <div>
               <p>Model</p>
-              <select onChange={handleModels}>
+              <select className='' onChange={handleModels}>
               <option value="" >
                 Models
               </option>
@@ -228,7 +220,7 @@ const queryParams = selectedOptions.map(option => option).join('&');
                     ?.filter((item) => selectedBrands?.includes(item?.brand_id))
                     ?.map((item, index) => {
                       return (
-                        <option className='text-black' value={item?.id} key={index}>
+                        <option className='' value={item?.id} key={index}>
                           {item?.name}
                         </option>
                       );
@@ -243,17 +235,17 @@ const queryParams = selectedOptions.map(option => option).join('&');
             </select>
             </div>
 
-            <div className="flex justify-between">
+            <div className="flex gap-4 justify-between">
               <button 
-              className="rounded-[10px] py-5 text-xl px-10 border-[1px] border-white border-solid" 
+              onClick={resetAll}
+              className="rounded-[10px] py-3 text-xl px-10 border-[1px] border-white border-solid" 
               type="reset"
               >
                 Reset
               </button>
-              
               <button 
               onClick={applyFilter}
-              className="rounded-[10px] py-5 text-xl px-10 bg-[#00C600]" type="submit"
+              className="rounded-[10px] py-3 text-xl px-5 bg-[#00C600]" type="submit"
               >
                 Apply filter
               </button>

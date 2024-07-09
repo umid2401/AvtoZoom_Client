@@ -8,6 +8,12 @@ import { Link } from "react-router-dom";
 
 export default function Home_Video() {
   const { t } = useTranslation();
+  const scrollTo = () =>{
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth",
+    });
+  }
   return (
     <section className="videosection  gap-10  bg-[rgb(17,18,25)] mx-auto section">
       <div className="video pb-10 flex items-start w-full flex-wrap">
@@ -29,6 +35,7 @@ export default function Home_Video() {
             {t("auto-zoom")}
           </p>
           <Link
+           
             to="/service"
             className="text-white uppercase text-[16px] lg:text-[20px] md:text-[18px] font-lato my-3 flex items-center gap-2"
           >
@@ -56,6 +63,7 @@ export default function Home_Video() {
             {t("hire")}
           </p>
           <Link
+            onClick={scrollTo}
             to="/cars"
             className="text-white uppercase text-[16px] lg:text-[20px] md:text-[18px] font-lato my-3 flex items-center gap-2"
           >

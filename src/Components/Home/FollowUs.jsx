@@ -6,7 +6,7 @@ import { useTranslation } from "react-i18next";
 import { Link } from "react-router-dom";
 // import 'antd/dist/antd.css';
 
-export default function FollowUs() {
+export default function FollowUs({setLoader}) {
   const { t } = useTranslation();
   const [cities, setCities] = useState([]);
   const [locations, setLocations] = useState([]);
@@ -50,6 +50,7 @@ export default function FollowUs() {
     setUrl(item);
   };
   const scrollToTop = () => {
+    
     window.scrollTo({
       top: 0,
       behavior: "smooth",

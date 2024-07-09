@@ -18,7 +18,7 @@ export default function HomePage({setLoader}) {
       <Home_Content/>
       <Home_Video/>
       <Faq/>
-      <FollowUs/>
+      <FollowUs setLoader={setLoader}/>
     </div>
   );
 }

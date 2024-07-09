@@ -159,9 +159,9 @@ export default function Header({ setSearch ,setLoader}) {
             <div className="phone-links">
               <a
                 className="text-white font-lato text-wrap uppercase flex justify-start lg:justify-end"
-                href=""
+                href="tel:+971558462124"
               >
-                +998945142401
+                +971 (55) 846 21 24
               </a>
             </div>
           </div>
@@ -176,7 +176,7 @@ export default function Header({ setSearch ,setLoader}) {
             <div onClick={()=>{
               setShow_modal(false);
               navigate(`cars/brand/${item?.id}`)
-              // setLoader(true)
+             
             }}  className="w-[100%] cursor-pointer lg:w-[25%] text-white flex items-center " key={index}>
               <div className="w-[40px] h-[40px] rounded-[50%] overflow-hidden ">
                 <img

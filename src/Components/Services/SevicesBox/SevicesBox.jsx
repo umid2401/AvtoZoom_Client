@@ -16,7 +16,10 @@ export default function SevicesBox({avatar, title, paragraf, link}) {
         <div className='box_title'>
           <h2 className='text-white !lg:leading-9 md:text-3xl text-xl py-2 font-lato uppercase my-1 '>{t(title)}</h2>
           <p className='text-white lg:text-[18px] lg:leading-9 text-[14px] leading-7 py-2 font-lato'>{t(paragraf)}</p>
-          <button className='text-[#fff] uppercase mb-[1rem] font-lato flex items-center' onClick={() => navigate(`/service${link}`)}>
+          <button className='text-[#fff] uppercase mb-[1rem] font-lato flex items-center' 
+          onClick={() =>{
+            window.scrollTo({top: 0,behavior: "smooth",});
+           navigate(`/service${link}`)}}>
             {t("learn-more")} 
             <FontAwesomeIcon 
               className='ml-[1rem] text-[.8rem] divide-solid border-[2px] tetx-[#fff] py-[6px] px-[8px] rounded-[50%]'

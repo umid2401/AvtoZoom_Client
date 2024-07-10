@@ -1,6 +1,6 @@
 import axios from "axios";
 
-export const base_url = "https://autoapi.dezinfeksiyatashkent.uz/api"
+export const base_url = "https://realauto.limsa.uz/api"
 export const getCars = async() => {
     try {
         const res = await axios.get(`${base_url}/cars`)

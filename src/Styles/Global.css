@@ -10,14 +10,14 @@ body{
 }
 @font-face {
     font-family: "Lato";
-    src: url("..//..//public/Fonts/Lato-Light.ttf");
+    src: url("/Fonts/Lato-Light.ttf");
     font-weight: 700;
     font-style: normal;
     
 }
 @font-face {
     font-family: "Lato-Thin";
-    src: url("..//..//public/Fonts/Lato-Thin.ttf");
+    src: url("/Fonts/Lato-Thin.ttf");
     font-weight: 900;
     font-style: normal;
 }

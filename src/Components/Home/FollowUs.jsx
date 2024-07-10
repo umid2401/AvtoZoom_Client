@@ -19,7 +19,7 @@ export default function FollowUs({setLoader}) {
     { imgurl: "/Images/insta-img-6.webp" },
   ];
   const getCities = () => {
-    fetch("https://autoapi.dezinfeksiyatashkent.uz/api/cities")
+    fetch("https://realauto.limsa.uz/api/cities")
       .then((res) => res.json())
       .then((res) => {
         setCities(res?.data);
@@ -29,7 +29,7 @@ export default function FollowUs({setLoader}) {
       });
   };
   const getLocations = () => {
-    fetch("https://autoapi.dezinfeksiyatashkent.uz/api/locations")
+    fetch("https://realauto.limsa.uz/api/locations")
       .then((res) => res.json())
       .then((res) => {
         setLocations(res?.data);

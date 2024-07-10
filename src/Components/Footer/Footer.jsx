@@ -23,7 +23,7 @@ const Footer = () => {
     scrollToTop();
   };
   const getCars = () => {
-    fetch("https://autoapi.dezinfeksiyatashkent.uz/api/categories")
+    fetch("https://realauto.limsa.uz/api/categories")
       .then((res) => res.json())
       .then((res) => {
         setCars(res?.data);

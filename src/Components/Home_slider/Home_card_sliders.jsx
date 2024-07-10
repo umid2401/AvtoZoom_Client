@@ -10,10 +10,10 @@ const Home_card_sliders = () => {
   const navigate = useNavigate();
   const { t } = useTranslation();
   const urlImage =
-    "https://autoapi.dezinfeksiyatashkent.uz/api/uploads/images/";
+    "https://realauto.limsa.uz/api/uploads/images/";
 
   const getBrands = () => {
-    fetch("https://autoapi.dezinfeksiyatashkent.uz/api/brands")
+    fetch("https://realauto.limsa.uz/api/brands")
       .then((res) => res.json())
       .then((data) => setBrands(data?.data));
   };
@@ -30,7 +30,7 @@ const Home_card_sliders = () => {
   }, []);
 
   const settings = {
-    dots: false,
+    dots: true,
     infinite: true,
     speed: 500,
     slidesToShow: 4,

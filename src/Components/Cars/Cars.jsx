@@ -9,7 +9,7 @@ import {  useLocation, useNavigate, useParams } from 'react-router-dom'
 import { base_url, getBrands, getCars, getCategories, getModels,} from "../../getData/getData";
 import axios from 'axios'
 export default function Cars({ search ,setLoader}) {
-  const urlImage = 'https://autoapi.dezinfeksiyatashkent.uz/api/uploads/images/'
+  const urlImage = 'https://realauto.limsa.uz/api/uploads/images/'
   const { type, id } = useParams();
   const location = useLocation();
   const [brands, setBrands] = useState([]);
@@ -50,7 +50,7 @@ export default function Cars({ search ,setLoader}) {
   const navigate = useNavigate();
   useEffect(() => {
    
-    fetch(`https://autoapi.dezinfeksiyatashkent.uz/api/cars?${type}_id=${id}`)
+    fetch(`https://realauto.limsa.uz/api/cars?${type}_id=${id}`)
     .then((res) => res.json())
     .then((data) => {
       setCars(data.data)

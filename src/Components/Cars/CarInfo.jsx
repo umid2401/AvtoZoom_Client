@@ -26,9 +26,9 @@ import { text } from "@fortawesome/fontawesome-svg-core";
 function CarInfo({setLoader}) {
   const { id } = useParams();
   
-  const carInfoUrl = "https://autoapi.dezinfeksiyatashkent.uz/api/cars/" + id;
+  const carInfoUrl = "https://realauto.limsa.uz/api/cars/" + id;
   const urlImage =
-    "https://autoapi.dezinfeksiyatashkent.uz/api/uploads/images/";
+    "https://realauto.limsa.uz/api/uploads/images/";
   const contentStyle = {
     margin: 0,
     height: "300px",
@@ -48,7 +48,7 @@ function CarInfo({setLoader}) {
         setCarInfo(info.data);
         setLoader(false)
         fetch(
-          `https://autoapi.dezinfeksiyatashkent.uz/api/cars?brand_id=${info.data.brand_id}`
+          `https://realauto.limsa.uz/api/cars?brand_id=${info.data.brand_id}`
         )
           .then((res) => res.json())
           .then((data) => {
@@ -106,7 +106,7 @@ function CarInfo({setLoader}) {
                     <img
                       key={i}
                       className="my-1"
-                      src={`https://autoapi.dezinfeksiyatashkent.uz/api/uploads/images/${image.image.src}`}
+                      src={`https://realauto.limsa.uz/api/uploads/images/${image.image.src}`}
                       alt="image"
                     />
                   );
@@ -125,7 +125,7 @@ function CarInfo({setLoader}) {
                       <div key={i} className="">
                         <img
                           className=""
-                          src={`https://autoapi.dezinfeksiyatashkent.uz/api/uploads/images/${image.image.src}`}
+                          src={`https://realauto.limsa.uz/api/uploads/images/${image.image.src}`}
                           alt="image"
                           style={contentStyle}
                         />

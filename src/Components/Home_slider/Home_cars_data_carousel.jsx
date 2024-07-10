@@ -14,11 +14,11 @@ const Home_cars_data_carousel = ({setLoader}) => {
   const { t } = useTranslation();
   const navigate = useNavigate();
   const urlImage =
-    "https://autoapi.dezinfeksiyatashkent.uz/api/uploads/images/";
+    "https://realauto.limsa.uz/api/uploads/images/";
 
   const getCarsData = () => {
     
-    fetch("https://autoapi.dezinfeksiyatashkent.uz/api/cars")
+    fetch("https://realauto.limsa.uz/api/cars")
       .then((res) => res.json())
       .then((res) => setCars(res?.data));
   };
@@ -47,6 +47,7 @@ const Home_cars_data_carousel = ({setLoader}) => {
     initialSlide: 0,
     rows: 1,
     arrows: false,
+   
 
     responsive: [
       {

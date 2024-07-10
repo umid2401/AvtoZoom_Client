@@ -18,10 +18,10 @@ export default function Header({ setSearch ,setLoader}) {
   const [brand_cars, setBrand_cars] = useState([]);
   const navigate = useNavigate();
   const urlImage =
-    "https://autoapi.dezinfeksiyatashkent.uz/api/uploads/images/";
+    "https://realauto.limsa.uz/api/uploads/images/";
   const getCarsData = () => {
     
-    fetch("https://autoapi.dezinfeksiyatashkent.uz/api/brands")
+    fetch("https://realauto.limsa.uz/api/brands")
       .then((res) => res.json())
       .then((res) => {
         setBrand_cars(res?.data)
